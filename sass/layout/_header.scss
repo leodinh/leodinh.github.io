@@ -1,0 +1,61 @@
+header {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: $color-blue-group-2;
+  overflow: hidden;
+  @include respond(phone) {
+    height: 300px;
+  }
+  .content {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    &_logo img {
+      @include respond(tab-port) {
+        width: 100%;
+      }
+      @include respond(phone) {
+        width: 50%;
+      }
+    }
+
+    p {
+      width: 50%;
+      border-right: solid 3px $color-pink-group-2;
+      color: $color-blue-dark-group-2;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 4rem;
+      font-weight: bold;
+      margin: 3rem auto;
+      &.content_title--primary {
+        animation: animated-text 5s steps(29, end) 1s 1 normal both,
+          animated-cursor 600ms steps(29, end) infinite;
+        @include respond(tab-port) {
+          width: 100%;
+          animation: animated-text-tab-port 5s steps(29, end) 1s 1 normal both,
+            animated-cursor 600ms steps(29, end) infinite;
+        }
+      }
+      &.content_title--secondary {
+        animation: animated-text-secondary 5s steps(29, end) 1s 1 normal both,
+          animated-cursor 600ms steps(29, end) infinite;
+        @include respond(tab-port) {
+          width: 100%;
+          animation: animated-text-secondary-tab-port 5s steps(29, end) 1s 1
+              normal both,
+            animated-cursor 600ms steps(29, end) infinite;
+        }
+      }
+    }
+    h1 {
+      font-size: 6rem;
+      font-family: "BebasNeue", sans-serif;
+      letter-spacing: 0.4rem;
+    }
+  }
+}

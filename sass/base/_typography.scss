@@ -1,0 +1,29 @@
+.txt-yellow {
+  color: $color-yellow-group-2;
+}
+.txt-red {
+  color: $color-pink-group-2;
+}
+.txt-green {
+  color: $color-green-group-1;
+}
+.txt-white {
+  color: $color-white;
+}
+.heading-primary {
+  text-transform: uppercase;
+  font-size: 6rem;
+}
+.divider {
+  content: "";
+  display: block;
+  clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%);
+  background-color: $color-green-group-1;
+  width: 0;
+  height: 5rem;
+  margin: 0 auto;
+  transition: all 0.7s;
+}
+.divider.is-visible {
+  width: 10rem;
+}

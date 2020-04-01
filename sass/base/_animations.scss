@@ -1,0 +1,42 @@
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 43%;
+  }
+}
+@keyframes animated-text-tab-port {
+  from {
+    width: 0;
+  }
+  to {
+    width: 75%;
+  }
+}
+@keyframes animated-text-secondary {
+  from {
+    width: 0;
+  }
+  to {
+    width: 29%;
+  }
+}
+@keyframes animated-text-secondary-tab-port {
+  from {
+    width: 0;
+  }
+  to {
+    width: 45%;
+  }
+}
+/* cursor animations */
+
+@keyframes animated-cursor {
+  from {
+    border-right-color: $color-pink-group-2;
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

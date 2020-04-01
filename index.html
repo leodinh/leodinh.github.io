@@ -4,11 +4,119 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <!--Jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Hello</h1>
+    <nav class="only_desktop">
+      <div class="nav__bg"></div>
+      <ul>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Project</a></li>
+        <li><a href="#">Contact Me</a></li>
+      </ul>
+    </nav>
+    <div class="navigation only_phone">
+      <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
+
+      <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+      </label>
+
+      <div class="navigation__background">&nbsp;</div>
+
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">About me</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Education</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Experience</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Project</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link">Contact Me</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <header>
+      <div class="content">
+        <picture class="content_logo">
+          <source
+            srcset="./assets/images/logo_small.png 2x"
+            media="(max-width: 37.5em)"
+          />
+          <img
+            srcset="./assets/images/logo.png 2x"
+            alt="logo"
+            class="u-margin-top-huge"
+          />
+        </picture>
+        <h1 class="only_phone">
+          <span class="txt-yellow">Leo</span> Tuan
+          <span class="txt-red">Dinh</span>
+        </h1>
+        <p class="only_desktop content_title--primary">
+          Hello there, I am <span class="txt-white">Software Developer</span> .
+        </p>
+        <p class="only_desktop content_title--secondary">
+          Welcome to my world !
+        </p>
+      </div>
+    </header>
+    <main>
+      <section class="section-introduce">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          Who I <span class="txt-red">Am</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="row">
+          <div class="col-1-of-2">
+            <img
+              src="assets/images/myphoto.jpg"
+              alt="myphoto"
+              class="my_photo"
+            />
+          </div>
+          <div class="col-1-of-2">
+            <p>
+              My name is Leo Tuan Dinh. I was born and grew up in Vietnam. My
+              background is Computer Science. Currently, I am studying Block
+              Chain Development in George Brown College. My aim is becomming
+              Full-stack Developer (and also BlockChain Developer).
+            </p>
+            <p>
+              I have a loyal passion at developing software, so I have learned
+              cutting-edge technologies in order to improve my programming
+              skills. I enjoy being challenged in projects that require me to
+              work out of my comfort zone.
+            </p>
+            <p>
+              In my square time, I am fond of watching scientific movie with
+              stunning man-made technologies. Also, music is my must-have thing
+              when I am studying,working or coding. Trust me, music can boost
+              your brain power. Finally, learning is something that never ends
+              in my life. Taking online courses about new knowledge and
+              improving myself through that is always in my mind.
+              <q
+                >Learning is an experience. Everything else is just
+                information</q
+              >
+              -Albert Einstein-
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./js/script.js"></script>
   </body>
 </html>
