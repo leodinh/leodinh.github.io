@@ -12,11 +12,11 @@
     <nav class="only_desktop">
       <div class="nav__bg"></div>
       <ul>
-        <li><a href="#">About Me</a></li>
+        <li><a href="#section-introduce">About Me</a></li>
+        <li><a href="#section-skill">Skills</a></li>
         <li><a href="#">Education</a></li>
         <li><a href="#">Experience</a></li>
         <li><a href="#">Project</a></li>
-        <li><a href="#">Contact Me</a></li>
       </ul>
     </nav>
     <div class="navigation only_phone">
@@ -31,7 +31,10 @@
       <nav class="navigation__nav">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a href="#" class="navigation__link">About me</a>
+            <a href="#section-introduce" class="navigation__link">About me</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#section-skill" class="navigation__link">Skills</a>
           </li>
           <li class="navigation__item">
             <a href="#" class="navigation__link">Education</a>
@@ -41,9 +44,6 @@
           </li>
           <li class="navigation__item">
             <a href="#" class="navigation__link">Project</a>
-          </li>
-          <li class="navigation__item">
-            <a href="#" class="navigation__link">Contact Me</a>
           </li>
         </ul>
       </nav>
@@ -74,44 +74,78 @@
       </div>
     </header>
     <main>
-      <section class="section-introduce">
+      <section id="section-introduce">
         <h2 class="u-center-text heading-primary u-margin-top-small">
           Who I <span class="txt-red">Am</span>
         </h2>
         <div class="divider show-on-scroll"></div>
         <div class="row">
-          <div class="col-1-of-2">
+          <div class="col-1-of-2 introduce__avatar">
             <img
               src="assets/images/myphoto.jpg"
               alt="myphoto"
               class="my_photo"
             />
           </div>
-          <div class="col-1-of-2">
+          <div class="col-1-of-2 introduce__infor">
             <p>
               My name is Leo Tuan Dinh. I was born and grew up in Vietnam. My
               background is Computer Science. Currently, I am studying Block
               Chain Development in George Brown College. My aim is becomming
               Full-stack Developer (and also BlockChain Developer).
             </p>
+            <br />
             <p>
               I have a loyal passion at developing software, so I have learned
               cutting-edge technologies in order to improve my programming
               skills. I enjoy being challenged in projects that require me to
               work out of my comfort zone.
             </p>
+            <br />
             <p>
               In my square time, I am fond of watching scientific movie with
-              stunning man-made technologies. Also, music is my must-have thing
-              when I am studying,working or coding. Trust me, music can boost
-              your brain power. Finally, learning is something that never ends
-              in my life. Taking online courses about new knowledge and
-              improving myself through that is always in my mind.
+              stunning man-made technologies. Also, learning is something that
+              never ends in my life. Taking online courses about new knowledge
+              and improving myself through that is always in my mind.
               <q
                 >Learning is an experience. Everything else is just
                 information</q
               >
               -Albert Einstein-
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="section-skill">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          What I <span class="txt-red">Can Do</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="row">
+          <div class="col-1-of-2 skills__image">
+            <img src="assets/images/developer.gif" alt="developer" />
+          </div>
+          <div class="col-1-of-2 skills_details">
+            <p class="skills_details__items">
+              <span>Front End:</span> HTML, CSS, SASS, Javascript, ReactJS.
+            </p>
+            <p class="skills_details__items">
+              <span>Back End:</span> NodeJS, Java.
+            </p>
+            <p class="skills_details__items">
+              <span>Database:</span> MongoDB, MySQL, Firebase.
+            </p>
+            <p class="skills_details__items">
+              <span>BlockChain:</span> Solidity, Chaincode, Hyperledger Fabric.
+            </p>
+            <p class="skills_details__items">
+              <span>Operating System:</span> Linux, Window.
+            </p>
+            <p class="skills_details__items">
+              <span>Version Control:</span> Git
+            </p>
+            <p class="skills_details__items">
+              <span>Designing:</span> Photoshop, Gimp
             </p>
           </div>
         </div>
