@@ -26,7 +26,8 @@ nav {
     font-weight: lighter;
     letter-spacing: 1px;
     transition: 0.25s ease-in-out;
-    &:hover {
+    &:hover,
+    &:active {
       color: $color-pink-group-1;
     }
   }

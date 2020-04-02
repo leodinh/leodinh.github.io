@@ -1,0 +1,58 @@
+.section-education {
+  @include respond(phone) {
+    text-align: center;
+  }
+}
+.education__logo {
+  text-align: center;
+  img {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+.education__program {
+  p {
+    font-size: $font-small;
+    line-height: $line-height-small;
+  }
+}
+.program_school {
+  display: flex;
+  justify-content: space-between;
+  @include respond(phone) {
+    display: block;
+  }
+  h3 {
+    display: inline-block;
+    color: $color-blue-dark-group-2;
+    font-size: $font-title;
+    @include respond(phone) {
+      display: block;
+    }
+  }
+  span {
+    font-style: italic;
+    font-weight: 200;
+    font-size: $font-small;
+  }
+}
+.program_detail {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 20px 0;
+  @include respond(phone) {
+    display: block;
+  }
+  &__name {
+    color: $color-blue-group-2;
+    font-size: $font-md;
+    @include respond(phone) {
+      margin-bottom: 5px;
+    }
+  }
+  &__year {
+    font-size: $font-small;
+    font-style: italic;
+  }
+}

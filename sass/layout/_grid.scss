@@ -19,7 +19,7 @@
 
   [class^="col-"] {
     float: left;
-
+    position: relative;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
 
@@ -33,7 +33,19 @@
       width: 100% !important;
     }
   }
-
+  .col-push-2-of-3 {
+    left: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{13rem});
+    margin-right: 0;
+    @include respond(phone) {
+      left: 0;
+    }
+  }
+  .col-pull-1-of-3 {
+    right: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    @include respond(phone) {
+      right: 0;
+    }
+  }
   .col-1-of-2 {
     width: calc((100% - #{$gutter-horizontal}) / 2);
   }
