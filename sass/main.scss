@@ -19,9 +19,13 @@
 @import "base/typography";
 @import "base/utilities";
 
+@import "components/button";
+@import "components/timeline";
+
 @import "layout/education";
 @import "layout/skills";
 @import "layout/header";
 @import "layout/introduce";
 @import "layout/navigation";
 @import "layout/grid";
+@import "layout/project";
