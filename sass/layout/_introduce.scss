@@ -49,6 +49,9 @@
   &__avatar {
     opacity: 0;
     text-align: center;
+    @include respond(phone) {
+      margin-top: 5rem;
+    }
     &.is-visible {
       opacity: 1;
       animation: slide-up-fade-in ease 1s;

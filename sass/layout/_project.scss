@@ -1,6 +1,9 @@
 .project__filter {
   text-align: center;
   opacity: 0;
+  @include respond(phone) {
+    margin-top: 5rem;
+  }
   &.is-visible {
     opacity: 1;
     animation: slide-up-fade-in ease 1s;
