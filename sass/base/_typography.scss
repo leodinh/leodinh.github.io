@@ -17,10 +17,14 @@
 .divider {
   content: "";
   display: block;
-  clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%);
+
+  @supports (clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%)) {
+    clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%);
+    height: 5rem;
+  }
   background-color: $color-green-group-1;
   width: 0;
-  height: 5rem;
+  height: 2rem;
   margin: 0 auto;
   transition: all 0.7s;
 }

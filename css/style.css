@@ -144,12 +144,15 @@ body {
 .divider {
   content: "";
   display: block;
-  clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%);
   background-color: #00b8a9;
   width: 0;
-  height: 5rem;
+  height: 2rem;
   margin: 0 auto;
   transition: all 0.7s; }
+  @supports (clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%)) {
+    .divider {
+      clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%);
+      height: 5rem; } }
 
 .divider.is-visible {
   width: 10rem; }
@@ -721,12 +724,14 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
-    @media only screen and (max-width: 56.25em) {
-      header .content_logo img {
-        width: 100%; } }
-    @media only screen and (max-width: 37.5em) {
-      header .content_logo img {
-        width: 50%; } }
+    header .content_logo img {
+      margin: 0 auto; }
+      @media only screen and (max-width: 56.25em) {
+        header .content_logo img {
+          width: 100%; } }
+      @media only screen and (max-width: 37.5em) {
+        header .content_logo img {
+          width: 50%; } }
     header .content p {
       width: 50%;
       border-right: solid 3px #f23557;
