@@ -76,3 +76,22 @@
     );
   }
 }
+
+.grid {
+  max-width: $grid-width;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  grid-gap: 7rem;
+  margin: 0 auto;
+  .element-item {
+    transition: all 0.4s;
+    &--inactive {
+      opacity: 0;
+      animation: scale-display--reversed 0.3s;
+      animation-fill-mode: forwards;
+    }
+  }
+  &.is-visible .screen {
+    opacity: 1;
+  }
+}

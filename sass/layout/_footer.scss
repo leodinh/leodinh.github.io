@@ -1,0 +1,49 @@
+footer {
+  height: 300px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: $color-blue-dark-group-2;
+  position: relative;
+}
+.content {
+  @include absCenter;
+  text-align: center;
+  width: 70%;
+  color: $color-white;
+  font-family: "BebasNeue", sans-serif;
+  h3 {
+    font-size: $font-big;
+    position: relative;
+    &:after,
+    &:before {
+      position: absolute;
+      top: 50%;
+      display: block;
+      width: 30%;
+      border-bottom: 5px solid $color-white;
+      content: "";
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+  p {
+    font-size: $font-title;
+  }
+}
+.contact-info {
+  display: flex;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: center;
+  a {
+    margin: 0 20px;
+    img {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+}

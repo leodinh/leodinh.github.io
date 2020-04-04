@@ -1,10 +1,19 @@
 .screen {
   display: block;
+  width: 34rem;
   position: relative;
   z-index: 10;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-decoration: none;
+  visibility: visible;
+  opacity: 0;
+  transform: translate(0);
+  transition: all 0.5s;
+  animation: scale-display 0.3s;
+  @include respond(phone) {
+    width: 100%;
+  }
   &:hover .tags:before,
   &:hover .tags li {
     opacity: 1;
@@ -13,6 +22,35 @@
   &:hover .imgs {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+
+  .title {
+    display: flex;
+    background-color: #2f2f2f;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 10%;
+    align-items: center;
+    justify-content: center;
+    & > div {
+      position: relative;
+      margin-top: -0.5em;
+      h2 {
+        font-family: "MontSerrat", Tahoma, Arial, sans-serif;
+        font-size: 1.8em;
+        letter-spacing: -0.04em;
+        font-weight: 700;
+        position: relative;
+        z-index: 5;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        line-height: 2rem;
+        color: $color-white;
+      }
+    }
   }
 }
 .bar {
@@ -123,7 +161,8 @@
     transition: opacity 0.15s ease-out,
       transform 0.25s cubic-bezier(0, 0.75, 0, 1);
   }
-  picture {
+  picture,
+  .imgs {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -157,9 +196,9 @@
       bottom: 20px;
       font-weight: 400;
       width: 10rem;
-      left: calc(50% - 30px);
+      left: calc(50% - 70px);
       padding: 0 0.5em;
-      font-size: $font-md;
+      font-size: $font-small;
       opacity: 0;
       text-align: center;
       border-radius: 3px;
@@ -215,7 +254,7 @@
       text-transform: uppercase;
       font-family: "MontSerrat", Tahoma, Arial, sans-serif;
       font-weight: 700;
-      font-size: $font-md;
+      font-size: $font-small;
       box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
       margin: 2px;
       opacity: 0;

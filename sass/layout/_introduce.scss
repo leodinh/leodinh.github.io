@@ -47,10 +47,26 @@
 }
 .introduce {
   &__avatar {
+    opacity: 0;
     text-align: center;
+    &.is-visible {
+      opacity: 1;
+      animation: slide-up-fade-in ease 1s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+      animation-fill-mode: forwards; /*when the spec is finished*/
+    }
   }
   &__infor {
+    opacity: 0;
     font-size: $font-small;
     line-height: $line-height-small;
+    &.is-visible {
+      opacity: 1;
+      animation: slide-up-fade-in ease 1s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+      animation-fill-mode: forwards; /*when the spec is finished*/
+    }
   }
 }

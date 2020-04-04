@@ -14,10 +14,10 @@
       <ul>
         <li><a href="#section-introduce">About Me</a></li>
         <li><a href="#section-skill">Skills</a></li>
-        <li><a href="#">Education</a></li>
-        <li><a href="#">Experience</a></li>
-        <li><a href="#">Project</a></li>
-        <li><a href="#">Contact Me</a></li>
+        <li><a href="#section-education">Education</a></li>
+        <li><a href="#section-experience">Experience</a></li>
+        <li><a href="#section-project">Project</a></li>
+        <li><a href="#section-contact">Contact Me</a></li>
       </ul>
     </nav>
     <div class="navigation only_phone">
@@ -84,7 +84,7 @@
         </h2>
         <div class="divider show-on-scroll"></div>
         <div class="row">
-          <div class="col-1-of-2 introduce__avatar">
+          <div class="col-1-of-2 introduce__avatar show-on-scroll">
             <div class="my_photo">
               <img src="assets/images/myphoto.jpg" alt="myphoto" />
               <div class="glow-wrap">
@@ -92,7 +92,7 @@
               </div>
             </div>
           </div>
-          <div class="col-1-of-2 introduce__infor">
+          <div class="col-1-of-2 introduce__infor show-on-scroll">
             <p>
               My name is Leo Tuan Dinh. I was born and grew up in Vietnam. My
               background is Computer Science. Currently, I am studying Block
@@ -108,7 +108,7 @@
             </p>
             <br />
             <p>
-              In my square time, I am fond of watching scientific movie with
+              In my spare time, I am fond of watching scientific movie with
               stunning man-made technologies. Also, learning is something that
               never ends in my life. Taking online courses about new knowledge
               and improving myself through that is always in my mind.
@@ -127,10 +127,10 @@
         </h2>
         <div class="divider show-on-scroll"></div>
         <div class="row">
-          <div class="col-1-of-2 skills__image">
+          <div class="col-1-of-2 skills__image show-on-scroll">
             <img src="assets/images/developer.gif" alt="developer" />
           </div>
-          <div class="col-1-of-2 skills_details">
+          <div class="col-1-of-2 skills_details show-on-scroll">
             <p class="skills_details__items">
               <span>Front End:</span> HTML, CSS, SASS, Javascript, ReactJS.
             </p>
@@ -155,16 +155,16 @@
           </div>
         </div>
       </section>
-      <section class="section-education">
+      <section id="section-education">
         <h2 class="u-center-text heading-primary u-margin-top-small">
           What I <span class="txt-red">Studied</span>
         </h2>
         <div class="divider show-on-scroll"></div>
         <div class="row">
-          <div class="col-1-of-3 education__logo">
+          <div class="col-1-of-3 education__logo show-on-scroll">
             <img src="./assets/images/gbclogo.png" alt="gbclogo" />
           </div>
-          <div class="col-2-of-3 education__program">
+          <div class="col-2-of-3 education__program show-on-scroll">
             <div class="program_school">
               <h3>George Brown College</h3>
               <span>Toronto, Ontario</span>
@@ -186,10 +186,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-1-of-3 education__logo col-push-2-of-3">
+          <div
+            class="col-1-of-3 education__logo col-push-2-of-3 show-on-scroll"
+          >
             <img src="./assets/images/hcmutlogo.png" alt="hcmutlogo" />
           </div>
-          <div class="col-2-of-3 education__program col-pull-1-of-3">
+          <div
+            class="col-2-of-3 education__program col-pull-1-of-3 show-on-scroll"
+          >
             <div class="program_school">
               <h3>HCM University of Technology</h3>
               <span>Ho Chi Minh, Vietnam</span>
@@ -212,12 +216,12 @@
           </div>
         </div>
       </section>
-      <section class="section-experience">
+      <section id="section-experience">
         <h2 class="u-center-text heading-primary u-margin-top-small">
           What I <span class="txt-red">Experienced</span>
         </h2>
         <div class="divider show-on-scroll"></div>
-        <div class="main-timeline">
+        <div class="main-timeline show-on-scroll">
           <!-- <div class="timeline">
             <a href="#" class="timeline-content">
               <div class="timeline-year">
@@ -252,74 +256,366 @@
           </div>
         </div>
       </section>
-      <section class="section-project">
+      <section id="section-project">
         <h2 class="u-center-text heading-primary u-margin-top-small">
           What I <span class="txt-red">Did</span>
         </h2>
         <div class="divider show-on-scroll"></div>
         <div class="row">
-          <div class="project__filter">
-            <a href="#" class="button button--active"><span>ALL</span></a>
-            <a href="#" class="button"><span>HTML </span></a>
-            <a href="#" class="button"><span>CSS </span></a>
-            <a href="#" class="button"><span>SASS </span></a>
-            <a href="#" class="button"><span>ReactJS </span></a>
-            <a href="#" class="button"><span>NodeJS </span></a>
-            <a href="#" class="button"><span>BlockChain</span></a>
-            <a href="#" class="button"><span>Firebase </span></a>
+          <div class="project__filter show-on-scroll">
+            <button class="button button--active" data-filter="*">
+              <span>ALL</span>
+            </button>
+            <button class="button" data-filter="html">
+              <span>HTML </span>
+            </button>
+            <button class="button" data-filter="css">
+              <span>CSS </span>
+            </button>
+            <button class="button" data-filter="sass">
+              <span>SASS </span>
+            </button>
+            <button class="button" data-filter="reactjs">
+              <span>ReactJS </span>
+            </button>
+            <button class="button" data-filter="nodejs">
+              <span>NodeJS </span>
+            </button>
+            <button class="button" data-filter="blockchain">
+              <span>BlockChain</span>
+            </button>
+            <button class="button" data-filter="firebase">
+              <span>Firebase </span>
+            </button>
           </div>
         </div>
-        <div class="row">
-          <div class="col-1-of-2">
-            <a href="#" class="screen">
-              <div class="bar">
-                <h2>SKY GO DESKTOP</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img src="./assets/images/myphoto.jpg" alt="photo" />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>REACTJS</li>
-                      <li>NODEJS</li>
-                      <li>ANIMATIONS</li>
-                      <li>SASS</li>
-                      <li>HTML5</li>
-                      <li>CSS</li>
-                    </ul>
-                  </div>
+        <div class="grid show-on-scroll">
+          <a
+            href="https://credefi.gitlab.io/credefi-dapp/"
+            class="screen element-item blockchain javascript sass reactjs html css"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Credefi</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/credefi-project-2.png"
+                  alt="credefi-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Solidity</li>
+                    <li>Blockchain</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                  </ul>
                 </div>
-                <picture class="imgs">
-                  <source
-                    srcset="
-                      https://caferati.me/images/portfolio/sky-go-desktop/hover.webp
-                    "
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="
-                      https://caferati.me/images/portfolio/sky-go-desktop/hover.jpg
-                    "
-                    type="image/jpeg"
-                  />
-                  <img
-                    src="https://caferati.me/images/portfolio/sky-go-desktop/hover.jpg"
-                    alt="logo"
-                  />
-                </picture>
               </div>
-              <!-- <em class="fresh">
-                Fresh
-              </em> -->
-            </a>
-          </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/credefi-project.png"
+                  alt="credefi-project-2"
+                />
+              </picture>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/health-record"
+            class="screen element-item blockchain reactjs javascript nodejs firebase html css"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Health Record</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/health-record-project.png"
+                  alt="health-record-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Hyperledger Fabric</li>
+                    <li>Blockchain</li>
+                    <li>NodeJS</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                    <li>Firebase</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/health-record-project-2.png"
+                  alt="health-record-project-2"
+                />
+              </picture>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/microfinance-dapp"
+            class="screen element-item blockchain reactjs javascript"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Microfinance</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/microfinance-project.png"
+                  alt="microfinance-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Solidity</li>
+                    <li>Blockchain</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/microfinance-project-2.png"
+                  alt="microfinance-project-2"
+                />
+              </picture>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/blockchain-demo"
+            class="screen element-item blockchain reactjs javascript"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Blockchain Demo</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/blockchain-project.png"
+                  alt="blockchain-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Blockchain</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/blockchain-project-2.png"
+                  alt="blockchain-project-2"
+                />
+              </picture>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/burger-builder"
+            class="screen element-item reactjs javascript firebase css html"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Burger Buidler</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/burger-builder-project.png"
+                  alt="burger-builder-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                    <li>Firebase</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/burger-builder-project-2.png"
+                  alt="burger-builder-project"
+                />
+              </picture>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/String_Library_Assemble_Solidity"
+            class="screen element-item blockchain"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>STRING lIBRARY</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <div class="title">
+                <div>
+                  <h2>
+                    Using <span class="txt-red">Assembly</span> to optimize
+                    String operations in Solidity
+                  </h2>
+                </div>
+              </div>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Blockchain</li>
+                    <li>Solidity</li>
+                    <li>Assembly</li>
+                    <li>Truffle</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="imgs"></div>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/String_Library_Assemble_Solidity"
+            class="screen element-item blockchain"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>ERC721 Sneaker Store</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <div class="title">
+                <div>
+                  <h2>
+                    Created <span class="txt-red">unique token</span> following
+                    ERC721 rule
+                  </h2>
+                </div>
+              </div>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>BlockChain</li>
+                    <li>Solidity</li>
+                    <li>Truffle</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="imgs"></div>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/simpleAuctionDapp"
+            class="screen element-item html css blockchain"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Simple Auction DAPP</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/auction-dapp.png"
+                  alt="auction-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                    <li>Solidity</li>
+                    <li>BlockChain</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/auction-project-2.png"
+                  alt="auction-project-2"
+                />
+              </picture>
+            </div>
+          </a>
+          <a
+            href="https://github.com/leodinh/natours"
+            class="screen element-item reactjs sass html css"
+            target="_blank"
+          >
+            <div class="bar">
+              <h2>Natours</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img
+                  src="./assets/images/natour-project-2.png"
+                  alt="natour-project"
+                />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>SASS</li>
+                    <li>REACTJS</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img
+                  src="./assets/images/natour-project.png"
+                  alt="natour-project-2"
+                />
+              </picture>
+            </div>
+          </a>
         </div>
       </section>
     </main>
-    <script src="./js/script.js"></script>
+    <footer id="section-contact">
+      <div class="content">
+        <h3>Thanks</h3>
+        <p>That would be my pleasure to connect with you</p>
+        <div class="contact-info">
+          <a href="mailto:leo.atdinh@gmail.com"
+            ><img src="./assets/images/gmail-icon.svg" alt="gmail"
+          /></a>
+          <a href="https://github.com/leodinh" target="_blank"
+            ><img src="./assets/images/github-icon.svg" alt="github"
+          /></a>
+          <a href="https://gitlab.com/leodinh" target="_blank"
+            ><img src="./assets/images/gitlab-icon.png" alt="gitlab"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/leo-tuan-dinh-318709193/"
+            target="_blank"
+            ><img src="./assets/images/linkedin-icon.svg" alt="linkedin"
+          /></a>
+        </div>
+      </div>
+    </footer>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
