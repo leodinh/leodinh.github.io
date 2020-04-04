@@ -11,6 +11,7 @@
       url("../assets/fonts/bebasneue/BebasNeue-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
@@ -21,6 +22,7 @@
 
 @import "components/button";
 @import "components/timeline";
+@import "components/screen";
 
 @import "layout/education";
 @import "layout/skills";
