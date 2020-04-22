@@ -1,0 +1,112 @@
+.only-print {
+  display: none;
+}
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  .only-print {
+    display: block !important;
+  }
+  @page {
+    size: letter; /* DIN A4 standard, Europe */
+    margin: 0.75cm -0.75cm;
+  }
+  .only-print {
+    font-family: "Roboto", sans-serif;
+  }
+  html {
+    font-size: 100% !important;
+  }
+  .only-print header {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    height: auto !important;
+  }
+  .only-print section {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+  }
+  .only-print h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+  }
+  .only-print h2 {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .only-print .contact {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  .only-print .contact__item {
+    display: flex;
+    align-items: center;
+    margin-right: 15pt;
+  }
+
+  .only-print .contact__item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5pt;
+  }
+
+  .only-print .contact__item a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .only-print .objective,
+  .only-print .qualification,
+  .only-print .technical,
+  .only-print .education {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .only-print ul {
+    list-style-type: circle;
+    padding-left: 70px;
+  }
+
+  .only-print .technical p span {
+    font-weight: bold;
+  }
+
+  .only-print .technical__content,
+  .only-print .education__content,
+  .only-print .experience__content {
+    display: flex;
+  }
+  .only-print .technical__content p,
+  .only-print .education__content p,
+  .only-print .experience__content p,
+  .only-print .education__content h4,
+  .only-print .experience__content h4,
+  .only-print ul,
+  .only-print .objective p,
+  .only-print .project h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  .only-print .content--1 {
+    margin-right: auto;
+  }
+  .only-print .education__content .content--2,
+  .only-print .experience__content .content--2 {
+    text-align: end;
+  }
+  .only-print .experience {
+    margin-bottom: 90px;
+  }
+}

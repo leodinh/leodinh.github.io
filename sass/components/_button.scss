@@ -41,3 +41,43 @@
     background-color: $color-blue-group-2;
   }
 }
+.btn-print {
+  margin-top: 10px;
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid $color-green-group-1;
+  outline: none;
+  transition: 1s ease-in-out;
+  position: relative;
+  color: $color-white;
+  font-size: 2rem;
+  font-family: "BebasNeue", sans-serif;
+}
+
+.btn-print svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: $color-yellow-group-1;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn-print:hover {
+  transition: 1s ease-in-out;
+  background: $color-green-group-1;
+}
+
+.btn-print:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn-print span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
