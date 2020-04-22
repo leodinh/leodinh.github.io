@@ -1,6 +1,6 @@
 # Leo's Personal Portfolio
 
-My name is Leo. I am Software Developer.
+My name is Leo. I am Software Developer.The website describes my personal information, education path, career and project.
 
 ## My resume.
 
