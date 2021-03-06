@@ -1,0 +1,135 @@
+@keyframes anim_01 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(3);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  90% {
+    transform: translate(-50%, -50%) scale(3);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    display: none;
+  }
+}
+
+@keyframes move_01 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-300%, -200%) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-300%, 200%) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(200%, 200%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(200%, -200%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes move_02 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-300%, 200%) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(200%, 200%) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(200%, -200%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-300%, -200%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes move_03 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(200%, 200%) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(200%, -200%) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-300%, -200%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-300%, 200%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes move_04 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(200%, -200%) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-300%, -200%) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-300%, 200%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(200%, 200%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes big {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
