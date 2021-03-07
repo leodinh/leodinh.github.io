@@ -22,7 +22,25 @@ export default function Home({ allPostsData }) {
         <div></div>
         <div></div>
       </div>
-      <h1>Hello</h1>
+      <div className={classes.container}>
+        <div className={classes.container_intro}>
+          <div className={classes.container_intro_animation}>
+            <h2>Hello there, I'm Leo</h2>
+          </div>
+          <div className={classes.container_intro_animation}>
+            <h1>Front End Developer</h1>
+          </div>
+          <div className={classes.container_intro_animation}>
+            <p>
+              I'm based in Toronto, Canada. I love passionately developing
+              software.✌️
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={classes.image}>
+        <img src="/images/mypic.png" alt="" />
+      </div>
     </Layout>
   )
 }

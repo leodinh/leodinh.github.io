@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap");
 @import "./sass/mixins";
 @import "./sass/variables";
 *,
@@ -30,6 +31,8 @@ html {
 body {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
   @include respond(tab-port) {
     padding: 0;
   }
