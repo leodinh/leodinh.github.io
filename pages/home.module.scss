@@ -1,174 +1,204 @@
-@import "../styles/sass/animation";
-@import "../styles/sass/mixins";
-@import "../styles/sass/variables";
+@import '../styles/sass/animation';
+@import '../styles/sass/mixins';
+@import '../styles/sass/variables';
 
 .circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $color-primary;
-  div {
-    @include absCenter;
-    width: 40px;
-    height: 40px;
-    background: $color-primary-light;
-    border-radius: 50%;
-    opacity: 1;
-    z-index: 1 !important;
-    &:nth-child(1) {
-      animation: anim_01 2s forwards;
-      background-image: url("/images/myavatar_1.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 70px;
-      height: 90px;
-      border-radius: 0;
-      background-color: transparent;
-      z-index: 2 !important;
-      opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-primary;
+    div {
+        @include absCenter;
+        width: 40px;
+        height: 40px;
+        background: $color-primary-light;
+        border-radius: 50%;
+        opacity: 1;
+        z-index: 1 !important;
+        &:nth-child(1) {
+            animation: anim_01 2s forwards;
+            background-image: url('/images/myavatar_1.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 70px;
+            height: 90px;
+            border-radius: 0;
+            background-color: transparent;
+            z-index: 2 !important;
+            opacity: 1;
+        }
+        &:nth-child(2) {
+            animation: move_01 2s 2s;
+        }
+        &:nth-child(4) {
+            animation: move_03 2s 2s;
+        }
+        &:nth-child(3) {
+            animation: move_02 2s 2s;
+        }
+        &:nth-child(5) {
+            animation: move_04 2s 2s;
+        }
     }
-    &:nth-child(2) {
-      animation: move_01 2s 2s;
-    }
-    &:nth-child(4) {
-      animation: move_03 2s 2s;
-    }
-    &:nth-child(3) {
-      animation: move_02 2s 2s;
-    }
-    &:nth-child(5) {
-      animation: move_04 2s 2s;
-    }
-  }
 }
-
-.expand {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 1 !important;
-  div {
-    @include absCenter;
-    width: 3000px;
-    height: 3000px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1 !important;
-    &:nth-child(1) {
-      background: $color-primary-light;
-      animation: big 0.5s 4s forwards;
+    overflow: hidden;
+    background: $color-primary;
+}
+.expand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1 !important;
+    div {
+        @include absCenter;
+        width: 3000px;
+        height: 3000px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 1 !important;
+        &:nth-child(1) {
+            background: $color-primary-light;
+            animation: big 0.5s 4s forwards;
+        }
+        &:nth-child(2) {
+            background: $color-primary-lightest;
+            animation: big 0.5s 4.5s forwards;
+        }
+        &:nth-child(3) {
+            background: $color-primary;
+            animation: big 0.5s 5s forwards;
+        }
     }
-    &:nth-child(2) {
-      background: $color-primary-lightest;
-      animation: big 0.5s 4.5s forwards;
-    }
-    &:nth-child(3) {
-      background: $color-primary;
-      animation: big 0.5s 5s forwards;
-    }
-  }
 }
 
 .container {
-  @include absCenter;
-  z-index: 4;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  width: 100%;
-  padding: 120px 40% 80px 100px;
-  &_intro {
-    h2 {
-      font-size: $medium-font-size;
-      color: $color-primary-lightest;
-    }
-    h1 {
-      font-size: $big-font-size;
-      font-family: "Bebas Neue", sans-serif;
-      color: $color-primary-light;
-    }
-    p {
-      font-size: $medium-font-size-2;
-      color: $color-shadow-blue-light;
-    }
-    &_animation {
-      margin: 20px 0;
-      position: relative;
-      h1,
-      h2,
-      p {
-        opacity: 0;
-        padding: 20px;
-        animation: textHidden 0.1s 6.1s forwards;
-      }
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        z-index: 10;
-      }
+    @include absCenter;
+    z-index: 4;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    width: 100%;
+    padding: 120px 40% 80px 100px;
+    &_intro {
+        h2 {
+            font-size: $medium-font-size;
+            color: $color-primary-lightest;
+        }
+        h1 {
+            font-size: $big-font-size;
+            font-family: 'Bebas Neue', sans-serif;
+            color: $color-primary-light;
+        }
+        p {
+            font-size: $medium-font-size-2;
+            color: $color-shadow-blue-light;
+        }
+        &_animation {
+            margin: 20px 0;
+            position: relative;
+            h1,
+            h2,
+            p {
+                opacity: 0;
+                padding: 20px;
+                animation: textHidden 0.1s 6.1s forwards;
+            }
+            p {
+                line-height: 30px;
+            }
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                z-index: 10;
+            }
 
-      &:nth-child(1) {
-        &:before {
-          background-color: $color-shadow-blue-dark;
-          animation: revealLTR 1.8s 5s ease;
+            &:nth-child(1) {
+                &:before {
+                    background-color: $color-shadow-blue-dark;
+                    animation: revealLTR 1.8s 5s ease;
+                }
+                &:after {
+                    background-color: $color-primary-lightest;
+                    animation: revealLTR 1s 5.6s ease;
+                }
+            }
+            &:nth-child(2) {
+                &:before {
+                    background-color: $color-shadow-blue-dark;
+                    animation: revealRTL 1.8s 5s ease;
+                }
+                &:after {
+                    background-color: $color-primary-light;
+                    animation: revealRTL 1s 5.6s ease;
+                }
+            }
+            &:nth-child(3) {
+                &:before {
+                    background-color: $color-shadow-blue-dark;
+                    animation: revealRTL 1.8s 5s ease;
+                }
+                &:after {
+                    background-color: $color-shadow-blue-light;
+                    animation-delay: 0.5s;
+                    animation: revealRTL 1s 5.6s ease;
+                }
+            }
         }
-        &:after {
-          background-color: $color-primary-lightest;
-          animation-delay: 0.5s;
-          animation: revealLTR 1s 5.6s ease;
-        }
-      }
-      &:nth-child(2) {
-        &:before {
-          background-color: $color-shadow-blue-dark;
-          animation: revealRTL 1.8s 5s ease;
-        }
-        &:after {
-          background-color: $color-primary-light;
-          animation-delay: 0.5s;
-          animation: revealRTL 1s 5.6s ease;
-        }
-      }
-      &:nth-child(3) {
-        &:before {
-          background-color: $color-shadow-blue-dark;
-          animation: revealRTL 1.8s 5s ease;
-        }
-        &:after {
-          background-color: $color-shadow-blue-light;
-          animation-delay: 0.5s;
-          animation: revealRTL 1s 5.6s ease;
-        }
-      }
     }
-  }
-  &_image {
-    img {
-      width: 600px;
+    &_image {
+        img {
+            width: 600px;
+        }
     }
-  }
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
 
 .image {
-  position: absolute;
-  // top: 0;
-  bottom: 0;
-  z-index: 3;
-  left: 40%;
-  opacity: 0;
-  img {
-    width: 1000px;
-    filter: grayscale(100%) contrast(100%);
-  }
-  animation: textHidden 5s 5s forwards;
+    position: absolute;
+    // top: 0;
+    bottom: 0;
+    z-index: 3;
+    left: 40%;
+    opacity: 0;
+    img {
+        width: 1000px;
+        filter: grayscale(130%) contrast(100%);
+    }
+    animation: textHidden 5s 5s forwards;
+    @include respond(tab-port) {
+        left: 10%;
+    }
+    @include respond(phone) {
+        img {
+            width: 500px;
+            filter: grayscale(130%) contrast(100%);
+        }
+    }
+}
+
+.nodelay {
+    &::after,
+    &::before {
+        animation-delay: 0s !important;
+    }
+    animation-delay: 0s !important;
 }
