@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Navigation.module.scss';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-
+import { Facebook, Instagram, Linkedin } from 'react-feather';
 function Navigation() {
     const isRunningDemo = useSelector((state) => state.isDemoRunning);
     const router = useRouter();
@@ -43,20 +43,51 @@ function Navigation() {
             </div>
 
             <nav className={styles['navigation__nav']}>
-                <ul className={styles['navigation__list']}>
-                    {navigationsList.map((nav) => (
-                        <li className={styles['navigation__item']} key={nav.name}>
-                            <div
-                                role="button"
-                                tabIndex={0}
-                                aria-hidden="true"
-                                className={styles['navigation__link']}
-                                onClick={() => navigateLink(nav.href)}>
-                                {nav.name}
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+                <div className={styles['navigation__container']}>
+                    <ul className={styles['navigation__list']}>
+                        {navigationsList.map((nav) => (
+                            <li className={styles['navigation__item']} key={nav.name}>
+                                <div
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-hidden="true"
+                                    className={styles['navigation__link']}
+                                    onClick={() => navigateLink(nav.href)}>
+                                    {nav.name}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                    <div className={styles['navigation__social']}>
+                        <div className={styles['navigation__social_item']}>
+                            <a
+                                href="https://www.facebook.com/anhtuandn0112/"
+                                rel="noreferrer opener"
+                                target="_blank">
+                                <Facebook />
+                            </a>
+                        </div>
+                        <div className={styles['navigation__social_item']}>
+                            <a
+                                rel="noreferrer opener"
+                                target="_blank"
+                                href="https://www.instagram.com/leoo.dinh/">
+                                <Instagram />
+                            </a>
+                        </div>
+                        <div
+                            className={styles['navigation__social_item']}
+                            rel="noreferrer opener"
+                            target="_blank">
+                            <a
+                                rel="noreferrer opener"
+                                target="_blank"
+                                href="https://www.linkedin.com/in/leotuandinh/">
+                                <Linkedin />
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
     );

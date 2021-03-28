@@ -67,17 +67,37 @@
         transition: all 0.8s;
     }
 
-    &__list {
+    &__container {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    &__list {
         list-style: none;
         text-align: center;
         width: 100%;
         font-family: 'Bebas Neue', 'sans-serif';
     }
-
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &_item {
+            a {
+                color: $color-grey-light-2 !important;
+                svg {
+                    width: $title-font-size;
+                    height: $title-font-size;
+                }
+                &:hover {
+                    color: $color-grey-dark-2 !important;
+                }
+            }
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    }
     &__item {
         margin: 1rem;
     }
