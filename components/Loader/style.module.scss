@@ -1,0 +1,15 @@
+@import '../../styles/sass/mixins';
+@import '../../styles/sass/animation';
+.loader {
+    @include absCenter;
+    animation: scale 2s infinite;
+    background-image: url('/images/myavatar_1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70px;
+    height: 90px;
+    background-color: transparent;
+    z-index: 2 !important;
+    opacity: 1;
+}

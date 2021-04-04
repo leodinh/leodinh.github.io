@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import styles from './Navigation.module.scss';
+import styles from './style.module.scss';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Facebook, Instagram, Linkedin } from 'react-feather';
 function Navigation() {
     const isRunningDemo = useSelector((state) => state.isDemoRunning);
+    const dispatch = useDispatch();
     const router = useRouter();
     const [isChecked, setIsChecked] = useState(false);
     const navigationsList = useState([
@@ -13,9 +14,15 @@ function Navigation() {
         { name: 'Project', href: '/project' },
         { name: 'Contact Me', href: '/contact' }
     ])[0];
-    const navigateLink = (href) => {
+    const navigateLink = async (href) => {
         setIsChecked(false);
-        router.push(href, href, { shallow: true });
+        dispatch({
+            type: 'START_LOADING'
+        });
+        await router.push(href, href, { shallow: true });
+        dispatch({
+            type: 'FINISH_LOADING'
+        });
     };
     return (
         <div className={styles['navigation']}>

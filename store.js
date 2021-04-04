@@ -5,7 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 let store;
 
 const initialState = {
-    isDemoRunning: true
+    isDemoRunning: true,
+    loading: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isDemoRunning: false
+            };
+        case 'START_LOADING':
+            return {
+                ...state,
+                loading: true
+            };
+        case 'FINISH_LOADING':
+            return {
+                ...state,
+                loading: false
             };
         default:
             return state;

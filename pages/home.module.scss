@@ -2,6 +2,10 @@
 @import '../styles/sass/mixins';
 @import '../styles/sass/variables';
 
+.content {
+    width: 100%;
+    height: 100vh;
+}
 .circle {
     position: absolute;
     top: 0;
@@ -13,7 +17,7 @@
         @include absCenter;
         width: 40px;
         height: 40px;
-        background: $color-primary-light;
+        background: $color-white;
         border-radius: 50%;
         opacity: 1;
         z-index: 1 !important;
@@ -87,9 +91,6 @@
 .container {
     @include absCenter;
     z-index: 4;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     width: 100%;
     padding: 120px 40% 80px 100px;
     &_intro {
@@ -100,11 +101,15 @@
         h1 {
             font-size: $big-font-size;
             font-family: 'Bebas Neue', sans-serif;
-            color: $color-primary-light;
+            color: $color-white;
         }
         p {
-            font-size: $medium-font-size-2;
-            color: $color-shadow-blue-light;
+            font-size: $medium-font-size;
+            color: $color-white;
+            font-weight: 500;
+            @include respond(phone) {
+                background-color: rgba(1, 1, 1, 0.2);
+            }
         }
         &_animation {
             margin: 20px 0;
@@ -114,7 +119,7 @@
             p {
                 opacity: 0;
                 padding: 20px;
-                animation: textHidden 0.1s 6.1s forwards;
+                animation: fadeIn 0.1s 6.1s forwards;
             }
             p {
                 line-height: 30px;
@@ -131,7 +136,7 @@
 
             &:nth-child(1) {
                 &:before {
-                    background-color: $color-shadow-blue-dark;
+                    background-color: $color-white;
                     animation: revealLTR 1.8s 5s ease;
                 }
                 &:after {
@@ -141,7 +146,7 @@
             }
             &:nth-child(2) {
                 &:before {
-                    background-color: $color-shadow-blue-dark;
+                    background-color: $color-white;
                     animation: revealRTL 1.8s 5s ease;
                 }
                 &:after {
@@ -151,11 +156,11 @@
             }
             &:nth-child(3) {
                 &:before {
-                    background-color: $color-shadow-blue-dark;
+                    background-color: $color-white;
                     animation: revealRTL 1.8s 5s ease;
                 }
                 &:after {
-                    background-color: $color-shadow-blue-light;
+                    background-color: $color-primary-lightest;
                     animation-delay: 0.5s;
                     animation: revealRTL 1s 5.6s ease;
                 }
@@ -180,10 +185,19 @@
     left: 40%;
     opacity: 0;
     img {
+        .body {
+            /* background-image: -webkit-gradient(linear,left bottom,left top,from(#000),color-stop(70%,transparent),to(transparent)),url(https://uploads-ssl.webflow.com/591e9525f13786217f2e347e/5b47654a49f3e1543ba2a603_180712%20-%20background.jpg); */
+            background-image: linear-gradient(0deg, #000, transparent 70%, transparent),
+                url(https://uploads-ssl.webflow.com/591e9525f13786217f2e347e/5b47654a49f3e1543ba2a603_180712%20-%20background.jpg);
+            background-position: 0 0, 64% 50%;
+            background-size: auto, cover;
+            background-repeat: repeat, no-repeat;
+            background-attachment: scroll, fixed;
+        }
         width: 1000px;
         filter: grayscale(130%) contrast(100%);
     }
-    animation: textHidden 5s 5s forwards;
+    animation: fadeIn 5s 5s forwards;
     @include respond(tab-port) {
         left: 10%;
     }
