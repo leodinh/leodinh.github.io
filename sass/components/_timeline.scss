@@ -137,6 +137,10 @@
     &:nth-child(4n + 3) .timeline-icon {
       color: #4b49c3;
     }
+    .timeline-icon {
+      font-size: 25px;
+      margin: 10px 0;
+    }
   }
   .title {
     color: #fff;

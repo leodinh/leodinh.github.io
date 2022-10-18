@@ -1,918 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/images/logo_small.png" />
-    <title>Leo Tuan Dinh</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <!--Jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  </head>
-  <body>
-    <div class="no-print">
-      <nav class="only_desktop">
-        <div class="nav__bg"></div>
-        <ul>
-          <li><a href="#section-introduce">About Me</a></li>
-          <li><a href="#section-skill">Skills</a></li>
-          <li><a href="#section-education">Education</a></li>
-          <li><a href="#section-experience">Experience</a></li>
-          <li><a href="#section-project">Project</a></li>
-          <li><a href="#section-contact">Contact Me</a></li>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/logo_small.png" />
+  <title>Leo Tuan Dinh</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!--Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="no-print">
+    <nav class="only_desktop">
+      <div class="nav__bg"></div>
+      <ul>
+        <li><a href="#section-introduce">About Me</a></li>
+        <li><a href="#section-skill">Skills</a></li>
+        <li><a href="#section-education">Education</a></li>
+        <li><a href="#section-experience">Experience</a></li>
+        <li><a href="#section-project">Project</a></li>
+        <li><a href="#section-contact">Contact Me</a></li>
+      </ul>
+    </nav>
+    <div class="navigation only_phone">
+      <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
+
+      <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+      </label>
+
+      <div class="navigation__background">&nbsp;</div>
+
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="#section-introduce" class="navigation__link">About me</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#section-skill" class="navigation__link">Skills</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#section-education" class="navigation__link">Education</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#section-experience" class="navigation__link">Experience</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#section-project" class="navigation__link">Project</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#section-contact" class="navigation__link">Contact Me</a>
+          </li>
         </ul>
       </nav>
-      <div class="navigation only_phone">
-        <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
-
-        <label for="navi-toggle" class="navigation__button">
-          <span class="navigation__icon">&nbsp;</span>
-        </label>
-
-        <div class="navigation__background">&nbsp;</div>
-
-        <nav class="navigation__nav">
-          <ul class="navigation__list">
-            <li class="navigation__item">
-              <a href="#section-introduce" class="navigation__link">About me</a>
-            </li>
-            <li class="navigation__item">
-              <a href="#section-skill" class="navigation__link">Skills</a>
-            </li>
-            <li class="navigation__item">
-              <a href="#section-education" class="navigation__link"
-                >Education</a
-              >
-            </li>
-            <li class="navigation__item">
-              <a href="#section-experience" class="navigation__link"
-                >Experience</a
-              >
-            </li>
-            <li class="navigation__item">
-              <a href="#section-project" class="navigation__link">Project</a>
-            </li>
-            <li class="navigation__item">
-              <a href="#section-contact" class="navigation__link">Contact Me</a>
-            </li>
-          </ul>
-        </nav>
+    </div>
+    <header>
+      <div class="content">
+        <picture class="content_logo">
+          <source srcset="./assets/images/logo_small.png 2x" media="(max-width: 37.5em)" />
+          <img srcset="./assets/images/logo.png 2x" alt="logo" class="u-margin-top-huge only_desktop" />
+          <img srcset="./assets/images/logo_small.png 2x" alt="logo" class="u-margin-top-huge only_phone" />
+        </picture>
+        <h1 class="only_phone">
+          <span class="txt-yellow">Leo</span> Tuan
+          <span class="txt-red">Dinh</span>
+        </h1>
+        <p class="only_desktop content_title--primary">
+          Hello there, I am
+          <span class="txt-white">Software Developer</span> .
+        </p>
+        <p class="only_desktop content_title--secondary">
+          Welcome to my world !
+        </p>
       </div>
-      <header>
-        <div class="content">
-          <picture class="content_logo">
-            <source
-              srcset="./assets/images/logo_small.png 2x"
-              media="(max-width: 37.5em)"
-            />
-            <img
-              srcset="./assets/images/logo.png 2x"
-              alt="logo"
-              class="u-margin-top-huge only_desktop"
-            />
-            <img
-              srcset="./assets/images/logo_small.png 2x"
-              alt="logo"
-              class="u-margin-top-huge only_phone"
-            />
-          </picture>
-          <h1 class="only_phone">
-            <span class="txt-yellow">Leo</span> Tuan
-            <span class="txt-red">Dinh</span>
-          </h1>
-          <p class="only_desktop content_title--primary">
-            Hello there, I am
-            <span class="txt-white">Software Developer</span> .
-          </p>
-          <p class="only_desktop content_title--secondary">
-            Welcome to my world !
-          </p>
+    </header>
+    <main>
+      <section id="section-introduce">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          Who I <span class="txt-red">Am</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="row">
+          <div class="col-1-of-2 introduce__avatar show-on-scroll">
+            <div class="my_photo">
+              <img src="assets/images/myphoto.jpg" alt="myphoto" />
+              <div class="glow-wrap">
+                <i class="glow"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-1-of-2 introduce__infor show-on-scroll">
+            <p>
+              My name is Leo Tuan Dinh. I was born and grew up in Vietnam. I have a Bachelor in Computer Science
+              and an Ontario Certificate in Blockchain Development.
+            </p>
+            <br />
+            <p>
+              I love passionately developing software, so I have learned
+              cutting-edge technologies in order to improve my programming
+              skills. I enjoy being challenged by projects that require me to
+              work out of my comfort zone.
+            </p>
+            <br />
+            <p>
+              In my spare time, I enjoy watching scientific movies with stunning man-made technologies. Also, learning
+              is something that never ends in my life. Taking online courses about new knowledge and improving myself
+              through that is always on my mind.
+              <q>Learning is an experience. Everything else is just
+                information</q>
+              -Albert Einstein-
+            </p>
+          </div>
         </div>
-      </header>
-      <main>
-        <section id="section-introduce">
-          <h2 class="u-center-text heading-primary u-margin-top-small">
-            Who I <span class="txt-red">Am</span>
-          </h2>
-          <div class="divider show-on-scroll"></div>
-          <div class="row">
-            <div class="col-1-of-2 introduce__avatar show-on-scroll">
-              <div class="my_photo">
-                <img src="assets/images/myphoto.jpg" alt="myphoto" />
-                <div class="glow-wrap">
-                  <i class="glow"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-1-of-2 introduce__infor show-on-scroll">
-              <p>
-                My name is Leo Tuan Dinh. I was born and grew up in Vietnam. My
-                background is Computer Science. Currently, I am studying Block
-                Chain Development in George Brown College. My aim is becomming
-                Full-stack Developer (and also BlockChain Developer).
-              </p>
-              <br />
-              <p>
-                I love passionately developing software, so I have learned
-                cutting-edge technologies in order to improve my programming
-                skills. I enjoy being challenged in projects that require me to
-                work out of my comfort zone.
-              </p>
-              <br />
-              <p>
-                In my spare time, I am fond of watching scientific movie with
-                stunning man-made technologies. Also, learning is something that
-                never ends in my life. Taking online courses about new knowledge
-                and improving myself through that is always in my mind.
-                <q
-                  >Learning is an experience. Everything else is just
-                  information</q
-                >
-                -Albert Einstein-
-              </p>
-            </div>
+      </section>
+      <section id="section-skill">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          What I <span class="txt-red">Can Do</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="row">
+          <div class="col-1-of-2 skills__image show-on-scroll">
+            <img src="assets/images/developer.gif" alt="developer" />
           </div>
-        </section>
-        <section id="section-skill">
-          <h2 class="u-center-text heading-primary u-margin-top-small">
-            What I <span class="txt-red">Can Do</span>
-          </h2>
-          <div class="divider show-on-scroll"></div>
-          <div class="row">
-            <div class="col-1-of-2 skills__image show-on-scroll">
-              <img src="assets/images/developer.gif" alt="developer" />
-            </div>
-            <div class="col-1-of-2 skills_details show-on-scroll">
-              <p class="skills_details__items">
-                <span>Front End:</span> HTML, CSS, SASS, Javascript, ReactJS.
-              </p>
-              <p class="skills_details__items">
-                <span>Back End:</span> NodeJS, Java.
-              </p>
-              <p class="skills_details__items">
-                <span>Database:</span> MongoDB, MySQL, Firebase.
-              </p>
-              <p class="skills_details__items">
-                <span>BlockChain:</span> Solidity, Chaincode, Hyperledger
-                Fabric.
-              </p>
-              <p class="skills_details__items">
-                <span>Operating System:</span> Linux, Window.
-              </p>
-              <p class="skills_details__items">
-                <span>Version Control:</span> Git
-              </p>
-              <p class="skills_details__items">
-                <span>Designing:</span> Photoshop, Gimp
-              </p>
-            </div>
+          <div class="col-1-of-2 skills_details show-on-scroll">
+            <p class="skills_details__items">
+              <span>Front End:</span> ReactJS, NextJS, SASS, Typescript.
+            </p>
+            <p class="skills_details__items">
+              <span>Back End:</span> NodeJS, ExpressJS, Typeorm, Redis.
+            </p>
+            <p class="skills_details__items">
+              <span>Database:</span> PostgreSQL, Firebase, MongoDB.
+            </p>
+            <p class="skills_details__items">
+              <span>BlockChain:</span> Solidity, Web3, Hardhat, Subgraph.
+            </p>
+            <p class="skills_details__items">
+              <span>Amazon Web Services:</span> Amplify, App Runner.
+            </p>
+            <p class="skills_details__items">
+              <span>Operating System:</span> Linux, Window, MacOS.
+            </p>
+            <p class="skills_details__items">
+              <span>Version Control:</span> Git
+            </p>
+            <p class="skills_details__items">
+              <span>Graphic Editors:</span> Photoshop, Gimp
+            </p>
           </div>
-        </section>
-        <section id="section-education">
-          <h2 class="u-center-text heading-primary u-margin-top-small">
-            What I <span class="txt-red">Studied</span>
-          </h2>
-          <div class="divider show-on-scroll"></div>
-          <div class="row">
-            <div class="col-1-of-3 education__logo show-on-scroll">
-              <img src="./assets/images/gbclogo.png" alt="gbclogo" />
-            </div>
-            <div class="col-2-of-3 education__program show-on-scroll">
-              <div class="program_school">
-                <h3>George Brown College</h3>
-                <span>Toronto, Ontario</span>
-              </div>
-              <div class="program_detail">
-                <div class="program_detail__name">
-                  Blockchain Development
-                </div>
-                <div class="program_detail__year">
-                  September 2019 - August 2020
-                </div>
-              </div>
-              <p>
-                I learned foundation of Blockchain Technology, programming Smart
-                Contract using Solidity and Chaincode using Javascript.
-                Developing DAPP with full-stack development and blockchain
-                network (Ethereum or Hyperledger Fabric)
-              </p>
-            </div>
+        </div>
+      </section>
+      <section id="section-education">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          What I <span class="txt-red">Studied</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="row">
+          <div class="col-1-of-3 education__logo show-on-scroll">
+            <img src="./assets/images/gbclogo.png" alt="gbclogo" />
           </div>
-          <div class="row">
-            <div
-              class="col-1-of-3 education__logo col-push-2-of-3 show-on-scroll"
-            >
-              <img src="./assets/images/hcmutlogo.png" alt="hcmutlogo" />
+          <div class="col-2-of-3 education__program show-on-scroll">
+            <div class="program_school">
+              <h3>George Brown College</h3>
+              <span>Toronto, Ontario</span>
             </div>
-            <div
-              class="col-2-of-3 education__program col-pull-1-of-3 show-on-scroll"
-            >
-              <div class="program_school">
-                <h3>HCM University of Technology</h3>
-                <span>Ho Chi Minh, Vietnam</span>
+            <div class="program_detail">
+              <div class="program_detail__name">
+                Blockchain Development
               </div>
-              <div class="program_detail">
-                <div class="program_detail__name">
-                  Computer Science
-                </div>
-                <div class="program_detail__year">
-                  September 2013 - August 2018
-                </div>
+              <div class="program_detail__year">
+                September 2019 - August 2020
               </div>
-              <p>
-                The University brought me the whole background about software .
-                Also, algorithm and core of programming language is what I
-                gleaned a lot from that course. Thanks to that, "absorbing"
-                novel technologies or programming languages is not really hard
-                thing to me
-              </p>
             </div>
+            <p>
+              I learned foundation of Blockchain Technology, programming Smart
+              Contract using Solidity and Chaincode using Javascript.
+              Developing DAPP with full-stack development and blockchain
+              network (Ethereum or Hyperledger Fabric)
+            </p>
           </div>
-        </section>
-        <section id="section-experience">
-          <h2 class="u-center-text heading-primary u-margin-top-small">
-            What I <span class="txt-red">Experienced</span>
-          </h2>
-          <div class="divider show-on-scroll"></div>
-          <div class="main-timeline show-on-scroll">
-            <!-- <div class="timeline">
+        </div>
+        <div class="row">
+          <div class="col-1-of-3 education__logo col-push-2-of-3 show-on-scroll">
+            <img src="./assets/images/hcmutlogo.png" alt="hcmutlogo" />
+          </div>
+          <div class="col-2-of-3 education__program col-pull-1-of-3 show-on-scroll">
+            <div class="program_school">
+              <h3>HCM University of Technology</h3>
+              <span>Ho Chi Minh, Vietnam</span>
+            </div>
+            <div class="program_detail">
+              <div class="program_detail__name">
+                Computer Science
+              </div>
+              <div class="program_detail__year">
+                September 2013 - August 2018
+              </div>
+            </div>
+            <p>
+              The University brought me the whole background about software .
+              Also, algorithm and core of programming language is what I
+              gleaned a lot from that course. Thanks to that, "absorbing"
+              novel technologies or programming languages is not really hard
+              thing to me
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="section-experience">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          What I <span class="txt-red">Experienced</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="main-timeline show-on-scroll">
+          <div class="timeline">
+            <a href="#" class="timeline-content">
+              <div class="timeline-year">
+                <span>2021</span>
+              </div>
+              <h3 class="title">OptyFI (Feb 2021- Present)</h3>
+              <div class="timeline-icon">
+                <p>Fullstack Blockchain Developer</p>
+              </div>
+              <p class="description">
+                Developed and maintained company's decentralized application using ReactJS. Developed and maintained
+                smart contracts. Built APIs with ExpressJS.
+              </p>
+            </a>
+          </div>
+          <div class="timeline">
             <a href="#" class="timeline-content">
               <div class="timeline-year">
                 <span>2020</span>
               </div>
-              <h3 class="title">Web Development</h3>
+              <h3 class="title">George Brown College (Jun 2020 - Jan 2021)</h3>
               <div class="timeline-icon">
-                <i class="fa fa-rocket"></i>
+                <p>Student Researcher</p>
               </div>
               <p class="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                males uada tellus lorem, et condimentum neque commodo
+                Designed and implemented a Blockchain Network. Implemented both server and client sides using Golang and
+                BadgerDB. Also, wrote test scripts for specific functions based on test plans. Built a project's
+                application using ReactJS.
               </p>
             </a>
-          </div> -->
-            <div class="timeline">
-              <a href="#" class="timeline-content">
-                <div class="timeline-year">
-                  <span>2018</span>
-                </div>
-                <h3 class="title">IMT Company (May 2018- Aug 2018)</h3>
-                <div class="timeline-icon">
-                  <img src="./assets/images/java.png" alt="java" />
-                </div>
-                <p class="description">
-                  Working with Java Spring Hibernate Framework. Responsibility
-                  for maintaining DMS(Data Management System) websites. Also,
-                  writing scripts to query databse in MySQL and writing
-                  functions that allow user export summy excel files following
-                  customers demands
-                </p>
-              </a>
+          </div>
+          <div class="timeline">
+            <a href="#" class="timeline-content">
+              <div class="timeline-year">
+                <span>2018</span>
+              </div>
+              <h3 class="title">IMT Company (May 2018 - Aug 2018)</h3>
+              <div class="timeline-icon">
+                <p>Java Developer</p>
+              </div>
+              <p class="description">
+                Worked with Java Spring Hibernate Framework. Was responsible for
+                for maintaining DMS(Data Management System) websites. Also,
+                wrote scripts to query databse in MySQL and wrote
+                functions that allow user to export summary excel files following
+                customers'demands
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="section-project">
+        <h2 class="u-center-text heading-primary u-margin-top-small">
+          What I <span class="txt-red">Did</span>
+        </h2>
+        <div class="divider show-on-scroll"></div>
+        <div class="row">
+          <div class="project__filter show-on-scroll">
+            <button class="button button--active" data-filter="*">
+              <span>ALL</span>
+            </button>
+            <button class="button" data-filter="html">
+              <span>HTML </span>
+            </button>
+            <button class="button" data-filter="css">
+              <span>CSS </span>
+            </button>
+            <button class="button" data-filter="sass">
+              <span>SASS </span>
+            </button>
+            <button class="button" data-filter="reactjs">
+              <span>ReactJS </span>
+            </button>
+            <button class="button" data-filter="nodejs">
+              <span>NodeJS </span>
+            </button>
+            <button class="button" data-filter="blockchain">
+              <span>BlockChain</span>
+            </button>
+            <button class="button" data-filter="firebase">
+              <span>Firebase </span>
+            </button>
+          </div>
+        </div>
+        <div class="grid show-on-scroll">
+          <a href="https://credefi.gitlab.io/credefi-dapp/"
+            class="screen element-item blockchain javascript sass reactjs html css" target="_blank">
+            <div class="bar">
+              <h2>Credefi</h2>
+              <i> </i>
             </div>
-          </div>
-        </section>
-        <section id="section-project">
-          <h2 class="u-center-text heading-primary u-margin-top-small">
-            What I <span class="txt-red">Did</span>
-          </h2>
-          <div class="divider show-on-scroll"></div>
-          <div class="row">
-            <div class="project__filter show-on-scroll">
-              <button class="button button--active" data-filter="*">
-                <span>ALL</span>
-              </button>
-              <button class="button" data-filter="html">
-                <span>HTML </span>
-              </button>
-              <button class="button" data-filter="css">
-                <span>CSS </span>
-              </button>
-              <button class="button" data-filter="sass">
-                <span>SASS </span>
-              </button>
-              <button class="button" data-filter="reactjs">
-                <span>ReactJS </span>
-              </button>
-              <button class="button" data-filter="nodejs">
-                <span>NodeJS </span>
-              </button>
-              <button class="button" data-filter="blockchain">
-                <span>BlockChain</span>
-              </button>
-              <button class="button" data-filter="firebase">
-                <span>Firebase </span>
-              </button>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/credefi-project-2.png" alt="credefi-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Solidity</li>
+                    <li>Blockchain</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                  </ul>
+                </div>
+              </div>
+              <picture class="imgs">
+                <img src="./assets/images/credefi-project.png" alt="credefi-project-2" />
+              </picture>
             </div>
-          </div>
-          <div class="grid show-on-scroll">
-            <a
-              href="https://credefi.gitlab.io/credefi-dapp/"
-              class="screen element-item blockchain javascript sass reactjs html css"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Credefi</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/credefi-project-2.png"
-                    alt="credefi-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>Solidity</li>
-                      <li>Blockchain</li>
-                      <li>ReactJS</li>
-                      <li>Javascript</li>
-                    </ul>
-                  </div>
+          </a>
+          <a href="https://github.com/leodinh/health-record"
+            class="screen element-item blockchain reactjs javascript nodejs firebase html css" target="_blank">
+            <div class="bar">
+              <h2>Health Record</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/health-record-project.png" alt="health-record-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Hyperledger Fabric</li>
+                    <li>Blockchain</li>
+                    <li>NodeJS</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                    <li>Firebase</li>
+                  </ul>
                 </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/credefi-project.png"
-                    alt="credefi-project-2"
-                  />
-                </picture>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/health-record"
-              class="screen element-item blockchain reactjs javascript nodejs firebase html css"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Health Record</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/health-record-project.png"
-                    alt="health-record-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>Hyperledger Fabric</li>
-                      <li>Blockchain</li>
-                      <li>NodeJS</li>
-                      <li>ReactJS</li>
-                      <li>Javascript</li>
-                      <li>Firebase</li>
-                    </ul>
-                  </div>
+              <picture class="imgs">
+                <img src="./assets/images/health-record-project-2.png" alt="health-record-project-2" />
+              </picture>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/microfinance-dapp"
+            class="screen element-item blockchain reactjs javascript" target="_blank">
+            <div class="bar">
+              <h2>Microfinance</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/microfinance-project.png" alt="microfinance-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Solidity</li>
+                    <li>Blockchain</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                  </ul>
                 </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/health-record-project-2.png"
-                    alt="health-record-project-2"
-                  />
-                </picture>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/microfinance-dapp"
-              class="screen element-item blockchain reactjs javascript"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Microfinance</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/microfinance-project.png"
-                    alt="microfinance-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>Solidity</li>
-                      <li>Blockchain</li>
-                      <li>ReactJS</li>
-                      <li>Javascript</li>
-                    </ul>
-                  </div>
+              <picture class="imgs">
+                <img src="./assets/images/microfinance-project-2.png" alt="microfinance-project-2" />
+              </picture>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/blockchain-demo" class="screen element-item blockchain reactjs javascript"
+            target="_blank">
+            <div class="bar">
+              <h2>Blockchain Demo</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/blockchain-project.png" alt="blockchain-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Blockchain</li>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                  </ul>
                 </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/microfinance-project-2.png"
-                    alt="microfinance-project-2"
-                  />
-                </picture>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/blockchain-demo"
-              class="screen element-item blockchain reactjs javascript"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Blockchain Demo</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/blockchain-project.png"
-                    alt="blockchain-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>Blockchain</li>
-                      <li>ReactJS</li>
-                      <li>Javascript</li>
-                    </ul>
-                  </div>
+              <picture class="imgs">
+                <img src="./assets/images/blockchain-project-2.png" alt="blockchain-project-2" />
+              </picture>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/burger-builder"
+            class="screen element-item reactjs javascript firebase css html" target="_blank">
+            <div class="bar">
+              <h2>Burger Buidler</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/burger-builder-project.png" alt="burger-builder-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>ReactJS</li>
+                    <li>Javascript</li>
+                    <li>Firebase</li>
+                  </ul>
                 </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/blockchain-project-2.png"
-                    alt="blockchain-project-2"
-                  />
-                </picture>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/burger-builder"
-              class="screen element-item reactjs javascript firebase css html"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Burger Buidler</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/burger-builder-project.png"
-                    alt="burger-builder-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>ReactJS</li>
-                      <li>Javascript</li>
-                      <li>Firebase</li>
-                    </ul>
-                  </div>
+              <picture class="imgs">
+                <img src="./assets/images/burger-builder-project-2.png" alt="burger-builder-project" />
+              </picture>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/String_Library_Assemble_Solidity" class="screen element-item blockchain"
+            target="_blank">
+            <div class="bar">
+              <h2>STRING lIBRARY</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <div class="title">
+                <div>
+                  <h2>
+                    Using <span class="txt-red">Assembly</span> to optimize
+                    String operations in Solidity
+                  </h2>
                 </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/burger-builder-project-2.png"
-                    alt="burger-builder-project"
-                  />
-                </picture>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/String_Library_Assemble_Solidity"
-              class="screen element-item blockchain"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>STRING lIBRARY</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <div class="title">
-                  <div>
-                    <h2>
-                      Using <span class="txt-red">Assembly</span> to optimize
-                      String operations in Solidity
-                    </h2>
-                  </div>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>Blockchain</li>
+                    <li>Solidity</li>
+                    <li>Assembly</li>
+                    <li>Truffle</li>
+                  </ul>
                 </div>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>Blockchain</li>
-                      <li>Solidity</li>
-                      <li>Assembly</li>
-                      <li>Truffle</li>
-                    </ul>
-                  </div>
+              </div>
+              <div class="imgs"></div>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/String_Library_Assemble_Solidity" class="screen element-item blockchain"
+            target="_blank">
+            <div class="bar">
+              <h2>ERC721 Sneaker Store</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <div class="title">
+                <div>
+                  <h2>
+                    Created
+                    <span class="txt-red">unique token</span> following ERC721
+                    rule
+                  </h2>
                 </div>
-                <div class="imgs"></div>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/String_Library_Assemble_Solidity"
-              class="screen element-item blockchain"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>ERC721 Sneaker Store</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <div class="title">
-                  <div>
-                    <h2>
-                      Created
-                      <span class="txt-red">unique token</span> following ERC721
-                      rule
-                    </h2>
-                  </div>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>BlockChain</li>
+                    <li>Solidity</li>
+                    <li>Truffle</li>
+                  </ul>
                 </div>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>BlockChain</li>
-                      <li>Solidity</li>
-                      <li>Truffle</li>
-                    </ul>
-                  </div>
+              </div>
+              <div class="imgs"></div>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/simpleAuctionDapp" class="screen element-item html css blockchain"
+            target="_blank">
+            <div class="bar">
+              <h2>Simple Auction DAPP</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/auction-dapp.png" alt="auction-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                    <li>Solidity</li>
+                    <li>BlockChain</li>
+                  </ul>
                 </div>
-                <div class="imgs"></div>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/simpleAuctionDapp"
-              class="screen element-item html css blockchain"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Simple Auction DAPP</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/auction-dapp.png"
-                    alt="auction-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>HTML5</li>
-                      <li>CSS</li>
-                      <li>Javascript</li>
-                      <li>Solidity</li>
-                      <li>BlockChain</li>
-                    </ul>
-                  </div>
+              <picture class="imgs">
+                <img src="./assets/images/auction-project-2.png" alt="auction-project-2" />
+              </picture>
+            </div>
+          </a>
+          <a href="https://github.com/leodinh/natours" class="screen element-item reactjs sass html css"
+            target="_blank">
+            <div class="bar">
+              <h2>Natours</h2>
+              <i> </i>
+            </div>
+            <div class="main">
+              <picture class="back">
+                <img src="./assets/images/natour-project-2.png" alt="natour-project" />
+              </picture>
+              <div class="tags">
+                <div>
+                  <ul>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>SASS</li>
+                    <li>REACTJS</li>
+                  </ul>
                 </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/auction-project-2.png"
-                    alt="auction-project-2"
-                  />
-                </picture>
               </div>
-            </a>
-            <a
-              href="https://github.com/leodinh/natours"
-              class="screen element-item reactjs sass html css"
-              target="_blank"
-            >
-              <div class="bar">
-                <h2>Natours</h2>
-                <i> </i>
-              </div>
-              <div class="main">
-                <picture class="back">
-                  <img
-                    src="./assets/images/natour-project-2.png"
-                    alt="natour-project"
-                  />
-                </picture>
-                <div class="tags">
-                  <div>
-                    <ul>
-                      <li>HTML5</li>
-                      <li>CSS</li>
-                      <li>SASS</li>
-                      <li>REACTJS</li>
-                    </ul>
-                  </div>
-                </div>
-                <picture class="imgs">
-                  <img
-                    src="./assets/images/natour-project.png"
-                    alt="natour-project-2"
-                  />
-                </picture>
-              </div>
-            </a>
-          </div>
-        </section>
-      </main>
-      <footer id="section-contact">
-        <div class="content">
-          <h3>Thanks</h3>
-          <p>That would be my pleasure to connect with you</p>
-          <button class="btn-print" onclick="window.print()">
-            <svg
-              width="180px"
-              height="60px"
-              viewBox="0 0 180 60"
-              class="border"
-            >
-              <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-              <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-            </svg>
-            Get My Resume
-          </button>
-          <div class="contact-info">
-            <a href="mailto:leo.atdinh@gmail.com"
-              ><img src="./assets/images/gmail-icon.svg" alt="gmail"
-            /></a>
-            <a href="https://github.com/leodinh" target="_blank"
-              ><img src="./assets/images/github-icon.svg" alt="github"
-            /></a>
-            <a href="https://gitlab.com/leodinh" target="_blank"
-              ><img src="./assets/images/gitlab-icon.png" alt="gitlab"
-            /></a>
-            <a
-              href="https://www.linkedin.com/in/leo-tuan-dinh-318709193/"
-              target="_blank"
-              ><img src="./assets/images/linkedin-icon.svg" alt="linkedin"
-            /></a>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <div class="only-print">
-      <header>
-        <h1>Leo Tuan Dinh</h1>
-        <div class="contact">
-          <div class="contact__item">
-            <img src="./assets/images/email.png" alt="icon" />
-            <a href="mailto:leo.atdinh@gmail.com">leo.atdinh@gmail.com</a>
-          </div>
-          <div class="contact__item">
-            <img src="./assets/images/www.svg" alt="icon" />
-            <a href="leodinh.github.io">leodinh.github.io</a>
-          </div>
-          <div class="contact__item">
-            <img src="./assets/images/linkedin.svg" alt="icon" />
-            <a href="https://www.linkedin.com/in/leotuandinh/"
-              >linkedin.com/in/leotuandinh</a
-            >
-          </div>
-          <div class="contact__item">
-            <img src="./assets/images/github.svg" alt="icon" />
-            <a href="https://github.com/leodinh">leodinh</a>
-          </div>
-        </div>
-      </header>
-      <section class="objective">
-        <h2>Objective</h2>
-        <p>
-          Hard-working individual seeking a position for Coop as a Software
-          Developer in order to leverage and enhance solid knowledge in
-          Blockchain area. Coming with a Bachelor in Computer Science,
-          proficiency in developing website applications. Currently, enrolled in
-          Blockchain Development program at George Brown College
-        </p>
-      </section>
-      <section class="qualification">
-        <h2>Highlights of Qualifications</h2>
-        <ul>
-          <li>Have a solid knowledge in developing and maintaining website.</li>
-          <li>
-            Able to build full-stack web application, decentralized web
-            application.
-          </li>
-          <li>
-            Capable of quickly adapting cutting-edge technology in order to
-            enhance work efficiency.
-          </li>
-          <li>
-            Good communication skills to work collaboratively in diverse teams.
-          </li>
-          <li>
-            Work well under pressure and handle different levels of task to meet
-            deadlines punctually.
-          </li>
-        </ul>
-      </section>
-      <section class="technical">
-        <h2>Technical Skills</h2>
-        <div class="technical__content">
-          <div class="content--1">
-            <p>
-              <span>Front End : </span>HTML, CSS, SASS, Javascript, ReactJS.
-            </p>
-            <p><span>Back End : </span>NodeJS, Java.</p>
-            <p><span>Database : </span>MongoDB, MySQL, Firebase.</p>
-            <p>
-              <span>BlockChain : </span>Solidity, Chaincode, Hyperledger Fabric.
-            </p>
-          </div>
-          <div class="content--2">
-            <p><span>Operating System : </span>Linux, Window.</p>
-            <p><span>Version Control : </span>Git.</p>
-            <p><span>Designing : </span>Photoshop, Gimp.</p>
-          </div>
+              <picture class="imgs">
+                <img src="./assets/images/natour-project.png" alt="natour-project-2" />
+              </picture>
+            </div>
+          </a>
         </div>
       </section>
-      <section class="education">
-        <h2>Education</h2>
-        <div class="education__content">
-          <div class="content--1">
-            <h4>George Brown College</h4>
-            <p>BlockChain Development. GPA: 3.93/4</p>
-          </div>
-          <div class="content--2">
-            <h4>Toronto, Canada</h4>
-            <p>09/2019 - Present</p>
-          </div>
+    </main>
+    <footer id="section-contact">
+      <div class="content">
+        <h3>Thanks</h3>
+        <p>That would be my pleasure to connect with you</p>
+        <button class="btn-print" onclick="window.print()">
+          <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+            <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+          </svg>
+          Get My Resume
+        </button>
+        <div class="contact-info">
+          <a href="mailto:leo.atdinh@gmail.com"><img src="./assets/images/gmail-icon.svg" alt="gmail" /></a>
+          <a href="https://github.com/leodinh" target="_blank"><img src="./assets/images/github-icon.svg"
+              alt="github" /></a>
+          <a href="https://gitlab.com/leodinh" target="_blank"><img src="./assets/images/gitlab-icon.png"
+              alt="gitlab" /></a>
+          <a href="https://www.linkedin.com/in/leo-tuan-dinh-318709193/" target="_blank"><img
+              src="./assets/images/linkedin-icon.svg" alt="linkedin" /></a>
         </div>
-        <div class="education__content">
-          <div class="content--1">
-            <h4>HCM Bach Khoa University</h4>
-            <p>Computer Science. GPA: 7.4/10</p>
-          </div>
-          <div class="content--2">
-            <h4>Ho Chi Minh, Vietnam</h4>
-            <p>09/2013 - 08/2018</p>
-          </div>
+      </div>
+    </footer>
+  </div>
+  <div class="only-print">
+    <header>
+      <h1>Leo Tuan Dinh</h1>
+      <div class="contact">
+        <div class="contact__item">
+          <img src="./assets/images/email.png" alt="icon" />
+          <a href="mailto:leo.atdinh@gmail.com">leo.atdinh@gmail.com</a>
         </div>
-      </section>
-      <section class="experience">
-        <h2>Experience</h2>
-        <div class="experience__content">
-          <div class="content--1">
-            <h4>IMT Company</h4>
-            <p>Java Developer</p>
-          </div>
-          <div class="content--2">
-            <h4>Ho Chi Minh, Vietnam</h4>
-            <p>05/2018 - 08/2018</p>
-          </div>
+        <div class="contact__item">
+          <img src="./assets/images/www.svg" alt="icon" />
+          <a href="leodinh.github.io">leodinh.github.io</a>
         </div>
-        <ul>
-          <li>Working with Java Spring Hibernate Framework.</li>
-          <li>
-            Responsibility for maintaining DMS(Data Management System) websites.
-          </li>
-          <li>Writing scripts to query database in MySQL.</li>
-          <li>
-            Writing functions that allow user export summary excel files
-            following customers demands.
-          </li>
-          <li>Fixing bugs in both Front-end and Back-end.</li>
-        </ul>
-      </section>
-      <section class="projects">
-        <h2>Personal Projects</h2>
-        <div class="project">
-          <h4>Health Record System</h4>
-          <ul>
-            <li>
-              A simple project simulates health record systems with transparent
-              and security data using Hyperledger Fabric.
-            </li>
-            <li>
-              ReactJS, Redux for front-end.
-            </li>
-            <li>NodeJs, ExpressJs for back-end.</li>
-            <li>
-              First-network template for Hyperledger Fabric network, Javascript
-              is used to programme Chaincode.
-            </li>
-            <li>
-              Github links:
-              <a href="https://github.com/leodinh/health-record"
-                >https://github.com/leodinh/health-record</a
-              >
-            </li>
-          </ul>
+        <div class="contact__item">
+          <img src="./assets/images/linkedin.svg" alt="icon" />
+          <a href="https://www.linkedin.com/in/leotuandinh/">linkedin.com/in/leotuandinh</a>
         </div>
-        <div class="project">
-          <h4>Microfinance dApp</h4>
-          <ul>
-            <li>
-              DAPP that facilitates Loan Process, no-required third party based
-              on Ethereum Network.
-            </li>
-            <li>
-              ReactJS, Redux for front-end.
-            </li>
-            <li>Firebase for storing off-chain database.</li>
-            <li>
-              Solidity for programing Smart Contract.
-            </li>
-            <li>
-              Github links:
-              <a href="https://github.com/leodinh/microfinance-dapp"
-                >https://github.com/leodinh/microfinance-dapp</a
-              >
-            </li>
-          </ul>
+        <div class="contact__item">
+          <img src="./assets/images/github.svg" alt="icon" />
+          <a href="https://github.com/leodinh">leodinh</a>
         </div>
-        <div class="project">
-          <h4>BlockChain Demo</h4>
-          <ul>
-            <li>
-              A web application simulating how blockchain works.
-            </li>
-            <li>
-              ReactJS, Redux for front-end.
-            </li>
-            <li>Ethers library for cryptography functions..</li>
-            <li>
-              Github links:
-              <a href="https://github.com/leodinh/blockchain-demo"
-                >https://github.com/leodinh/blockchain-demo</a
-              >
-            </li>
-          </ul>
+      </div>
+    </header>
+    <section class="objective">
+      <h2>Objective</h2>
+      <p>
+        A diligent software developer seeking a role as a Fullstack Developer. Having a
+        Bachelor in Computer Science and an Ontario Certificate in Blockchain Development, I am proficient in
+        developing decentralized applications.
+      </p>
+    </section>
+    <section class="qualification">
+      <h2>Highlights of Qualifications</h2>
+      <ul>
+        <li>Have a solid knowledge of developing and maintaining websites.</li>
+        <li>
+          Able to build full-stack web applications, and decentralized web applications.
+        </li>
+        <li>
+          Capable of quickly adapting cutting-edge technology in order to
+          enhance work efficiency.
+        </li>
+        <li>
+          Work collaboratively in diverse teams with effective communication skills.
+        </li>
+        <li>
+          Handle different levels of tasks effectively under pressure to meet deadlines on time.
+        </li>
+      </ul>
+    </section>
+    <section class="technical">
+      <h2>Technical Skills</h2>
+      <div class="technical__content">
+        <div class="content--1">
+          <p>
+            <span>Front End: </span>ReactJS, NextJS, SASS, Typescript.
+          </p>
+          <p><span>Back End: </span>NodeJS, ExpressJS, Typeorm, Redis.</p>
+          <p><span>Database: </span>PostgreSQL, Firebase, MongoDB.</p>
+          <p>
+            <span>BlockChain: </span>Solidity, Web3, Hardhat, Subgraph.
+          </p>
         </div>
-        <div class="project">
-          <h4>Burger Builder</h4>
-          <ul>
-            <li>
-              An ordering burger web application.
-            </li>
-            <li>
-              Users can customize their own burger and make orders.
-            </li>
-            <li>Front-end: React JS, Redux, Redux saga.</li>
-            <li>Database: Firebase.</li>
-            <li>
-              Github links:
-              <a href="https://github.com/leodinh/burger-builder"
-                >https://github.com/leodinh/burger-builder</a
-              >
-            </li>
-          </ul>
+        <div class="content--2">
+          <p><span>Amazon Webservices: </span>Amplify, App Runner.</p>
+          <p><span>Operating System: </span>Linux, Window, MacOS.</p>
+          <p><span>Version Control: </span>Git.</p>
+          <p><span>Graphic Editors: </span>Photoshop, Gimp.</p>
         </div>
-        <div class="project">
-          <h4>Simple Auction DApp</h4>
-          <ul>
-            <li>
-              Simple sneaker auction with maximum 5 participants.
-            </li>
-            <li>
-              Smart contract: using truffle to compile and migrate contract.
-            </li>
-            <li>Web-server: lite-server.</li>
-            <li>
-              Github links:
-              <a href="https://github.com/leodinh/simpleAuctionDapp"
-                >https://github.com/leodinh/simpleAuctionDapp</a
-              >
-            </li>
-          </ul>
+      </div>
+    </section>
+    <section class="education">
+      <h2>Education</h2>
+      <div class="education__content">
+        <div class="content--1">
+          <h4>George Brown College</h4>
+          <p>BlockChain Development. GPA: 3.93/4</p>
         </div>
-        <div class="project">
-          <h4>String Operations Assembly Solidity</h4>
-          <ul>
-            <li>
-              The project aims to build string operations library using assembly
-              for Solidity.
-            </li>
-            <li>
-              String operations using assembly costs less gas than the original
-              operations.
-            </li>
-            <li>Assembly, Solidity for library contract.</li>
-            <li>Javascript for testing library</li>
-            <li>
-              Github links:
-              <a
-                href="https://github.com/leodinh/String_Library_Assembly_Solidity"
-                >https://github.com/leodinh/String_Library_Assembly_Solidity</a
-              >
-            </li>
-          </ul>
+        <div class="content--2">
+          <h4>Toronto, Canada</h4>
+          <p>09/2019 - 01/2021</p>
         </div>
-        <div class="project">
-          <h4>Sneaker Store ERC721</h4>
-          <ul>
-            <li>
-              This Project is about building sneaker store platform based on
-              ERC721.
-            </li>
-            <li>
-              ERC721 unique token represent for sneaker.
-            </li>
-            <li>Using Solidity to program smart contract.</li>
-            <li>Using Truffle to write testcase.</li>
-            <li>
-              Github links:
-              <a href="https://github.com/leodinh/ERC721-SNEAKER_STORE"
-                >https://github.com/leodinh/ERC721-SNEAKER_STORE</a
-              >
-            </li>
-          </ul>
+      </div>
+      <div class="education__content">
+        <div class="content--1">
+          <h4>HCM Bach Khoa University</h4>
+          <p>Computer Science. GPA: 7.4/10</p>
         </div>
-      </section>
-    </div>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
+        <div class="content--2">
+          <h4>Ho Chi Minh, Vietnam</h4>
+          <p>09/2013 - 08/2018</p>
+        </div>
+      </div>
+    </section>
+    <section class="experience">
+      <h2>Experience</h2>
+      <div class="experience__content">
+        <div class="content--1">
+          <h4>OptyFi</h4>
+          <p>Fullstack Blockchain Developer</p>
+        </div>
+        <div class="content--2">
+          <h4>Toronto, Canada</h4>
+          <p>02/2021 - Present</p>
+        </div>
+      </div>
+      <ul>
+        <li>
+          Developed and maintained company's decentralized application using ReactJS.
+        </li>
+        <li>
+          Created a landing website for company.
+        </li>
+        <li>
+          Set up domains and AWS Amplify for product deployment.
+        </li>
+        <li>Developed smart contracts, wrote unit/integration test cases, and wrote development scripts.
+        </li>
+        <li>Created subgraphs for company's smart contracts.</li>
+        <li>Set up CI/CD github actions.</li>
+        <li>Worked with PostgreSQL, Typeorm for data management</li>
+        <li>Built APIs with ExpressJS</li>
+      </ul>
+      <br />
+      <br />
+      <br />
+      <div class="experience__content">
+        <div class="content--1">
+          <h4>George Brown College</h4>
+          <p>Student Researcher</p>
+        </div>
+        <div class="content--2">
+          <h4>Toronto, Canada</h4>
+          <p>06/2020 - 01/2021</p>
+        </div>
+      </div>
+      <ul>
+        <li>Designed and implemented a Blockchain network.</li>
+        <li>
+          Implemented both server and client sides using Golang and BadgerDB.
+        </li>
+        <li>Wrote test scripts for specific functions based on test plans.</li>
+        <li>
+          Built a project's application using ReactJS.
+        </li>
+      </ul>
+      <div class="experience__content">
+        <div class="content--1">
+          <h4>IMT Company</h4>
+          <p>Java Developer</p>
+        </div>
+        <div class="content--2">
+          <h4>Ho Chi Minh, Vietnam</h4>
+          <p>05/2018 - 08/2018</p>
+        </div>
+      </div>
+      <ul>
+        <li>Worked with Java Spring Hibernate Framework.</li>
+        <li>
+          Responsible for maintaining DMS (Data Management System) websites.
+        </li>
+        <li>Wrote scripts to query database in MySQL.</li>
+        <li>
+          Wrote functions that allow users to export summary excel files following customers' demands.
+        </li>
+        <li>Fixed bugs in both Front-end and Back-end.</li>
+      </ul>
+    </section>
+  </div>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
 </html>

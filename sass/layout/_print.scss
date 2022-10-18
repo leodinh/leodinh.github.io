@@ -97,7 +97,7 @@
   .only-print .objective p,
   .only-print .project h4 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
   .only-print .content--1 {
     margin-right: auto;
@@ -108,5 +108,8 @@
   }
   .only-print .experience {
     margin-bottom: 90px;
+  }
+  .non-decoration {
+    text-decoration: none;
   }
 }

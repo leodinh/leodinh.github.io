@@ -389,6 +389,9 @@ body {
       background: linear-gradient(to right, #4b49c3, #eb66b4); }
     .main-timeline .timeline:nth-child(4n + 3) .timeline-icon {
       color: #4b49c3; }
+    .main-timeline .timeline .timeline-icon {
+      font-size: 25px;
+      margin: 10px 0; }
   .main-timeline .title {
     color: #fff;
     background: linear-gradient(to right, #121365, #4546d0);
@@ -1246,11 +1249,13 @@ nav {
   .only-print .objective p,
   .only-print .project h4 {
     margin-top: 0;
-    margin-bottom: 10px; }
+    margin-bottom: 30px; }
   .only-print .content--1 {
     margin-right: auto; }
   .only-print .education__content .content--2,
   .only-print .experience__content .content--2 {
     text-align: end; }
   .only-print .experience {
-    margin-bottom: 90px; } }
+    margin-bottom: 90px; }
+  .non-decoration {
+    text-decoration: none; } }
