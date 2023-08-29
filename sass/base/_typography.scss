@@ -1,0 +1,38 @@
+.txt-yellow {
+  color: $color-yellow-group-2;
+}
+.txt-red {
+  color: $color-pink-group-2;
+}
+.txt-green {
+  color: $color-green-group-1;
+}
+.txt-white {
+  color: $color-white;
+}
+.heading-primary {
+  text-transform: uppercase;
+  font-size: 6rem;
+}
+.divider {
+  content: "";
+  display: block;
+  background-color: $color-green-group-1;
+  width: 0;
+  height: 2rem;
+  margin: 0 auto;
+  transition: all 0.7s;
+  @include respond(phone) {
+    height: 1rem;
+  }
+  @supports (clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%)) {
+    clip-path: polygon(0 0, 100% 0, 100% 4%, 0 28%);
+    height: 5rem;
+    @include respond(phone) {
+      height: 3rem;
+    }
+  }
+}
+.divider.is-visible {
+  width: 10rem;
+}
