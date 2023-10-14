@@ -1,0 +1,154 @@
+@import '../../styles/sass/mixins';
+@import '../../styles/sass/variables';
+@import '../../styles/sass/animation';
+
+.content {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 100px 0 100px;
+    @include respond(tab-port) {
+        margin: 100px 0 0 0;
+    }
+
+    .aboutMe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        animation: fadeIn 5s forwards;
+        @include respond(tab-port) {
+            flex-direction: column;
+            width: 100%;
+        }
+        .avatar {
+            place-content: center;
+            align-items: center;
+            background-color: $color-primary-light;
+            border-radius: 12px;
+            box-shadow: rgba(102, 109, 128, 0.08) 0px 1px 1px 0px,
+                rgba(102, 109, 128, 0.08) 0px 4px 8px 0px, rgb(255, 255, 255) 0px 0px 0px 0px,
+                rgba(53, 56, 73, 0) 0px 0px 0px 3px;
+            display: flex;
+            flex: 0 0 auto;
+            flex-flow: row;
+            overflow: visible;
+            padding: 16px;
+            position: relative;
+
+            img {
+                border-radius: 12px;
+                width: 300px;
+                height: 300px;
+            }
+        }
+        .moreAboutMe {
+            color: #ffffff;
+            font-size: $medium-font-size;
+            font-family: 'Oswald', 'sans-serif';
+            p {
+                margin-bottom: 20px;
+            }
+            margin-left: 50px;
+        }
+    }
+
+    .mySkills {
+        font-size: $medium-font-size;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .imageIcon {
+            img {
+                width: 300px;
+            }
+        }
+        .skillItem {
+            display: flex;
+            color: #ffffff;
+            align-items: center;
+            margin-bottom: 40px;
+            @include respond(phone) {
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+        }
+        .skillItemTitle {
+            animation: fadeIn 2s forwards;
+            @include respond(phone) {
+                margin-bottom: 15px;
+            }
+        }
+        .skillDetails {
+            @include respond(phone) {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+            }
+            span {
+                padding: 10px 20px;
+                background-color: $color-primary-light;
+                margin: 0 10px;
+                @include respond(phone) {
+                    margin: 0 10px 10px 0;
+                }
+            }
+            .detailItem {
+                animation: fadeIn 2s forwards;
+                opacity: 0;
+            }
+        }
+    }
+    .background {
+        width: 50%;
+        @include respond(phone) {
+            width: 80%;
+        }
+        .backgroundItem {
+            margin-bottom: 40px;
+            animation: fadeIn 2s forwards;
+            opacity: 0;
+            .introContainer {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                .role {
+                    font-size: $medium-font-size;
+                    color: $color-white;
+                }
+                .company {
+                    font-size: $default-font-size;
+                    color: $color-primary-lightest;
+                }
+                .introContainerLeft {
+                    flex: 1;
+                }
+                .introContainerRight {
+                    color: $color-primary-lightest;
+                    font-size: $default-font-size;
+                    text-align: end;
+                }
+            }
+            .doing {
+                color: $color-white;
+                font-size: $default-font-size;
+                font-family: 'Oswald', 'sans-serif';
+            }
+        }
+    }
+}
+
+$sizes: 1, 2, 3, 4, 5;
+@each $size in $sizes {
+    .detailItem#{$size} {
+        animation-delay: 0.2s * $size !important;
+    }
+    .backgroundItem#{$size} {
+        animation-delay: 0.2s * $size !important;
+    }
+}
