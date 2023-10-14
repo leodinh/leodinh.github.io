@@ -40,7 +40,7 @@ function AboutMe() {
     return (
         <div className={classes.aboutMe}>
             <div className={classes.avatar}>
-                <img src="/images/about-1.jpg" alt="" />
+                <img src="/images/about.jpg" alt="my avatar" />
             </div>
             <div className={classes.moreAboutMe}>
                 <p>
