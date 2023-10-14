@@ -11,8 +11,8 @@ export default function Contact() {
                 <title>{siteTitle}</title>
             </Head>
             <div className={classes.content}>
-                <video autoPlay loop muted width="200" height="200">
-                    <source type="video/webm" src="/images/myavatar_gif1.MOV" />
+                <video autoPlay loop muted width="200" height="200" src="/images/myavatar_gif.mov">
+                    <source type="video/mov" src="/images/myavatar_gif.mov" />
                 </video>
 
                 <div className={classes.greet}>
