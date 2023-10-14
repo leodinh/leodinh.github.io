@@ -14,7 +14,7 @@ export default function Contact() {
                 <video autoPlay loop muted width="200" height="200" src="/images/myavatar_gif.mov">
                     <source type="video/mov" src="/images/myavatar_gif.mov" />
                 </video>
-
+                <img src="/images/myavatar_1.png" alt="my_avatar" />
                 <div className={classes.greet}>
                     That would be my pleasure to connect with you{' '}
                     <span role="img" aria-label="heart">

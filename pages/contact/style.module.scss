@@ -8,12 +8,24 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    img {
+        width: 100px;
+        display: none;
+    }
     @include respond(phone) {
         margin: 100px 0 0 0;
     }
-    img {
-        width: 100px;
+    @include respond(tab-land) {
+        margin: 100px 0 0 0;
+        video {
+            display: none;
+        }
+        img {
+            margin-bottom: 20px;
+            display: block;
+        }
     }
+
     .greet {
         font-size: $medium-font-size;
         color: $color-white;
