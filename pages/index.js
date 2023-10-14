@@ -58,7 +58,7 @@ export default function Home() {
                                 !isRunningDemo ? classes.nodelay : ''
                             }`}>
                             <h1 className={!isRunningDemo ? classes.nodelay : ''}>
-                                Front End Developer
+                                Full-stack Developer
                             </h1>
                         </div>
                         <div
@@ -66,17 +66,17 @@ export default function Home() {
                                 !isRunningDemo ? classes.nodelay : ''
                             }`}>
                             <p className={!isRunningDemo ? classes.nodelay : ''}>
-                                I&apos;m based in Toronto, Canada. I love passionately developing
-                                software.
+                                I&apos;m based in Toronto, Canada{' '}
                                 <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">
                                     ✌️
                                 </span>
+                                .
                             </p>
                         </div>
                     </div>
                 </div>
                 <div className={`${classes.image} ${!isRunningDemo ? classes.nodelay : ''}`}>
-                    <img src="/images/mypic.png" alt="" />
+                    <img src="/images/mypic-new.png" alt="" />
                 </div>
             </div>
         </Layout>

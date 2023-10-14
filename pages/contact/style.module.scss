@@ -1,0 +1,91 @@
+@import '../../styles/sass/mixins';
+@import '../../styles/sass/variables';
+@import '../../styles/sass/animation';
+
+.content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include respond(phone) {
+        margin: 100px 0 0 0;
+    }
+    img {
+        width: 100px;
+    }
+    .greet {
+        font-size: $medium-font-size;
+        color: $color-white;
+        animation: fadeIn 1s ease-in forwards;
+    }
+    .btn {
+        animation: fadeIn 1s ease-in forwards;
+
+        margin-top: 20px;
+        width: 180px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid $color-shadow-blue-dark;
+        outline: none;
+        transition: 1s ease-in-out;
+        position: relative;
+        color: #fff;
+        font-size: $default-font-size;
+        font-family: 'Oswald', 'sans-serif';
+        text-decoration: none;
+        svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            fill: none;
+            stroke: #ffde7d;
+            stroke-dasharray: 150 480;
+            stroke-dashoffset: 150;
+            transition: 1s ease-in-out;
+        }
+        &:hover {
+            transition: 1s ease-in-out;
+            background: $color-shadow-blue-dark;
+            svg {
+                stroke-dashoffset: -480;
+            }
+        }
+        span {
+            color: $color-white;
+            font-size: $default-font-size;
+            font-weight: 100;
+            font-family: 'Oswald', 'sans-serif';
+        }
+    }
+}
+
+.navigation {
+    &__social {
+        animation: fadeIn 1s ease-in forwards;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        &_item {
+            a {
+                color: $color-grey-light-2 !important;
+                svg {
+                    width: $title-font-size;
+                    height: $title-font-size;
+                }
+                &:hover {
+                    color: $color-grey-dark-2 !important;
+                }
+            }
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    }
+}

@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
-import { Facebook, Instagram, Linkedin } from 'react-feather';
 function Navigation() {
     const isRunningDemo = useSelector((state) => state.isDemoRunning);
     const dispatch = useDispatch();
     const router = useRouter();
     const [isChecked, setIsChecked] = useState(false);
     const navigationsList = useState([
-        { name: 'HOME', href: '/' },
-        { name: 'About me', href: '/about' },
-        { name: 'Project', href: '/project' },
-        { name: 'Contact Me', href: '/contact' }
+        { name: 'Start />', href: '/' },
+        { name: 'About />', href: '/about' },
+        // { name: 'Project', href: '/project' },
+        { name: 'Contact />', href: '/contact' }
     ])[0];
     const navigateLink = async (href) => {
         setIsChecked(false);
@@ -65,35 +64,6 @@ function Navigation() {
                             </li>
                         ))}
                     </ul>
-                    <div className={styles['navigation__social']}>
-                        <div className={styles['navigation__social_item']}>
-                            <a
-                                href="https://www.facebook.com/anhtuandn0112/"
-                                rel="noreferrer opener"
-                                target="_blank">
-                                <Facebook />
-                            </a>
-                        </div>
-                        <div className={styles['navigation__social_item']}>
-                            <a
-                                rel="noreferrer opener"
-                                target="_blank"
-                                href="https://www.instagram.com/leoo.dinh/">
-                                <Instagram />
-                            </a>
-                        </div>
-                        <div
-                            className={styles['navigation__social_item']}
-                            rel="noreferrer opener"
-                            target="_blank">
-                            <a
-                                rel="noreferrer opener"
-                                target="_blank"
-                                href="https://www.linkedin.com/in/leotuandinh/">
-                                <Linkedin />
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </nav>
         </div>

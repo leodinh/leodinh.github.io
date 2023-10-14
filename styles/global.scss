@@ -13,6 +13,9 @@ html,
 body {
     height: 100%;
     margin: 0;
+    @include respond(phone) {
+        height: auto;
+    }
 }
 html {
     // This defines what 1rem is
@@ -37,9 +40,13 @@ body {
     width: 100%;
 
     box-sizing: border-box;
+    background-color: $color-primary;
 
     font-family: 'Bebas Neue', sans-serif;
     overflow: hidden;
+    @include respond(phone) {
+        overflow: visible;
+    }
     @include respond(tab-port) {
         padding: 0;
     }
