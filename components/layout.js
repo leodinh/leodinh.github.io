@@ -19,7 +19,7 @@ export default function Layout({ children, home }) {
     return (
         <div className={styles.container}>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/images/myavatar_1.png" />
                 <meta name="description" content="Welcome to my world!" />
                 <meta property="og:image" content="/images/about.jpg" />
                 <meta name="og:title" content={siteTitle} />
