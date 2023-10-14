@@ -11,7 +11,14 @@ export default function Contact() {
                 <title>{siteTitle}</title>
             </Head>
             <div className={classes.content}>
-                <video autoPlay loop muted width="200" height="200" src="/images/myavatar_gif.mov">
+                <video
+                    autoPlay
+                    playsinline
+                    loop
+                    muted
+                    width="200"
+                    height="200"
+                    src="/images/myavatar_gif.mov">
                     <source type="video/mov" src="/images/myavatar_gif.mov" />
                 </video>
                 <img src="/images/myavatar_1.png" alt="my_avatar" />
