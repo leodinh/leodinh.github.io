@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 const NavigationItems = [
     { name: 'About Me', id: 't1' },
     { name: 'My Skills', id: 't2' },
-    { name: 'My Background', id: 't3' }
+    { name: 'My Experience', id: 't3' }
 ];
 function Tab({ selectedSection, onChangeSection }) {
     return (
