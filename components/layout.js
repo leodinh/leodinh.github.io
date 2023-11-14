@@ -21,7 +21,7 @@ export default function Layout({ children, home }) {
             <Head>
                 <link rel="icon" href="/images/myavatar_1.png" />
                 <meta name="description" content="Welcome to my world!" />
-                <meta property="og:image" content="/images/about.jpg" />
+                <meta property="og:image" content="/images/mypic-new.png" />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>

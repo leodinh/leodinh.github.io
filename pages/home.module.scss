@@ -204,7 +204,6 @@
     @include respond(phone) {
         img {
             width: 500px;
-            filter: grayscale(130%) contrast(100%);
         }
     }
 }
