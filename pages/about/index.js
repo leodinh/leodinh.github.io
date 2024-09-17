@@ -74,6 +74,7 @@ function MySkills() {
                 <div className={classes.skillDetails}>
                     <span className={cn(classes.detailItem, classes.detailItem1)}>React</span>
                     <span className={cn(classes.detailItem, classes.detailItem2)}>NextJS</span>
+                    <span className={cn(classes.detailItem, classes.detailItem3)}>Typescript</span>
                     <span className={cn(classes.detailItem, classes.detailItem3)}>SCSS</span>
                 </div>
             </div>
@@ -82,6 +83,7 @@ function MySkills() {
                 <div className={classes.skillDetails}>
                     <span className={cn(classes.detailItem, classes.detailItem1)}>NodeJs</span>
                     <span className={cn(classes.detailItem, classes.detailItem2)}>ExpressJs</span>
+                    <span className={cn(classes.detailItem, classes.detailItem2)}>NestJS</span>
                     <span className={cn(classes.detailItem, classes.detailItem3)}>Typeorm</span>
                     <span className={cn(classes.detailItem, classes.detailItem4)}>Redis</span>
                 </div>
@@ -102,34 +104,51 @@ function MySkills() {
 function MyBackground() {
     return (
         <div className={classes.background}>
-            <div className={cn(classes.backgroundItem, classes.backgroundItem1)}>
+            <div className={cn(classes.backgroundItem, classes.backgroundItem2)}>
                 <div className={classes.introContainer}>
                     <div className={classes.introContainerLeft}>
-                        <div className={classes.role}>Fullstack Blockchain Developer</div>
-                        <div className={classes.company}>Capital Methods · Full-time</div>
+                        <div className={classes.role}>Fullstack Developer</div>
+                        <div className={classes.company}>
+                            Source Independent Entertainment · Contractor
+                        </div>
                     </div>
                     <div className={classes.introContainerRight}>
-                        <div className={classes.year}>Feb 2021 - Present</div>
-                        <div className={classes.place}>Toronto, Canada</div>
+                        <div className={classes.year}>Jan 2024 - Present</div>
+                        <div className={classes.place}>South Yorkshire, UK</div>
                     </div>
                 </div>
                 <div className={classes.doing}>
-                    Developing a next-generation yield aggregator (decentralized finance system) on
-                    Ethereum.
+                    Developed an NFT marketplace and its admin dashboard for selling digital assets.
                 </div>
             </div>
             <div className={cn(classes.backgroundItem, classes.backgroundItem2)}>
                 <div className={classes.introContainer}>
                     <div className={classes.introContainerLeft}>
-                        <div className={classes.role}>Fullstack Blockchain Developer</div>
-                        <div className={classes.company}>Gaia Labs · Freelance</div>
+                        <div className={classes.role}>Fullstack Developer</div>
+                        <div className={classes.company}>Gaia Labs · Contractor</div>
                     </div>
                     <div className={classes.introContainerRight}>
-                        <div className={classes.year}>Oct 2022 - Sep 2023</div>
+                        <div className={classes.year}>Oct 2022 - Oct 2023</div>
                         <div className={classes.place}>Toronto, Canada</div>
                     </div>
                 </div>
                 <div className={classes.doing}>Developed web3 marketplace for NFTs.</div>
+            </div>
+            <div className={cn(classes.backgroundItem, classes.backgroundItem1)}>
+                <div className={classes.introContainer}>
+                    <div className={classes.introContainerLeft}>
+                        <div className={classes.role}>Fullstack Developer</div>
+                        <div className={classes.company}>Capital Methods · Full-time</div>
+                    </div>
+                    <div className={classes.introContainerRight}>
+                        <div className={classes.year}>Feb 2021 - 09 2023</div>
+                        <div className={classes.place}>Toronto, Canada</div>
+                    </div>
+                </div>
+                <div className={classes.doing}>
+                    Developed a next-generation yield aggregator (decentralized finance system) on
+                    Ethereum.
+                </div>
             </div>
             <div className={cn(classes.backgroundItem, classes.backgroundItem3)}>
                 <div className={classes.introContainer}>
