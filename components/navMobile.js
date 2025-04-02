@@ -22,17 +22,22 @@ function navMobile() {
                 }`}>
                 <ul className="mt-20 divide-y divide-gray-75 grid ">
                     <li>
-                        <Link href="/" className={linkStyle}>
+                        <Link href="/" className={linkStyle} onClick={() => setOpenNav(false)}>
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" className={linkStyle}>
+                        <Link href="/about" className={linkStyle} onClick={() => setOpenNav(false)}>
+                            {' '}
                             About me
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" className={linkStyle}>
+                        <Link
+                            href="/project"
+                            className={linkStyle}
+                            onClick={() => setOpenNav(false)}>
+                            {' '}
                             Projects
                         </Link>
                     </li>

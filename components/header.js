@@ -25,12 +25,12 @@ function Header() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/" className={textStyle}>
+                                    <Link href="/about" className={textStyle}>
                                         About me
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/" className={textStyle}>
+                                    <Link href="/project" className={textStyle}>
                                         Projects
                                     </Link>
                                 </li>

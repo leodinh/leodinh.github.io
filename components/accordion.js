@@ -4,7 +4,7 @@ function AccordionExperience({ roleType, company, date, content }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <h2>
+            <div>
                 <button
                     type="button"
                     className={`flex items-center justify-between w-full px-2 py-5 font-medium rtl:text-right text-(--text-dark-color) border-b border-(--border-color) dark:text-(--text-light-color) gap-3 cursor-pointer ${
@@ -13,7 +13,7 @@ function AccordionExperience({ roleType, company, date, content }) {
                     } transition-all`}
                     aria-controls="accordion-flush-body-1"
                     onClick={() => setIsOpen((prev) => !prev)}>
-                    <div>
+                    <div className="text-start">
                         {roleType} - {company}
                     </div>
                     <div className="flex items-center">
@@ -35,7 +35,7 @@ function AccordionExperience({ roleType, company, date, content }) {
                         </svg>
                     </div>
                 </button>
-            </h2>
+            </div>
             <div className={`${isOpen ? 'block' : 'hidden'} animate-ease-in-out`}>
                 <div className="py-5 border-b border-(--border-color)">
                     <p className="mb-2 text-(--text-dark-color) dark:text-(--text-light-color)">
