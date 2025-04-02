@@ -2,7 +2,6 @@
 import { useRef } from 'react';
 import { marginSection, titleText } from '../constants/styling';
 import { BACK_END, FRONT_END, OTHERS } from '../constants/tech';
-import { random } from '../utils';
 import { InfiniteLoopSlider, Tag } from './infiniteLoopSlider';
 import { useIsVisible } from '../hooks/useIsVisible';
 
