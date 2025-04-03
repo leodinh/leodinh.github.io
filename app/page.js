@@ -4,6 +4,10 @@ import './page.css';
 import TechStack from '../components/techStack';
 import AccordionExperience from '../components/accordion';
 import { boldText, marginSection, titleText } from '../constants/styling';
+export const metadata = {
+    title: 'Leo',
+    description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
+};
 function App() {
     return (
         <div className={`flex flex-col mt-10 w-full ${marginSection}`}>

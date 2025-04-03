@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Avatar from '../../assets/chibi-version.png';
 import Feedbacks from '../../components/feedbacks';
 import { boldText, marginSection } from '../../constants/styling';
+export const metadata = {
+    title: 'About me',
+    description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
+};
 function about() {
     return (
         <div className="flex flex-col mt-0 lg:mt-10 w-full">

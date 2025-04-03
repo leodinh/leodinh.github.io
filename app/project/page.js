@@ -1,4 +1,8 @@
 import Image from 'next/image';
+export const metadata = {
+    title: 'My Projects',
+    description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
+};
 function page() {
     return (
         <div className="flex flex-col items-center mt-10 w-full">
