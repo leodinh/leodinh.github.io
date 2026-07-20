@@ -4,14 +4,18 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --padding: 0 50px;
-    --text-color: rgb(214, 211, 209);
-    --text-dark-color: rgb(127, 129, 136);
-    --text-light-color: #6a6a6b;
-    --background-secondary: rgb(30, 29, 28);
-    --background-light-secondary: rgb(250, 250, 249);
-    --border-color: rgb(48, 50, 54);
-    --border-light-color: rgb(48, 50, 54);
+    --color-accent: #4f46e5;
+    --color-accent-strong: #3730a3;
+    --color-page: #f7f7f5;
+    --color-page-dark: #0d0f12;
+    --color-surface: #ffffff;
+    --color-surface-dark: #15181d;
+    --color-ink: #171717;
+    --color-ink-dark: #f5f5f4;
+    --color-muted: #656970;
+    --color-muted-dark: #a6a9af;
+    --color-line: #deded9;
+    --color-line-dark: #2b3038;
     --animate-fadeIn: fadeIn 1s ease-in-out infinite;
 
     @keyframes fadeIn {
@@ -21,5 +25,161 @@
         to {
             opacity: 1;
         }
+    }
+}
+
+:root {
+    color-scheme: light;
+    --text-color: var(--color-muted-dark);
+    --text-dark-color: var(--color-muted);
+    --text-light-color: var(--color-muted-dark);
+    --background-secondary: var(--color-surface-dark);
+    --background-light-secondary: var(--color-surface);
+    --border-color: var(--color-line);
+    --border-light-color: var(--color-line);
+}
+
+.dark {
+    color-scheme: dark;
+    --border-color: var(--color-line-dark);
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--color-page);
+}
+
+html.dark {
+    background: var(--color-page-dark);
+}
+
+body {
+    background: radial-gradient(circle at 50% -20%, rgb(79 70 229 / 9%), transparent 32rem),
+        var(--color-page);
+    color: var(--color-ink);
+    font-size: 1rem;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+    background: radial-gradient(circle at 50% -20%, rgb(99 102 241 / 14%), transparent 34rem),
+        var(--color-page-dark);
+    color: var(--color-ink-dark);
+}
+
+::selection {
+    background: rgb(79 70 229 / 20%);
+    color: var(--color-ink);
+}
+
+:where(a, button, [tabindex]):focus-visible {
+    outline: 3px solid rgb(79 70 229 / 45%);
+    outline-offset: 4px;
+}
+
+.site-container {
+    width: min(100% - 2rem, 64rem);
+    margin-inline: auto;
+}
+
+.section-shell {
+    margin-block: clamp(4rem, 9vw, 7rem);
+}
+
+.section-title {
+    color: var(--color-ink);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+}
+
+.dark .section-title {
+    color: var(--color-ink-dark);
+}
+
+.surface-card {
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    background: rgb(255 255 255 / 72%);
+    box-shadow: 0 1px 2px rgb(23 23 23 / 4%);
+    backdrop-filter: blur(16px);
+}
+
+.dark .surface-card {
+    border-color: var(--color-line-dark);
+    background: rgb(21 24 29 / 78%);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+}
+
+.ui-button {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding-inline: 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 650;
+    transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.ui-button:hover {
+    transform: translateY(-1px);
+}
+
+.ui-button-primary {
+    background: var(--color-accent);
+    color: white;
+}
+
+.ui-button-primary:hover {
+    background: var(--color-accent-strong);
+}
+
+.ui-button-secondary {
+    border: 1px solid var(--color-line);
+    background: rgb(255 255 255 / 70%);
+    color: var(--color-ink);
+}
+
+.dark .ui-button-secondary {
+    border-color: var(--color-line-dark);
+    background: rgb(21 24 29 / 70%);
+    color: var(--color-ink-dark);
+}
+
+.ui-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0.25rem 0.625rem;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.dark .ui-badge {
+    border-color: var(--color-line-dark);
+    color: var(--color-muted-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
