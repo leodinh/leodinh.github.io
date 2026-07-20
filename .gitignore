@@ -27,3 +27,4 @@ yarn-error.log*
 # local browser review artifacts
 /.playwright-cli/
 /output/playwright/
+/output/design/

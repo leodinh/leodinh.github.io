@@ -6,6 +6,8 @@ import AccordionExperience from '../components/accordion';
 import Link from 'next/link';
 import { ArrowRightIcon, DocumentArrowDownIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { marginSection, titleText } from '../constants/styling';
+import { PROJECTS } from '../constants/projects';
+import ProjectCard from '../components/projectCard';
 export const metadata = {
     title: 'Leo',
     description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
@@ -59,6 +61,27 @@ function App() {
                             alt="Leo Tuan Dinh"
                         />
                     </div>
+                </div>
+            </section>
+            <section className={marginSection} aria-labelledby="selected-work-title">
+                <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+                    <div>
+                        <p className="mb-3 text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+                            Selected work
+                        </p>
+                        <h2 id="selected-work-title" className="section-title max-w-xl">
+                            Products shaped from interface to infrastructure.
+                        </h2>
+                    </div>
+                    <Link href="/project" className="ui-button ui-button-secondary shrink-0">
+                        All projects
+                        <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                </div>
+                <div className="grid gap-6 md:grid-cols-2">
+                    {PROJECTS.slice(0, 2).map((project) => (
+                        <ProjectCard project={project} priority key={project.slug} />
+                    ))}
                 </div>
             </section>
             <div className={`animate-fade-up flex w-full flex-col ${marginSection}`}>
