@@ -3,27 +3,65 @@ import Avatar from '../assets/my-photo-night.jpg';
 import './page.css';
 import TechStack from '../components/techStack';
 import AccordionExperience from '../components/accordion';
-import { boldText, marginSection, titleText } from '../constants/styling';
+import Link from 'next/link';
+import { ArrowRightIcon, DocumentArrowDownIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { marginSection, titleText } from '../constants/styling';
 export const metadata = {
     title: 'Leo',
     description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
 };
 function App() {
     return (
-        <div className={`flex flex-col mt-10 w-full ${marginSection}`}>
-            <div className="w-full flex flex-col items-center justify-center overflow-hidden mb-20">
-                <Image
-                    src={Avatar}
-                    className="w-40 animate-fade-down animate-once animate-duration-1000 animate-ease-in-out rounded-full animation ring-2 ring-(--text-dark-color) dark:ring-(--text-light-color) p-1 m-4  transition-all duration-200 cursor-pointer whitescal grayscale hover:scale-110 hover:grayscale-0"
-                    alt="my avatar"
-                />
-                <h1 className="text-2xl text-(--text-dark-color) dark:text-(--text-light-color) cursor animate-fade-up animate-once animate-duration-1000 animate-ease-in-out typewriter-animation">
-                    Hello there, I&apos;m <span className={boldText}>Leo</span>, a{' '}
-                    <span className={boldText}>Fullstack</span> developer based in{' '}
-                    <span className={boldText}> Toronto </span>
-                </h1>
-            </div>
-            <div className={`animate-fade-up w-full flex flex-col`}>
+        <div className="flex w-full flex-col">
+            <section className="grid min-h-[calc(100vh-3.5rem)] items-center gap-12 py-16 lg:grid-cols-[1.25fr_0.75fr] lg:py-24">
+                <div className="order-2 flex flex-col items-start lg:order-1">
+                    <div className="ui-badge mb-6 gap-2">
+                        <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+                        Available for thoughtful collaborations
+                    </div>
+                    <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+                        Full-stack · Web3 · Toronto
+                    </p>
+                    <h1 className="max-w-3xl text-[clamp(2.75rem,7vw,5rem)] leading-[0.98] font-semibold tracking-[-0.06em] text-ink dark:text-ink-dark">
+                        I build reliable products across web and blockchain.
+                    </h1>
+                    <p className="mt-7 max-w-2xl text-lg leading-8 text-muted dark:text-muted-dark">
+                        I&apos;m Leo, a full-stack engineer turning complex product ideas into
+                        clear, scalable experiences—from polished interfaces to backend and on-chain
+                        systems.
+                    </p>
+                    <div className="mt-9 flex flex-wrap gap-3">
+                        <Link href="/project" className="ui-button ui-button-primary">
+                            View selected work
+                            <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
+                        </Link>
+                        <Link href="/cv.pdf" className="ui-button ui-button-secondary">
+                            <DocumentArrowDownIcon className="h-4 w-4" aria-hidden="true" />
+                            Download résumé
+                        </Link>
+                    </div>
+                    <p className="mt-6 flex items-center gap-2 text-sm text-muted dark:text-muted-dark">
+                        <MapPinIcon className="h-4 w-4" aria-hidden="true" />
+                        Based in Toronto, working with teams worldwide
+                    </p>
+                </div>
+                <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+                    <div className="relative">
+                        <div
+                            className="absolute inset-4 -z-10 rounded-full bg-accent/15 blur-3xl"
+                            aria-hidden="true"
+                        />
+                        <Image
+                            src={Avatar}
+                            priority
+                            sizes="(min-width: 1024px) 320px, 208px"
+                            className="h-52 w-52 rounded-[2rem] border border-line object-cover grayscale shadow-2xl shadow-indigo-950/10 transition duration-500 hover:-rotate-1 hover:scale-[1.02] hover:grayscale-0 lg:h-80 lg:w-80 dark:border-line-dark"
+                            alt="Leo Tuan Dinh"
+                        />
+                    </div>
+                </div>
+            </section>
+            <div className={`animate-fade-up flex w-full flex-col ${marginSection}`}>
                 <h1 className={titleText}> Experience</h1>
                 <div>
                     <AccordionExperience
