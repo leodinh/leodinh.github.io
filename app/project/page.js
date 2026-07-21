@@ -1,4 +1,4 @@
-import ProjectCard from '../../components/projectCard';
+import ProjectShowcase from '../../components/projectShowcase';
 import { PROJECTS } from '../../constants/projects';
 export const metadata = {
     title: 'My Projects',
@@ -19,11 +19,10 @@ function page() {
                     replace these placeholders over time.
                 </p>
             </header>
-            <div className="mt-16 grid gap-6 md:grid-cols-2 lg:mt-20">
-                {PROJECTS.map((project) => (
-                    <ProjectCard project={project} key={project.slug} />
-                ))}
-            </div>
+            <ProjectShowcase
+                projects={PROJECTS}
+                className="mt-16 grid gap-6 md:grid-cols-2 lg:mt-20"
+            />
         </div>
     );
 }

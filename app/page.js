@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { ArrowRightIcon, DocumentArrowDownIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { marginSection, titleText } from '../constants/styling';
 import { PROJECTS } from '../constants/projects';
-import ProjectCard from '../components/projectCard';
+import ProjectShowcase from '../components/projectShowcase';
 export const metadata = {
     title: 'Leo',
     description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
@@ -78,11 +78,11 @@ function App() {
                         <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
                     </Link>
                 </div>
-                <div className="grid gap-6 md:grid-cols-2">
-                    {PROJECTS.slice(0, 2).map((project) => (
-                        <ProjectCard project={project} priority key={project.slug} />
-                    ))}
-                </div>
+                <ProjectShowcase
+                    projects={PROJECTS.slice(0, 2)}
+                    priority
+                    className="grid gap-6 md:grid-cols-2"
+                />
             </section>
             <div className={`animate-fade-up flex w-full flex-col ${marginSection}`}>
                 <h1 className={titleText}> Experience</h1>

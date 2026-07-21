@@ -8,7 +8,9 @@ export const PROJECTS = [
         category: 'Full-stack Development',
         technologies: ['TypeScript', 'Next.js', 'Tailwind CSS', 'PostgreSQL'],
         accent: 'from-indigo-500 via-violet-500 to-fuchsia-400',
-        mark: 'A'
+        mark: 'A',
+        liveUrl: null,
+        sourceUrl: null
     },
     {
         slug: 'project-beta',
@@ -19,7 +21,9 @@ export const PROJECTS = [
         category: 'Data Visualization',
         technologies: ['React', 'D3.js', 'Recharts', 'Vite'],
         accent: 'from-cyan-500 via-blue-500 to-indigo-500',
-        mark: 'B'
+        mark: 'B',
+        liveUrl: null,
+        sourceUrl: null
     },
     {
         slug: 'project-gamma',
@@ -30,7 +34,9 @@ export const PROJECTS = [
         category: 'Mobile Development',
         technologies: ['React Native', 'Expo', 'Zustand', 'React Query'],
         accent: 'from-emerald-400 via-teal-500 to-cyan-500',
-        mark: 'G'
+        mark: 'G',
+        liveUrl: null,
+        sourceUrl: null
     },
     {
         slug: 'project-delta',
@@ -41,6 +47,8 @@ export const PROJECTS = [
         category: 'Web Application',
         technologies: ['Next.js', 'MDX', 'Sanity', 'Tailwind CSS'],
         accent: 'from-amber-400 via-orange-500 to-rose-500',
-        mark: 'D'
+        mark: 'D',
+        liveUrl: null,
+        sourceUrl: null
     }
 ];
