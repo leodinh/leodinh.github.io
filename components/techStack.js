@@ -1,39 +1,66 @@
-'use client';
-import { useRef } from 'react';
 import { marginSection, titleText } from '../constants/styling';
 import { BACK_END, FRONT_END, OTHERS } from '../constants/tech';
-import { InfiniteLoopSlider, Tag } from './infiniteLoopSlider';
-import { useIsVisible } from '../hooks/useIsVisible';
 
 function techStack() {
-    const ref1 = useRef();
-    const isVisible = useIsVisible(ref1);
-    const animation = !isVisible
-        ? 'opacity-0'
-        : 'opacity-100 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out';
+    const capabilities = [
+        {
+            number: '01',
+            title: 'Product interfaces',
+            description:
+                'Accessible, responsive experiences that make complex products feel clear and intuitive.',
+            technologies: FRONT_END
+        },
+        {
+            number: '02',
+            title: 'Backend systems',
+            description:
+                'Reliable APIs, data models, caching, and services designed to evolve with the product.',
+            technologies: BACK_END
+        },
+        {
+            number: '03',
+            title: 'Blockchain applications',
+            description:
+                'On-chain logic and Web3 integrations connected to practical, user-focused applications.',
+            technologies: OTHERS
+        }
+    ];
 
     return (
-        <div className={`${animation} flex flex-col items-center ${marginSection}`} ref={ref1}>
-            <h1 className={`${titleText}`}>Tech Stack</h1>
-            <div className="relative w-full lg:w-auto max-w-200 flex flex-col items-center justify-center gap-1 p-1 overflow-hidden mt-5 mb-5 lg:mt-20 lg:mb-20">
-                <InfiniteLoopSlider duration="14427">
-                    {FRONT_END.map((tag) => (
-                        <Tag text={tag} key={tag} />
-                    ))}
-                </InfiniteLoopSlider>
-                <InfiniteLoopSlider duration="14661" reverse>
-                    {BACK_END.map((tag) => (
-                        <Tag text={tag} key={tag} />
-                    ))}
-                </InfiniteLoopSlider>
-                <InfiniteLoopSlider duration="14525">
-                    {OTHERS.map((tag) => (
-                        <Tag text={tag} key={tag} />
-                    ))}
-                </InfiniteLoopSlider>
-                <div className="fade" />
+        <section className={marginSection} aria-labelledby="capabilities-title">
+            <div className="max-w-2xl">
+                <p className="mb-3 text-sm font-semibold tracking-[0.16em] text-accent uppercase">
+                    How I contribute
+                </p>
+                <h2 id="capabilities-title" className={titleText}>
+                    Capabilities
+                </h2>
             </div>
-        </div>
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+                {capabilities.map((capability) => (
+                    <article
+                        className="surface-card flex h-full flex-col p-6"
+                        key={capability.number}>
+                        <span className="font-mono text-xs font-semibold text-accent">
+                            {capability.number}
+                        </span>
+                        <h3 className="mt-8 text-xl font-semibold tracking-[-0.025em] text-ink dark:text-ink-dark">
+                            {capability.title}
+                        </h3>
+                        <p className="mt-3 leading-7 text-muted dark:text-muted-dark">
+                            {capability.description}
+                        </p>
+                        <ul className="mt-6 flex flex-wrap gap-2" aria-label="Technologies">
+                            {capability.technologies.map((technology) => (
+                                <li className="ui-badge" key={technology}>
+                                    {technology}
+                                </li>
+                            ))}
+                        </ul>
+                    </article>
+                ))}
+            </div>
+        </section>
     );
 }
 

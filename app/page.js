@@ -2,12 +2,12 @@ import Image from 'next/image';
 import Avatar from '../assets/my-photo-night.jpg';
 import './page.css';
 import TechStack from '../components/techStack';
-import AccordionExperience from '../components/accordion';
 import Link from 'next/link';
 import { ArrowRightIcon, DocumentArrowDownIcon, MapPinIcon } from '@heroicons/react/24/outline';
-import { marginSection, titleText } from '../constants/styling';
+import { marginSection } from '../constants/styling';
 import { PROJECTS } from '../constants/projects';
 import ProjectShowcase from '../components/projectShowcase';
+import Experience from '../components/experience';
 export const metadata = {
     title: 'Leo',
     description: 'Leo Tuan Dinh - Web3 Fullstack Developer'
@@ -84,38 +84,7 @@ function App() {
                     className="grid gap-6 md:grid-cols-2"
                 />
             </section>
-            <div className={`animate-fade-up flex w-full flex-col ${marginSection}`}>
-                <h1 className={titleText}> Experience</h1>
-                <div>
-                    <AccordionExperience
-                        roleType="Fullstack Developer"
-                        company="SIE"
-                        date="2024 - Present"
-                        content="Supported a revamp of the NFT marketplace across frontend, backend and smart contracts
-infrastructure, and liaised with Product leaders to evaluate feasibility, capacity and technical debt"
-                    />
-                    <AccordionExperience
-                        roleType="Fullstack Developer"
-                        company="Gaia Labs"
-                        date="2022 - 2023"
-                        content="Developed a decentralized application and added new functionality alongside
-UI/UX Designers based on solution requirements while ensuring technical feasibility and scalability"
-                    />
-                    <AccordionExperience
-                        roleType="Frontend Developer"
-                        company="Capital Methods"
-                        date="2021 - 2023"
-                        content="Developed seamless user interfaces from ground-up for a next-gen yield aggregator (DeFi system)
-on Ethereum using React"
-                    />
-                    <AccordionExperience
-                        roleType="Student Researcher"
-                        company="George Brown College"
-                        date="2020 - 2021"
-                        content="Researched and implemented a Blockchain network"
-                    />
-                </div>
-            </div>
+            <Experience />
             <TechStack />
         </div>
     );
