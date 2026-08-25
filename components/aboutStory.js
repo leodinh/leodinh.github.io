@@ -189,16 +189,16 @@ function AboutStory() {
             <section id="story" className="about-editorial-section" aria-labelledby="story-title">
                 <SectionHeading chapter={CHAPTERS[1]} title="A bit of a journey" />
                 <h2 id="story-title" className="sr-only">
-                    From Vietnam to Toronto
+                    From Vietnam to Canada
                 </h2>
-                <div className="about-route" aria-label="From Vietnam to Toronto">
+                <div className="about-route" aria-label="From Vietnam to Canada">
                     <span>Vietnam</span>
                     <span className="about-route-line" aria-hidden="true" />
-                    <span>Toronto</span>
+                    <span>Canada</span>
                 </div>
                 <p className="about-story-intro">
-                    Vietnam gave me a foundation in computer science. Toronto gave me room to
-                    explore blockchain—and eventually a broader way of building products.
+                    Vietnam gave me a foundation in computer science. Canada gave me room to explore
+                    blockchain—and eventually a broader way of building products.
                 </p>
                 <div className="about-story-layout">
                     <ol className="about-path">
