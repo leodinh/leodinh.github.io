@@ -846,9 +846,10 @@
     overflow: hidden;
     border: 1px solid var(--about-rule);
     border-radius: 50%;
+    background-color: #c6a276;
     background-image: url('/images/expressions.png');
     background-repeat: no-repeat;
-    background-size: 300% 300%;
+    background-size: 340% 340%;
     box-shadow: 0 1.25rem 3rem rgb(23 23 23 / 10%);
     animation: about-expression-float 6s ease-in-out infinite alternate;
 }
@@ -862,7 +863,7 @@
     right: 0.5rem;
     width: 15.5rem;
     height: 15.5rem;
-    background-position: 100% 0;
+    background-position: 95.5% 2.5%;
 }
 
 .about-expression-camera {
@@ -870,7 +871,7 @@
     left: 0;
     width: 10.5rem;
     height: 10.5rem;
-    background-position: 50% 0;
+    background-position: 50% 2.5%;
     animation-delay: -2s;
 }
 
