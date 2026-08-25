@@ -847,7 +847,7 @@
     border: 1px solid var(--about-rule);
     border-radius: 50%;
     background-color: #c6a276;
-    background-image: url('/images/expressions.png');
+    background-image: url('/images/expressions-clean.png');
     background-repeat: no-repeat;
     background-size: 340% 340%;
     box-shadow: 0 1.25rem 3rem rgb(23 23 23 / 10%);
