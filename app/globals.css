@@ -69,6 +69,27 @@ body {
     color: var(--color-ink-dark);
 }
 
+.site-backdrop {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    background-image: linear-gradient(rgb(23 23 23 / 7%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(23 23 23 / 7%) 1px, transparent 1px);
+    background-size: 4.5rem 4.5rem;
+    mask-image: radial-gradient(
+        ellipse 110% 82% at 50% 32%,
+        black 0%,
+        rgb(0 0 0 / 78%) 56%,
+        rgb(0 0 0 / 30%) 100%
+    );
+    pointer-events: none;
+}
+
+.dark .site-backdrop {
+    background-image: linear-gradient(rgb(245 245 244 / 8%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(245 245 244 / 8%) 1px, transparent 1px);
+}
+
 ::selection {
     background: rgb(79 70 229 / 20%);
     color: var(--color-ink);
@@ -80,6 +101,8 @@ body {
 }
 
 .site-container {
+    position: relative;
+    z-index: 1;
     width: min(100% - 2rem, 64rem);
     margin-inline: auto;
 }

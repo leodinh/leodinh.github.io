@@ -1,43 +1,53 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowDownRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import Feedback from './feedback';
 
-const recommendations = [
-    {
-        name: 'Dhruvin Parikh',
-        relate: 'CTO at OptyFi',
-        feedback:
-            'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
-    },
-    {
-        name: 'Deepanshu Gupta',
-        relate: 'Former colleague at OptyFi',
-        feedback:
-            'Leo has a deep understanding of blockchain technology and strong skills in building web products. He picks up new technology quickly, delivers high-quality work, and contributes valuable insights to the team.'
-    },
-    {
-        name: 'Nima Ghazanfari',
-        relate: 'Former colleague at OptyFi',
-        feedback:
-            'Leo consistently delivers valuable solutions to complex challenges. His commitment to excellence, strong programming background, and willingness to help others make him a remarkable colleague.'
-    }
-];
+const recommendation = {
+    name: 'Dhruvin Parikh',
+    relate: 'CTO at OptyFi',
+    feedback:
+        'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
+};
 
 function Feedbacks() {
+    const [recommendationOpen, setRecommendationOpen] = useState(false);
+
     return (
         <section className="section-shell" aria-labelledby="recommendations-title">
-            <div className="max-w-2xl">
-                <span className="ui-badge mb-4">Recommendations</span>
-                <h2 id="recommendations-title" className="section-title">
-                    Trusted by people I have built alongside
-                </h2>
-                <p className="mt-4 text-muted dark:text-muted-dark">
-                    A few words from former teammates, adapted from recommendations shared on
-                    LinkedIn.
-                </p>
-            </div>
-            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {recommendations.map((recommendation) => (
-                    <Feedback key={recommendation.name} {...recommendation} />
-                ))}
+            <span className="ui-badge mb-4">Recommendations</span>
+            <h2 id="recommendations-title">
+                <button
+                    type="button"
+                    className="recommendation-trigger section-title"
+                    aria-expanded={recommendationOpen}
+                    aria-controls="featured-recommendation"
+                    onClick={() => setRecommendationOpen((open) => !open)}>
+                    <span>Curious what it’s like to work with me?</span>
+                    <ArrowDownRightIcon
+                        className="recommendation-trigger-icon"
+                        aria-hidden="true"
+                    />
+                </button>
+            </h2>
+
+            <div
+                id="featured-recommendation"
+                className="disclosure-panel"
+                hidden={!recommendationOpen}>
+                <div className="recommendation-content">
+                    <Feedback {...recommendation} />
+                    <Link
+                        href="https://www.linkedin.com/in/leotuandinh/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-strong">
+                        See more recommendations on LinkedIn
+                        <ArrowUpRightIcon className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                </div>
             </div>
         </section>
     );

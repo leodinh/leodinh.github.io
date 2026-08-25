@@ -11,6 +11,7 @@ function layout({ children }) {
         <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
             <body className="min-h-screen overflow-x-hidden">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                    <div className="site-backdrop" aria-hidden="true" />
                     <div className="site-container flex min-h-screen flex-col items-center">
                         <Header />
                         <main className="w-full flex-1">{children}</main>
