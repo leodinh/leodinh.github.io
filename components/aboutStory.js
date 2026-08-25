@@ -162,10 +162,10 @@ function AboutStory() {
                 <SectionHeading chapter={CHAPTERS[0]} title="About" />
                 <div className="about-hello-layout">
                     <div className="about-hello-copy">
-                        <h1 id="hello-title">Hey, I’m Leo.</h1>
+                        <h1 id="hello-title">I like figuring things out.</h1>
                         <p>
-                            I spend most of my time building things for the web—and occasionally
-                            disappearing down a rabbit hole.
+                            Sometimes that means building a product. Sometimes it means following a
+                            new idea—or wandering somewhere with a camera.
                         </p>
                     </div>
 
