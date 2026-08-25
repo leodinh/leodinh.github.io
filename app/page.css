@@ -1175,11 +1175,15 @@
     font-size: 0.76rem;
 }
 
+.about-people .about-editorial-heading {
+    margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
 .about-people blockquote {
     position: relative;
     max-width: 56rem;
     padding-left: 3.5rem;
-    font-size: clamp(2.4rem, 5.7vw, 4.8rem);
+    font-size: clamp(1.8rem, 3.6vw, 3rem);
     font-weight: 520;
     letter-spacing: -0.06em;
     line-height: 1.08;
