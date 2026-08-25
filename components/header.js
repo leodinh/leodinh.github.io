@@ -11,20 +11,23 @@ function Header() {
     const pathname = usePathname();
     const links = [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About me' },
-        { href: '/project', label: 'Projects' }
+        { href: '/about', label: 'About me' }
     ];
 
     return (
         <header className="sticky inset-x-0 top-0 z-30 w-full max-w-[1296px] transition-all">
-            <div className="inset-0 block transition-all lg:hidden fixed inset-x-0 top-0 z-[5] h-36 w-full bg-background/5 to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)] firefox:bg-opacity-90 dark:bg-[#1212125c]" />
             <div className="relative z-10 h-14 items-center justify-between">
                 <div className="flex h-14 items-center justify-between">
                     <Link
                         href="/"
-                        className="z-10 hidden grow basis-0 lg:block"
+                        className="relative z-50 block w-fit lg:z-10 lg:grow lg:basis-0"
                         aria-label="Leo Tuan Dinh — home">
-                        <Image src={logo} priority alt="" className="w-8" />
+                        <Image
+                            src={logo}
+                            priority
+                            alt=""
+                            className="w-8 transition-transform hover:scale-105"
+                        />
                     </Link>
                     <nav className="relative hidden lg:block" aria-label="Primary navigation">
                         <div className="relative">

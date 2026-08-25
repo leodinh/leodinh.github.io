@@ -1,50 +1,72 @@
 export const EXPERIENCE = [
     {
-        role: 'Full-stack Developer',
-        company: 'SIE',
-        period: '2024 — Present',
+        role: 'Full-Stack Developer',
+        company: 'Fullstock Media',
+        period: 'Mar 2026 - Present',
         summary:
-            'Supporting an NFT marketplace revamp across the customer experience, backend services, and smart-contract infrastructure.',
+            'Develop and maintain a digital-content marketplace across a Next.js frontend, NestJS and GraphQL backend, and asynchronous media-processing services.',
         highlights: [
-            'Partner with product leaders to evaluate feasibility, delivery capacity, and technical debt.',
-            'Contribute across frontend, backend, and on-chain systems as the platform evolves.'
+            'Contribute to migrating a large-scale React frontend to Next.js, introducing server-side rendering and modernizing GraphQL data access with Apollo Client and state management with Zustand.',
+            'Build and improve purchasing, offers, subscriptions, real-time notifications, and digital-asset management workflows.',
+            'Improved Stripe subscription and PayPal payment flows, fixing upgrade, cancellation, and recovery issues.'
         ],
-        technologies: ['Full-stack', 'Smart contracts', 'Product engineering']
+        technologies: ['Next.js', 'NestJS', 'GraphQL', 'Stripe', 'PayPal']
     },
     {
-        role: 'Full-stack Developer',
-        company: 'Gaia Labs',
-        period: '2022 — 2023',
+        role: 'Full-Stack Web3 Developer',
+        company: 'Macroscape',
+        period: 'Apr 2025 - Feb 2026',
         summary:
-            'Developed a decentralized application and delivered new functionality from product requirements through implementation.',
+            'Built a multi-chain Web3 platform spanning a Next.js application, NestJS backend, SvelteKit operations portal, and smart contracts.',
         highlights: [
-            'Collaborated closely with UI/UX designers to turn solution requirements into usable product experiences.',
-            'Evaluated technical feasibility and scalability while extending the application.'
+            'Implemented upgradeable token contracts, automated tests, access controls, deployment tooling, and security-audit remediations.',
+            'Built a system to allowlist millions of token holders across 14 networks using cron jobs and Bloom filters.',
+            "Built and deployed a SvelteKit e-commerce storefront integrated with Shopify's Storefront API for product listings, cart management, and checkout.",
+            'Built wallet onboarding, digital-asset management, secure exchanges, referrals, rewards, analytics, and real-time notifications.'
         ],
-        technologies: ['React', 'Node.js', 'Web3']
+        technologies: ['Next.js', 'NestJS', 'SvelteKit', 'Solidity', 'Shopify']
     },
     {
-        role: 'Frontend Developer',
+        role: 'Full-Stack Developer, Contract',
+        company: 'Source Independent Entertainment',
+        period: 'Jan 2024 - Mar 2025',
+        summary:
+            'Built the React interface and administrative dashboard for an NFT marketplace and integrated wallet and smart-contract interactions.',
+        highlights: [
+            'Co-developed NestJS and GraphQL APIs for marketplace operations, notifications, and smart-contract event tracking.'
+        ],
+        technologies: ['React', 'NestJS', 'GraphQL', 'Web3']
+    },
+    {
+        role: 'Full-Stack Developer, Contract',
+        company: 'Gaia Labs (via Capital Methods)',
+        period: 'Oct 2022 - Oct 2023',
+        isBranch: true,
+        branchLabel: 'Contract branch through Capital Methods',
+        summary:
+            'Built reusable Next.js components and REST APIs for NFT management and smart-contract event tracking.',
+        highlights: [
+            'Remediated audit findings, expanded unit tests, resolved KYC defects, and improved UI performance through lazy loading.'
+        ],
+        technologies: ['Next.js', 'REST APIs', 'Smart contracts', 'Testing']
+    },
+    {
+        role: 'Full-Stack Developer, Full-time',
         company: 'Capital Methods',
-        period: '2021 — 2023',
+        period: 'Feb 2021 - Sep 2023',
         summary:
-            'Built product interfaces from the ground up for a next-generation decentralized-finance yield aggregator.',
+            'Built React and Next.js interfaces for a DeFi yield aggregator serving 500+ users and reaching $2M+ peak TVL.',
         highlights: [
-            'Translated complex Ethereum protocol behavior into approachable user flows.',
-            'Delivered responsive React interfaces for a rapidly evolving DeFi product.'
+            'Developed Node.js and PostgreSQL APIs, integrated smart contracts, deployed AWS services, and implemented on-chain data indexing.'
         ],
-        technologies: ['React', 'Ethereum', 'DeFi']
+        technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'AWS']
     },
     {
         role: 'Student Researcher',
         company: 'George Brown College',
-        period: '2020 — 2021',
-        summary:
-            'Researched distributed-ledger technology and implemented a working blockchain network in an academic environment.',
-        highlights: [
-            'Explored blockchain architecture through applied research and prototyping.',
-            'Turned research findings into a functional network implementation.'
-        ],
-        technologies: ['Blockchain', 'Distributed systems', 'Research']
+        period: 'Jun 2020 - Jan 2021',
+        summary: 'Researched and implemented a blockchain network using Go and React.',
+        highlights: [],
+        technologies: ['Go', 'React', 'Blockchain']
     }
 ];
