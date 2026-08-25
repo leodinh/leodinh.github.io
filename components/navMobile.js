@@ -5,8 +5,12 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import ToggleTheme from './toggleTheme';
 
-function NavMobile({ links, pathname }) {
+function NavMobile({ links, pathname, onOpenChange }) {
     const [openNav, setOpenNav] = useState(false);
+
+    useEffect(() => {
+        onOpenChange?.(openNav);
+    }, [onOpenChange, openNav]);
 
     useEffect(() => {
         if (!openNav) return;

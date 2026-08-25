@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import logo from '../assets/avatar.png';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ToggleTheme from './toggleTheme';
@@ -9,6 +8,7 @@ import HeaderBackground from './headerBackground';
 import NavMobile from './navMobile';
 function Header() {
     const pathname = usePathname();
+    const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const links = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About me' }
@@ -22,11 +22,11 @@ function Header() {
                         href="/"
                         className="relative z-50 block w-fit lg:z-10 lg:grow lg:basis-0"
                         aria-label="Leo Tuan Dinh — home">
-                        <Image
-                            src={logo}
-                            priority
-                            alt=""
-                            className="w-8 transition-transform hover:scale-105"
+                        <span
+                            className={`header-expression-avatar ${
+                                mobileNavOpen ? 'is-menu-open' : ''
+                            }`}
+                            aria-hidden="true"
                         />
                     </Link>
                     <nav className="relative hidden lg:block" aria-label="Primary navigation">
@@ -56,7 +56,7 @@ function Header() {
                     <div className="hidden grow basis-0 justify-end lg:flex">
                         <ToggleTheme />
                     </div>
-                    <NavMobile links={links} pathname={pathname} />
+                    <NavMobile links={links} pathname={pathname} onOpenChange={setMobileNavOpen} />
                 </div>
             </div>
         </header>
