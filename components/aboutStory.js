@@ -341,6 +341,10 @@ function AboutStory() {
                         </figcaption>
                     </figure>
                 </div>
+                <Link href="/photography" className="about-inline-link about-photography-link">
+                    See my photography
+                    <ArrowUpRightIcon aria-hidden="true" />
+                </Link>
             </section>
 
             <section
