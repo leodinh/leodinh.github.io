@@ -4,6 +4,7 @@ import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import ToggleTheme from './toggleTheme';
+import VintageModal from './vintageModal';
 
 function NavMobile({ links, pathname, onOpenChange }) {
     const [openNav, setOpenNav] = useState(false);
@@ -43,25 +44,12 @@ function NavMobile({ links, pathname, onOpenChange }) {
                 aria-controls="mobile-navigation">
                 {openNav ? <XMarkIcon className="h-5 w-5" /> : <Bars2Icon className="h-5 w-5" />}
             </button>
-            <button
-                type="button"
-                className={`fixed inset-0 z-30 cursor-default bg-ink/12 backdrop-blur-[2px] transition-opacity duration-200 lg:hidden dark:bg-black/35 ${
-                    openNav ? 'visible opacity-100' : 'invisible pointer-events-none opacity-0'
-                }`}
-                aria-label="Close navigation menu"
-                tabIndex={openNav ? 0 : -1}
-                onClick={() => setOpenNav(false)}
-            />
-            <nav
+            <VintageModal
                 id="mobile-navigation"
-                className={`fixed right-3 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] left-3 z-40 mx-auto max-w-sm origin-bottom rounded-[1.75rem] border border-line bg-page/95 p-3 shadow-2xl shadow-zinc-950/15 backdrop-blur-xl transition-[opacity,transform,visibility] duration-300 ease-out lg:hidden dark:border-line-dark dark:bg-page-dark/95 ${
-                    openNav
-                        ? 'visible translate-y-0 scale-100 opacity-100'
-                        : 'invisible pointer-events-none translate-y-8 scale-[0.98] opacity-0'
-                }`}
-                aria-label="Mobile navigation"
-                aria-hidden={!openNav}
-                inert={!openNav}>
+                open={openNav}
+                onClose={() => setOpenNav(false)}
+                eyebrow="NAV // MENU"
+                bottomSheet>
                 <ul className="space-y-1">
                     {links.map(({ href, label }) => {
                         const isActive = pathname === href;
@@ -87,7 +75,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
                     <span className="text-sm text-muted dark:text-muted-dark">Appearance</span>
                     <ToggleTheme />
                 </div>
-            </nav>
+            </VintageModal>
         </>
     );
 }
