@@ -168,16 +168,34 @@ function AboutStory() {
         const container = pageRef.current;
         const story = document.getElementById('story');
         const work = document.getElementById('work');
-        if (!container || !story || !work) return undefined;
+        const offline = document.getElementById('offline');
+        const people = document.getElementById('people');
+        if (!container || !story || !work || !offline || !people) return undefined;
 
-        const observer = new IntersectionObserver(
-            ([entry]) => entry.target.classList.toggle('is-visible', entry.isIntersecting),
-            { root: container, threshold: 0.6 }
-        );
+        const targets = [story, work, offline, people];
+        let frame;
+        const updateVisibility = () => {
+            const rootRect = container.getBoundingClientRect();
+            targets.forEach((target) => {
+                const rect = target.getBoundingClientRect();
+                const visibleHeight =
+                    Math.min(rect.bottom, rootRect.bottom) - Math.max(rect.top, rootRect.top);
+                target.classList.toggle('is-visible', visibleHeight >= rootRect.height * 0.55);
+            });
+            frame = undefined;
+        };
+        const scheduleUpdate = () => {
+            if (!frame) frame = window.requestAnimationFrame(updateVisibility);
+        };
 
-        observer.observe(story);
-        observer.observe(work);
-        return () => observer.disconnect();
+        updateVisibility();
+        container.addEventListener('scroll', scheduleUpdate, { passive: true });
+        window.addEventListener('resize', scheduleUpdate);
+        return () => {
+            container.removeEventListener('scroll', scheduleUpdate);
+            window.removeEventListener('resize', scheduleUpdate);
+            if (frame) window.cancelAnimationFrame(frame);
+        };
     }, []);
 
     useEffect(() => {
@@ -296,7 +314,7 @@ function AboutStory() {
 
             <section
                 id="offline"
-                className="about-editorial-section"
+                className="about-editorial-section about-offline"
                 aria-labelledby="offline-title">
                 <SectionHeading chapter={CHAPTERS[3]} title="When I’m not here" />
                 <div className="about-offline-layout">
