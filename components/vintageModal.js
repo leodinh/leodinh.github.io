@@ -1,6 +1,15 @@
 'use client';
 
-function VintageModal({ open, onClose, eyebrow, title, children, bottomSheet = false, id }) {
+function VintageModal({
+    open,
+    onClose,
+    eyebrow,
+    title,
+    children,
+    bottomSheet = false,
+    id,
+    className = ''
+}) {
     return (
         <div
             className={`vintage-modal ${open ? 'is-open' : ''} ${
@@ -17,7 +26,7 @@ function VintageModal({ open, onClose, eyebrow, title, children, bottomSheet = f
                 tabIndex={open ? 0 : -1}
             />
             <section
-                className="vintage-modal-panel"
+                className={`vintage-modal-panel ${className}`}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="vintage-modal-title">
