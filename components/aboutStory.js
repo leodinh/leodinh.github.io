@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -9,8 +9,8 @@ import {
     ArrowUpRightIcon,
     ChevronDownIcon
 } from '@heroicons/react/24/outline';
-import NightPortrait from '../assets/my-photo-night.jpg';
 import { EXPERIENCE } from '../constants/experience';
+import VintageModal from './vintageModal';
 
 const CHAPTERS = [
     { id: 'hello', number: '01', label: 'Hello' },
@@ -38,20 +38,23 @@ function SectionHeading({ chapter, title }) {
     );
 }
 
-function ChapterNavigator() {
+function ChapterNavigator({ containerRef }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [chapterListOpen, setChapterListOpen] = useState(false);
 
     useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return undefined;
+
         const sections = CHAPTERS.map(({ id }) => document.getElementById(id)).filter(Boolean);
         let frame;
 
         const updateActiveChapter = () => {
-            const readingLine = window.innerHeight * 0.36;
+            const readingLine = container.clientHeight * 0.36;
             let nextIndex = 0;
 
             sections.forEach((section, index) => {
-                if (section.getBoundingClientRect().top <= readingLine) nextIndex = index;
+                if (section.offsetTop - container.scrollTop <= readingLine) nextIndex = index;
             });
 
             setActiveIndex(nextIndex);
@@ -63,16 +66,19 @@ function ChapterNavigator() {
             frame = window.requestAnimationFrame(updateActiveChapter);
         };
 
+        const initialId = window.location.hash.slice(1);
+        const initialSection = sections.find((section) => section.id === initialId);
+        if (initialSection) container.scrollTop = initialSection.offsetTop;
         updateActiveChapter();
-        window.addEventListener('scroll', scheduleUpdate, { passive: true });
+        container.addEventListener('scroll', scheduleUpdate, { passive: true });
         window.addEventListener('resize', scheduleUpdate);
 
         return () => {
-            window.removeEventListener('scroll', scheduleUpdate);
+            container.removeEventListener('scroll', scheduleUpdate);
             window.removeEventListener('resize', scheduleUpdate);
             if (frame) window.cancelAnimationFrame(frame);
         };
-    }, []);
+    }, [containerRef]);
 
     useEffect(() => {
         const closeOnEscape = (event) => {
@@ -86,11 +92,15 @@ function ChapterNavigator() {
     const goToChapter = (index) => {
         const chapter = CHAPTERS[index];
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const container = containerRef.current;
+        const section = document.getElementById(chapter.id);
 
-        document.getElementById(chapter.id)?.scrollIntoView({
-            behavior: reduceMotion ? 'auto' : 'smooth',
-            block: 'start'
-        });
+        if (container && section) {
+            container.scrollTo({
+                top: section.offsetTop,
+                behavior: reduceMotion ? 'auto' : 'smooth'
+            });
+        }
         window.history.replaceState(null, '', `#${chapter.id}`);
         setActiveIndex(index);
         setChapterListOpen(false);
@@ -151,9 +161,60 @@ function ChapterNavigator() {
 }
 
 function AboutStory() {
+    const pageRef = useRef(null);
+    const [selectedWork, setSelectedWork] = useState(null);
+
+    useEffect(() => {
+        const container = pageRef.current;
+        const story = document.getElementById('story');
+        const work = document.getElementById('work');
+        const offline = document.getElementById('offline');
+        const people = document.getElementById('people');
+        if (!container || !story || !work || !offline || !people) return undefined;
+
+        const targets = [story, work, offline, people];
+        let frame;
+        const updateVisibility = () => {
+            const rootRect = container.getBoundingClientRect();
+            targets.forEach((target) => {
+                const rect = target.getBoundingClientRect();
+                const visibleHeight =
+                    Math.min(rect.bottom, rootRect.bottom) - Math.max(rect.top, rootRect.top);
+                target.classList.toggle('is-visible', visibleHeight >= rootRect.height * 0.55);
+            });
+            frame = undefined;
+        };
+        const scheduleUpdate = () => {
+            if (!frame) frame = window.requestAnimationFrame(updateVisibility);
+        };
+
+        updateVisibility();
+        container.addEventListener('scroll', scheduleUpdate, { passive: true });
+        window.addEventListener('resize', scheduleUpdate);
+        return () => {
+            container.removeEventListener('scroll', scheduleUpdate);
+            window.removeEventListener('resize', scheduleUpdate);
+            if (frame) window.cancelAnimationFrame(frame);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!selectedWork) return undefined;
+        const closeOnEscape = (event) => {
+            if (event.key === 'Escape') setSelectedWork(null);
+        };
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', closeOnEscape);
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            window.removeEventListener('keydown', closeOnEscape);
+        };
+    }, [selectedWork]);
+
     return (
-        <div className="about-editorial-page">
-            <ChapterNavigator />
+        <div ref={pageRef} className="about-editorial-page">
+            <ChapterNavigator containerRef={pageRef} />
 
             <section
                 id="hello"
@@ -186,41 +247,35 @@ function AboutStory() {
                 </div>
             </section>
 
-            <section id="story" className="about-editorial-section" aria-labelledby="story-title">
+            <section
+                id="story"
+                className="about-editorial-section about-story"
+                aria-labelledby="story-title">
                 <SectionHeading chapter={CHAPTERS[1]} title="A bit of a journey" />
                 <h2 id="story-title" className="sr-only">
                     From Vietnam to Canada
                 </h2>
                 <div className="about-route" aria-label="From Vietnam to Canada">
-                    <span>Vietnam</span>
+                    <div className="about-route-stop">
+                        <strong>Vietnam</strong>
+                        <span>Foundation in computer science.</span>
+                    </div>
                     <span className="about-route-line" aria-hidden="true" />
-                    <span>Canada</span>
+                    <div className="about-route-stop">
+                        <strong>Canada</strong>
+                        <span>Room to explore blockchain.</span>
+                    </div>
                 </div>
-                <p className="about-story-intro">
-                    Vietnam gave me a foundation in computer science. Canada gave me room to explore
-                    blockchain—and eventually a broader way of building products.
+                <p className="about-story-conclusion">
+                    Eventually, it shaped who I am as a builder: curious about systems, comfortable
+                    with complexity, and always looking for a clearer way forward.
                 </p>
-                <div className="about-story-layout">
-                    <ol className="about-path">
-                        <li>Computer science</li>
-                        <li>Blockchain</li>
-                        <li>Web3</li>
-                        <li>Full-stack / product engineering</li>
-                    </ol>
-                    <figure className="about-life-photo">
-                        <Image
-                            src={NightPortrait}
-                            fill
-                            sizes="(min-width: 768px) 300px, 75vw"
-                            className="object-cover"
-                            alt="Leo outside at night in Toronto"
-                        />
-                        <figcaption>Toronto, after dark.</figcaption>
-                    </figure>
-                </div>
             </section>
 
-            <section id="work" className="about-editorial-section" aria-labelledby="work-title">
+            <section
+                id="work"
+                className="about-editorial-section about-work"
+                aria-labelledby="work-title">
                 <SectionHeading chapter={CHAPTERS[2]} title="Things I’ve worked on" />
                 <div className="about-work-heading">
                     <h2 id="work-title">The path so far.</h2>
@@ -233,25 +288,33 @@ function AboutStory() {
                         <ArrowUpRightIcon aria-hidden="true" />
                     </Link>
                 </div>
-                <ol className="about-work-list">
+                <div className="about-work-grid">
                     {EXPERIENCE.map((experience) => (
-                        <li
-                            className="about-work-row"
+                        <button
+                            type="button"
+                            className="about-work-card"
+                            onClick={() => setSelectedWork(experience)}
                             key={`${experience.company}-${experience.role}`}>
-                            <div>
-                                <h3>{experience.company}</h3>
-                                <p className="about-work-role">{experience.role}</p>
-                            </div>
-                            <p className="about-work-summary">{experience.summary}</p>
-                            <time>{experience.period}</time>
-                        </li>
+                            <span className="about-work-card-index">
+                                {String(EXPERIENCE.indexOf(experience) + 1).padStart(2, '0')}
+                            </span>
+                            <span className="about-work-card-company about-work-card-company-full">
+                                {experience.company}
+                            </span>
+                            <span className="about-work-card-company about-work-card-company-short">
+                                {experience.shortCompany || experience.company}
+                            </span>
+                            <span className="about-work-card-role">{experience.role}</span>
+                            <span className="about-work-card-period">{experience.period}</span>
+                            <span className="about-work-card-hint">Open log ↗</span>
+                        </button>
                     ))}
-                </ol>
+                </div>
             </section>
 
             <section
                 id="offline"
-                className="about-editorial-section"
+                className="about-editorial-section about-offline"
                 aria-labelledby="offline-title">
                 <SectionHeading chapter={CHAPTERS[3]} title="When I’m not here" />
                 <div className="about-offline-layout">
@@ -307,6 +370,28 @@ function AboutStory() {
                     </Link>
                 </div>
             </section>
+
+            {selectedWork ? (
+                <VintageModal
+                    open
+                    onClose={() => setSelectedWork(null)}
+                    eyebrow={`WORK LOG // ${selectedWork.period}`}
+                    title={selectedWork.company}
+                    bottomSheet>
+                    <p className="about-work-modal-role">{selectedWork.role}</p>
+                    <p className="about-work-modal-summary">{selectedWork.summary}</p>
+                    <div className="about-work-modal-details">
+                        <div>
+                            <span>STATUS</span>
+                            <strong>ARCHIVED / LOGGED</strong>
+                        </div>
+                        <div>
+                            <span>STACK</span>
+                            <strong>{selectedWork.technologies.join(' · ')}</strong>
+                        </div>
+                    </div>
+                </VintageModal>
+            ) : null}
         </div>
     );
 }

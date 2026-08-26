@@ -29,6 +29,7 @@ export const EXPERIENCE = [
     {
         role: 'Full-Stack Developer, Contract',
         company: 'Source Independent Entertainment',
+        shortCompany: 'SIE',
         period: 'Jan 2024 - Mar 2025',
         summary:
             'Built the React interface and administrative dashboard for an NFT marketplace and integrated wallet and smart-contract interactions.',
@@ -40,6 +41,7 @@ export const EXPERIENCE = [
     {
         role: 'Full-Stack Developer, Contract',
         company: 'Gaia Labs (via Capital Methods)',
+        shortCompany: 'Gaia Labs',
         period: 'Oct 2022 - Oct 2023',
         isBranch: true,
         branchLabel: 'Contract branch through Capital Methods',
@@ -64,6 +66,7 @@ export const EXPERIENCE = [
     {
         role: 'Student Researcher',
         company: 'George Brown College',
+        shortCompany: 'GBC',
         period: 'Jun 2020 - Jan 2021',
         summary: 'Researched and implemented a blockchain network using Go and React.',
         highlights: [],
