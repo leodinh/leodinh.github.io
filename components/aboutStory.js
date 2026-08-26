@@ -320,7 +320,12 @@ function AboutStory() {
                 <div className="about-offline-layout">
                     <div>
                         <h2 id="offline-title">
-                            I’m usually wandering somewhere with a camera, following the light.
+                            <span className="about-offline-heading-full">
+                                I’m usually wandering somewhere with a camera, following the light.
+                            </span>
+                            <span className="about-offline-heading-short">
+                                Wandering with a camera.
+                            </span>
                         </h2>
                         <p>
                             Photography slows me down. It makes me notice the overlooked corners,

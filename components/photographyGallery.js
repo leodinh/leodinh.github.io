@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { XMarkIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline';
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { PHOTOGRAPHS } from '../constants/photography';
 import VintageModal from './vintageModal';
 
@@ -63,6 +63,7 @@ function PhotographyGallery() {
                     onClose={() => setSelected(null)}
                     eyebrow={`PHOTO LOG // ${String(selected.index + 1).padStart(2, '0')}`}
                     title={selected.caption}
+                    bottomSheet
                     className="vintage-modal-panel-wide">
                     <figure className="photography-viewer-figure">
                         <div
@@ -87,12 +88,6 @@ function PhotographyGallery() {
                                     onClick={(event) => event.stopPropagation()}>
                                     Download <ArrowDownTrayIcon aria-hidden="true" />
                                 </a>
-                                <button
-                                    type="button"
-                                    onClick={() => setSelected(null)}
-                                    aria-label="Close photograph">
-                                    <XMarkIcon aria-hidden="true" />
-                                </button>
                             </span>
                         </figcaption>
                     </figure>
