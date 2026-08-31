@@ -3,12 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-    ArrowDownIcon,
-    ArrowUpIcon,
-    ArrowUpRightIcon,
-    ChevronDownIcon
-} from '@heroicons/react/24/outline';
+import { ArrowUpRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { EXPERIENCE } from '../constants/experience';
 import VintageModal from './vintageModal';
 
@@ -139,23 +134,6 @@ function ChapterNavigator({ containerRef }) {
                 <strong>{activeChapter.label}</strong>
                 <ChevronDownIcon className={chapterListOpen ? 'is-open' : ''} aria-hidden="true" />
             </button>
-
-            <div className="about-chapter-arrows">
-                <button
-                    type="button"
-                    aria-label="Previous About section"
-                    disabled={activeIndex === 0}
-                    onClick={() => goToChapter(activeIndex - 1)}>
-                    <ArrowUpIcon aria-hidden="true" />
-                </button>
-                <button
-                    type="button"
-                    aria-label="Next About section"
-                    disabled={activeIndex === CHAPTERS.length - 1}
-                    onClick={() => goToChapter(activeIndex + 1)}>
-                    <ArrowDownIcon aria-hidden="true" />
-                </button>
-            </div>
         </aside>
     );
 }

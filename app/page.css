@@ -2108,7 +2108,7 @@
     bottom: calc(4rem + 1rem);
     left: max(1rem, calc((100vw - 64rem) / 2 - 7rem));
     display: grid;
-    grid-template-columns: minmax(7.4rem, auto) auto;
+    grid-template-columns: minmax(7.4rem, auto);
     border: 1px solid var(--color-line);
     border-radius: 1rem;
     background: rgb(247 247 245 / 88%);
@@ -2153,46 +2153,6 @@
 
 .about-chapter-current svg.is-open {
     transform: rotate(180deg);
-}
-
-.about-chapter-arrows {
-    display: grid;
-    grid-template-columns: repeat(2, 2.75rem);
-    border-left: 1px solid var(--color-line);
-}
-
-.dark .about-chapter-arrows {
-    border-color: var(--color-line-dark);
-}
-
-.about-chapter-arrows button {
-    display: grid;
-    cursor: pointer;
-    place-items: center;
-    transition: background-color 160ms ease, color 160ms ease;
-}
-
-.about-chapter-arrows button + button {
-    border-left: 1px solid var(--color-line);
-}
-
-.dark .about-chapter-arrows button + button {
-    border-color: var(--color-line-dark);
-}
-
-.about-chapter-arrows button:hover:not(:disabled) {
-    background: rgb(79 70 229 / 10%);
-    color: var(--color-accent);
-}
-
-.about-chapter-arrows button:disabled {
-    cursor: not-allowed;
-    opacity: 0.28;
-}
-
-.about-chapter-arrows svg {
-    width: 0.95rem;
-    height: 0.95rem;
 }
 
 .about-chapter-list {
@@ -2610,7 +2570,7 @@
     .about-chapter-navigator {
         bottom: calc(4rem + 0.8rem + env(safe-area-inset-bottom));
         left: 0.8rem;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto;
         border-radius: 0.85rem;
     }
 
@@ -2627,10 +2587,6 @@
     .about-chapter-current svg {
         width: 0.72rem;
         height: 0.72rem;
-    }
-
-    .about-chapter-arrows {
-        grid-template-columns: repeat(2, 2.4rem);
     }
 
     .about-chapter-list {
