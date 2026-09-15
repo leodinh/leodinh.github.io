@@ -1,15 +1,15 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ToggleTheme from './toggleTheme';
 import HeaderBackground from './headerBackground';
 import NavMobile from './navMobile';
+import Logo from './logo';
+import { lockupLabel } from '../constants/content';
 
 function Header() {
     const pathname = usePathname();
-    const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const links = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
@@ -22,14 +22,9 @@ function Header() {
                 <div className="flex h-14 items-center justify-between">
                     <Link
                         href="/"
-                        className="relative z-50 block w-fit lg:z-10 lg:grow lg:basis-0"
-                        aria-label="Leo Tuan Dinh — home">
-                        <span
-                            className={`header-expression-avatar ${
-                                mobileNavOpen ? 'is-menu-open' : ''
-                            }`}
-                            aria-hidden="true"
-                        />
+                        className="relative z-10 block w-fit lg:grow lg:basis-0"
+                        aria-label={`${lockupLabel()} — home`}>
+                        <Logo size="header" />
                     </Link>
                     <nav className="relative hidden lg:block" aria-label="Primary navigation">
                         <div className="relative">
@@ -58,7 +53,7 @@ function Header() {
                     <div className="hidden grow basis-0 justify-end lg:flex">
                         <ToggleTheme />
                     </div>
-                    <NavMobile links={links} pathname={pathname} onOpenChange={setMobileNavOpen} />
+                    <NavMobile links={links} pathname={pathname} />
                 </div>
             </div>
         </header>

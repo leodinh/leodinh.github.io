@@ -119,19 +119,113 @@ body {
     margin-inline: auto;
 }
 
-.header-expression-avatar {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background-image: url('/images/head-neutral.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: transform 160ms var(--ease-out);
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1;
 }
 
-.header-expression-avatar.is-menu-open {
-    background-image: url('/images/head-surprised.png');
+.site-logo--header {
+    gap: 0.35rem;
+    color: var(--color-ink);
+    font-size: 1.15rem;
+}
+
+.dark .site-logo--header {
+    color: var(--color-ink-dark);
+}
+
+.site-logo--hero {
+    gap: 0.7rem;
+    color: var(--color-ink);
+    font-size: clamp(2.75rem, 8vw, 4.5rem);
+}
+
+.dark .site-logo--hero {
+    color: var(--color-ink-dark);
+}
+
+.site-logo-dot {
+    display: block;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.site-logo--header .site-logo-dot {
+    width: 0.28rem;
+    height: 0.28rem;
+}
+
+.site-logo--hero .site-logo-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+}
+
+.site-intro-curtain {
+    position: fixed;
+    z-index: 110;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: var(--color-page);
+    animation: site-intro-curtain-out 700ms 1.8s var(--ease-out) forwards;
+}
+
+.dark .site-intro-curtain {
+    background: var(--color-page-dark);
+}
+
+.site-intro-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: site-intro-line 1.1s linear both;
+}
+
+.site-intro-curtain .site-logo--hero {
+    animation: site-intro-lockup-in 280ms var(--ease-out) both;
+}
+
+@keyframes site-intro-lockup-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes site-intro-line {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes site-intro-curtain-out {
+    to {
+        transform: translateY(-100%);
+        pointer-events: none;
+    }
+}
+
+@keyframes site-intro-curtain-fade {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 .ui-button {
@@ -208,12 +302,6 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    a:hover > .header-expression-avatar,
-    a:focus-visible > .header-expression-avatar {
-        background-image: url('/images/head-wink.png');
-        transform: scale(1.06);
-    }
-
     .ui-button-primary:hover {
         background: var(--color-accent-strong);
     }
@@ -243,5 +331,16 @@ body {
         animation: none !important;
         transition-property: color, background-color, border-color, opacity, outline-color !important;
         transition-duration: 160ms !important;
+    }
+
+    .site-intro-curtain {
+        animation: site-intro-curtain-fade 200ms ease forwards !important;
+    }
+
+    .site-intro-curtain .site-logo--hero,
+    .site-intro-line {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
     }
 }

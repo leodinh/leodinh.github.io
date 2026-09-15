@@ -2,6 +2,16 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { EXPERIENCE } from './experience.js';
 import { PHOTOGRAPHS } from './photography.js';
+import { INTRO_LOCKUP, lockupLabel } from './content.js';
+
+test('intro lockup is Leo and Dinh', () => {
+    assert.equal(INTRO_LOCKUP.given, 'Leo');
+    assert.equal(INTRO_LOCKUP.family, 'Dinh');
+});
+
+test('lockup label is reusable as Leo Dinh', () => {
+    assert.equal(lockupLabel(), 'Leo Dinh');
+});
 
 test('experience entries include the fields about work cards render', () => {
     assert.ok(EXPERIENCE.length > 0);

@@ -1,6 +1,7 @@
 import { IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from 'next/font/google';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import SiteIntro from '../components/siteIntro';
 import { ThemeProvider } from 'next-themes';
 
 import './globals.css';
@@ -32,6 +33,7 @@ function layout({ children }) {
             suppressHydrationWarning>
             <body className="min-h-screen overflow-x-hidden">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                    <SiteIntro />
                     <div className="site-backdrop" aria-hidden="true" />
                     <div className="site-container flex min-h-screen flex-col items-center">
                         <Header />
