@@ -12,8 +12,7 @@ function Header() {
     const pathname = usePathname();
     const links = [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
-        { href: '/photography', label: 'Photography' }
+        { href: '/about', label: 'About' }
     ];
 
     return (
