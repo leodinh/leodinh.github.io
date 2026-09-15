@@ -239,7 +239,7 @@
     font-size: clamp(2.6rem, 6vw, 4.15rem);
     letter-spacing: -0.03em;
     line-height: 1.05;
-    animation: about-hello-rise 280ms var(--ease-out) both;
+    opacity: 0;
 }
 
 .about-hello-copy p {
@@ -250,6 +250,14 @@
     letter-spacing: -0.04em;
     line-height: 1.3;
     text-wrap: balance;
+    opacity: 0;
+}
+
+html.site-intro-done .about-hello-copy h1 {
+    animation: about-hello-rise 280ms var(--ease-out) both;
+}
+
+html.site-intro-done .about-hello-copy p {
     animation: about-hello-rise 280ms 40ms var(--ease-out) both;
 }
 
@@ -279,11 +287,33 @@
     overflow: hidden;
     border: 1px solid var(--about-rule);
     border-radius: 50%;
-    background-color: #c6a276;
-    background-image: url('/images/expressions-clean.png');
-    background-repeat: no-repeat;
-    background-size: 340% 340%;
+    background-color: var(--color-surface);
     box-shadow: 0 1.25rem 3rem rgb(23 23 23 / 10%);
+    opacity: 0;
+}
+
+html.site-intro-done .about-expression {
+    animation: about-hello-rise 240ms var(--ease-out) both;
+}
+
+html.site-intro-done .about-expression:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+html.site-intro-done .about-expression:nth-child(2) {
+    animation-delay: 40ms;
+}
+
+html.site-intro-done .about-expression:nth-child(3) {
+    animation-delay: 80ms;
+}
+
+html.site-intro-done .about-expression:nth-child(4) {
+    animation-delay: 120ms;
+}
+
+.about-expression-image {
+    object-fit: cover;
 }
 
 .dark .about-expression {
@@ -293,27 +323,33 @@
 .about-expression-smile {
     top: 0;
     right: 0.5rem;
+    z-index: 3;
     width: 15.5rem;
     height: 15.5rem;
-    background-position: 95.5% 2.5%;
 }
 
 .about-expression-camera {
     bottom: 2rem;
     left: 0;
+    z-index: 2;
     width: 10.5rem;
     height: 10.5rem;
-    background-position: 50% 2.5%;
-    animation-delay: -2s;
 }
 
 .about-expression-thinking {
     right: 0;
     bottom: 0;
+    z-index: 2;
     width: 8rem;
     height: 8rem;
-    background-position: 50% 50%;
-    animation-delay: -4s;
+}
+
+.about-expression-market {
+    top: 5.25rem;
+    left: 0.35rem;
+    z-index: 1;
+    width: 6.5rem;
+    height: 6.5rem;
 }
 
 .about-expression-stage figcaption {
@@ -340,6 +376,10 @@
     color: var(--color-muted);
     font-size: 0.76rem;
     letter-spacing: 0.04em;
+    opacity: 0;
+}
+
+html.site-intro-done .about-location {
     animation: about-hello-rise 240ms 60ms var(--ease-out) both;
 }
 
@@ -1548,6 +1588,13 @@
         bottom: 0.15rem;
         width: 5.75rem;
         height: 5.75rem;
+    }
+
+    .about-expression-market {
+        top: 3.1rem;
+        left: 4%;
+        width: 4.5rem;
+        height: 4.5rem;
     }
 
     .about-expression-stage figcaption {
