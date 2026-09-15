@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { DocumentArrowDownIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
-import Avatar from '../assets/my-photo-night.jpg';
+import Avatar from '@/assets/my-photo-night.jpg';
 
 function HomeIntro() {
     return (

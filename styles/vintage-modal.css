@@ -1,0 +1,254 @@
+.vintage-modal-panel {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.vintage-modal-panel h2 {
+    font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+}
+
+/* Shared CRT modal shell for work logs, navigation, and future panels. */
+.vintage-modal {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.vintage-modal.is-visible {
+    visibility: visible;
+}
+
+.vintage-modal.is-open {
+    pointer-events: auto;
+}
+
+.vintage-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(4 8 12 / 0%);
+    opacity: 0;
+    backdrop-filter: blur(0) saturate(100%);
+    -webkit-backdrop-filter: blur(0) saturate(100%);
+    transition: opacity 320ms var(--ease-out), background-color 320ms var(--ease-out),
+        backdrop-filter 320ms var(--ease-out), -webkit-backdrop-filter 320ms var(--ease-out);
+}
+
+.vintage-modal.is-open .vintage-modal-backdrop {
+    background: rgb(4 8 12 / 72%);
+    opacity: 1;
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+@starting-style {
+    .vintage-modal.is-open .vintage-modal-backdrop {
+        background: rgb(4 8 12 / 0%);
+        opacity: 0;
+        backdrop-filter: blur(0) saturate(100%);
+        -webkit-backdrop-filter: blur(0) saturate(100%);
+    }
+}
+
+.vintage-modal-panel {
+    position: relative;
+    width: min(100%, 38rem);
+    max-height: 88dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+    border: 3px double #9bf6bf;
+    border-radius: 0.35rem;
+    background: #0b1715;
+    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 40%), inset 0 0 0 1px rgb(155 246 191 / 20%);
+    color: #c8ffd9;
+    opacity: 0;
+    outline: none;
+    transition: opacity 160ms var(--ease-out);
+}
+
+.vintage-modal.is-open .vintage-modal-panel {
+    opacity: 1;
+    will-change: transform;
+}
+
+.vintage-modal-panel.is-dragging {
+    cursor: grabbing;
+    touch-action: none;
+}
+
+.vintage-modal-panel::before {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgb(155 246 191 / 6%) 0,
+        rgb(155 246 191 / 6%) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    content: '';
+    pointer-events: none;
+}
+
+.vintage-modal-panel::after,
+.photography-viewer-figure::after {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        115deg,
+        transparent 25%,
+        rgb(155 246 191 / 11%) 45%,
+        transparent 65%
+    );
+    background-size: 220% 100%;
+    background-position: 40% 0;
+    content: '';
+    pointer-events: none;
+}
+
+.vintage-modal-topline,
+.vintage-modal-panel h2,
+.vintage-modal-panel > *:not(.vintage-modal-topline) {
+    position: relative;
+}
+
+.vintage-modal-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #79dba2;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+}
+
+.vintage-modal-topline button {
+    color: inherit;
+    cursor: pointer;
+    transition: transform 160ms var(--ease-out);
+}
+
+.vintage-modal-topline button:active {
+    transform: scale(0.97);
+}
+
+.nav-crt-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.35rem;
+    padding: 0.9rem 1rem;
+    color: #c8ffd9;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease;
+}
+
+.nav-crt-link.is-active {
+    background: rgb(155 246 191 / 14%);
+    color: #9bf6bf;
+}
+
+.nav-crt-link:active {
+    transform: scale(0.97);
+}
+
+.nav-crt-appearance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    padding: 1rem 0.75rem 0.5rem;
+    border-top: 1px solid rgb(155 246 191 / 25%);
+    color: #79dba2;
+    font-size: 0.85rem;
+}
+
+.nav-mobile-toggle {
+    transition: transform 160ms var(--ease-out), border-color 160ms ease;
+}
+
+.nav-mobile-toggle:active {
+    transform: scale(0.97);
+}
+
+.vintage-modal-panel a {
+    color: #c8ffd9;
+    transition: color 160ms ease, transform 160ms var(--ease-out);
+}
+
+.vintage-modal-panel a:active {
+    transform: scale(0.97);
+}
+
+.vintage-modal-panel h2 {
+    margin-top: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    letter-spacing: -0.06em;
+}
+
+.vintage-modal.is-bottom-sheet {
+    align-items: end;
+    padding: 0;
+}
+
+.vintage-modal.is-bottom-sheet .vintage-modal-panel {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 1rem 1rem 0 0;
+}
+
+@media (width >= 48rem) {
+    .vintage-modal.is-bottom-sheet {
+        align-items: center;
+        padding: 1.25rem;
+    }
+
+    .vintage-modal.is-bottom-sheet .vintage-modal-panel {
+        width: min(100%, 38rem);
+        border: 3px double #9bf6bf;
+        border-radius: 0.35rem;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav-crt-link:hover:not(.is-active) {
+        background: rgb(155 246 191 / 8%);
+    }
+
+    .vintage-modal-panel a:hover {
+        color: #9bf6bf;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .vintage-modal-backdrop,
+    .vintage-modal.is-open .vintage-modal-backdrop {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .vintage-modal.is-open .vintage-modal-backdrop {
+        background: rgb(4 8 12 / 88%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vintage-modal-panel {
+        transform: none !important;
+    }
+
+    .vintage-modal-panel::after {
+        animation: none;
+    }
+}

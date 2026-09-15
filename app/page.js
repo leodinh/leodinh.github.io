@@ -1,5 +1,5 @@
-import './page.css';
-import HomeIntro from '../components/homeIntro';
+import '@/styles/home.css';
+import HomeIntro from '@/components/homeIntro';
 
 export const metadata = {
     title: 'Leo',

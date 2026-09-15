@@ -1,5 +1,5 @@
-import AboutStory from '../../components/aboutStory';
-import '../page.css';
+import AboutStory from '@/components/aboutStory';
+import '@/styles/about.css';
 
 export const metadata = {
     title: 'About Leo Tuan Dinh',

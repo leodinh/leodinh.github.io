@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import SiteIntro from './siteIntro';
-import { siteShellPhase } from '../utils/siteIntro';
+import { siteShellPhase } from '@/utils/siteIntro';
 
 function SiteShell({ children }) {
     const [introFinished, setIntroFinished] = useState(false);

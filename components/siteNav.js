@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { tabClipPath } from '../utils/tabClip';
+import { tabClipPath } from '@/utils/tabClip';
 
 function SiteNav({ links, pathname }) {
     const trackRef = useRef(null);

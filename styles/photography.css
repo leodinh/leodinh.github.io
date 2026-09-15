@@ -1,0 +1,381 @@
+.photography-page {
+    width: 100%;
+    padding-block: clamp(2rem, 5vw, 5rem);
+}
+
+.photography-page-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.photography-page-heading h1 {
+    color: var(--color-ink);
+    font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.dark .photography-page-heading h1 {
+    color: var(--color-ink-dark);
+}
+
+.photography-page-heading p {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.dark .photography-page-heading p {
+    color: var(--color-muted-dark);
+}
+
+.photography-grid {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: 11rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.photography-tile {
+    position: relative;
+    min-height: 11rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: zoom-in;
+    text-align: left;
+    animation: photography-tile-in 240ms var(--ease-out) both;
+    animation-delay: calc(var(--tile-index, 0) * 40ms);
+    transition: transform 160ms var(--ease-out);
+}
+
+.photography-tile:active {
+    transform: scale(0.97);
+}
+
+.photography-tile::before {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: linear-gradient(110deg, #e7e5e1 8%, #f3f1ed 18%, #e7e5e1 33%);
+    background-size: 200% 100%;
+    content: '';
+    animation: photography-skeleton-shimmer 1.25s linear infinite;
+    transition: opacity 260ms ease;
+}
+
+.photography-tile.is-loaded::before {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.photography-tile > img {
+    opacity: 0;
+    transition: opacity 200ms var(--ease-out);
+}
+
+.photography-tile.is-loaded > img {
+    opacity: 1;
+}
+
+.photography-tile-wide {
+    grid-column: span 2;
+}
+.photography-tile-tall {
+    grid-row: span 2;
+}
+.photography-tile-square {
+    grid-column: span 1;
+}
+
+.photography-tile::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 65%), transparent 45%);
+    content: '';
+    opacity: 0.65;
+    transition: opacity 180ms ease;
+}
+
+.photography-tile span {
+    position: absolute;
+    z-index: 1;
+    right: 1rem;
+    bottom: 0.9rem;
+    left: 1rem;
+    color: white;
+    font-size: 0.78rem;
+    opacity: 0;
+    transform: translateY(0.4rem);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.photography-tile:focus-visible::after,
+.photography-tile:focus-visible span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photography-viewer {
+    position: fixed;
+    z-index: 120;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.photography-viewer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 82%);
+    backdrop-filter: blur(12px);
+}
+
+.vintage-modal-panel-wide {
+    width: min(100%, 74rem);
+    max-height: calc(100svh - 2rem);
+    overflow: hidden;
+}
+
+.photography-viewer-figure {
+    position: relative;
+    width: min(100%, 74rem);
+    padding: 0.65rem;
+    border: 3px double #9bf6bf;
+    border-radius: 0.35rem;
+    background: #0b1715;
+    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 45%), inset 0 0 0 1px rgb(155 246 191 / 20%);
+    color: #c8ffd9;
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.photography-viewer-figure::before {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgb(155 246 191 / 6%) 0,
+        rgb(155 246 191 / 6%) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    border-radius: inherit;
+    content: '';
+    pointer-events: none;
+}
+
+.photography-viewer-image {
+    object-fit: contain;
+}
+
+.photography-viewer-image-frame {
+    position: relative;
+    width: 100%;
+    max-height: calc(100svh - 10rem);
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+.photography-viewer-image-frame::before {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: linear-gradient(105deg, #0b1715 10%, #1b4a35 28%, #0b1715 46%);
+    background-size: 220% 100%;
+    content: '';
+    animation: photography-modal-skeleton 1.15s linear infinite;
+    transition: opacity 280ms ease;
+}
+
+.photography-viewer-image-frame.is-loaded::before {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.photography-viewer-image-frame .photography-viewer-image {
+    opacity: 0;
+    transition: opacity 200ms var(--ease-out);
+}
+
+.photography-viewer-image-frame.is-loaded .photography-viewer-image {
+    opacity: 1;
+}
+
+.photography-viewer-image-frame.is-tall {
+    width: auto;
+    height: min(calc(100svh - 10rem), 70vh);
+    max-width: 100%;
+    aspect-ratio: 2 / 3;
+}
+
+.photography-viewer-image-frame.is-wide {
+    aspect-ratio: 3 / 2;
+}
+
+.photography-viewer-image-frame.is-square {
+    width: min(100%, 52rem);
+    aspect-ratio: 1;
+}
+
+.photography-viewer-figure figcaption {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    color: #c8ffd9;
+    font-size: 0.8rem;
+}
+
+.photography-viewer-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.photography-viewer-actions a,
+.photography-viewer-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #9bf6bf;
+    cursor: pointer;
+}
+
+.photography-viewer-actions svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media (width < 72rem) {
+    .photography-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.vintage-modal-panel-wide .photography-viewer-figure {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    animation: none;
+}
+
+.vintage-modal-panel-wide .photography-viewer-figure::before,
+.vintage-modal-panel-wide .photography-viewer-figure::after {
+    display: none;
+}
+
+@media (width < 48rem) {
+    .photography-grid {
+        grid-auto-rows: 8rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .photography-tile {
+        min-height: 8rem;
+        border-radius: 0.6rem;
+    }
+
+    .photography-tile span {
+        opacity: 1;
+        transform: none;
+    }
+
+    .vintage-modal-panel-wide {
+        max-height: calc(100svh - 1.5rem);
+        overflow: hidden;
+    }
+
+    .vintage-modal-panel-wide .photography-viewer-image {
+        max-height: calc(100svh - 11rem);
+    }
+
+    .vintage-modal-panel-wide .photography-viewer-image-frame {
+        max-height: calc(100svh - 11rem);
+    }
+
+    .vintage-modal-panel-wide .photography-viewer-image-frame.is-tall {
+        height: min(calc(100svh - 11rem), 70vh);
+    }
+
+    .photography-page {
+        padding-block: 1.5rem;
+    }
+
+    .photography-page-heading {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .photography-viewer {
+        padding: 0.75rem;
+    }
+
+    .photography-viewer-figure figcaption {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@keyframes photography-skeleton-shimmer {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes photography-tile-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes photography-modal-skeleton {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .photography-tile:hover::after,
+    .photography-tile:hover span {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .photography-tile,
+    .photography-tile::before {
+        animation: none;
+    }
+
+    .photography-viewer-image-frame::before {
+        animation: none;
+    }
+
+    .photography-viewer-figure::after {
+        animation: none;
+    }
+}

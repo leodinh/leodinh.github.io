@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Logo from './logo';
-import { isIntroCurtainFinished, markSiteIntroDone } from '../utils/siteIntro';
+import { isIntroCurtainFinished, markSiteIntroDone } from '@/utils/siteIntro';
 
 function SiteIntro({ onFinished }) {
     const curtainRef = useRef(null);

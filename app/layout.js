@@ -1,7 +1,7 @@
 import { IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from 'next/font/google';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import SiteShell from '../components/siteShell';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import SiteShell from '@/components/siteShell';
 import { ThemeProvider } from 'next-themes';
 
 import './globals.css';

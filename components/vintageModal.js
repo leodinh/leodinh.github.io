@@ -10,7 +10,7 @@ import {
     springParams,
     springSettled,
     stepSpring
-} from '../utils/sheetPhysics';
+} from '@/utils/sheetPhysics';
 
 function reducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;

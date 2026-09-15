@@ -1,4 +1,4 @@
-import { INTRO_LOCKUP } from '../constants/content';
+import { INTRO_LOCKUP } from '@/constants/content';
 
 function Logo({ size = 'header' }) {
     return (

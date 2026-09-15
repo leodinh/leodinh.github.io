@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
-import { PHOTOGRAPHS } from '../constants/photography';
+import { PHOTOGRAPHS } from '@/constants/photography';
 import VintageModal from './vintageModal';
 
 function PhotographyGallery() {

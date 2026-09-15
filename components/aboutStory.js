@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import { EXPERIENCE } from '../constants/experience';
-import { ABOUT_PORTRAITS } from '../constants/aboutPortraits';
+import { EXPERIENCE } from '@/constants/experience';
+import { ABOUT_PORTRAITS } from '@/constants/aboutPortraits';
 import VintageModal from './vintageModal';
 
 const CHAPTERS = [

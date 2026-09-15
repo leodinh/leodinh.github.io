@@ -1,5 +1,5 @@
-import PhotographyGallery from '../../components/photographyGallery';
-import '../page.css';
+import PhotographyGallery from '@/components/photographyGallery';
+import '@/styles/photography.css';
 
 export const metadata = {
     title: 'Photography — Leo Tuan Dinh',

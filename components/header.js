@@ -6,7 +6,7 @@ import ToggleTheme from './toggleTheme';
 import NavMobile from './navMobile';
 import Logo from './logo';
 import SiteNav from './siteNav';
-import { lockupLabel } from '../constants/content';
+import { lockupLabel } from '@/constants/content';
 
 function Header() {
     const pathname = usePathname();
