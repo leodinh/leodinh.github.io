@@ -634,22 +634,44 @@
     padding: 1.25rem;
     visibility: hidden;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 160ms var(--ease-out), visibility 160ms linear;
+}
+
+.vintage-modal.is-visible {
+    visibility: visible;
 }
 
 .vintage-modal.is-open {
-    visibility: visible;
     pointer-events: auto;
-    opacity: 1;
-    transition: opacity 200ms var(--ease-out), visibility 0s;
 }
 
 .vintage-modal-backdrop {
     position: absolute;
     inset: 0;
+    background: rgb(4 8 12 / 0%);
+    opacity: 0;
+    backdrop-filter: blur(0) saturate(100%);
+    -webkit-backdrop-filter: blur(0) saturate(100%);
+    transition:
+        opacity 320ms var(--ease-out),
+        background-color 320ms var(--ease-out),
+        backdrop-filter 320ms var(--ease-out),
+        -webkit-backdrop-filter 320ms var(--ease-out);
+}
+
+.vintage-modal.is-open .vintage-modal-backdrop {
     background: rgb(4 8 12 / 72%);
-    backdrop-filter: blur(10px);
+    opacity: 1;
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+@starting-style {
+    .vintage-modal.is-open .vintage-modal-backdrop {
+        background: rgb(4 8 12 / 0%);
+        opacity: 0;
+        backdrop-filter: blur(0) saturate(100%);
+        -webkit-backdrop-filter: blur(0) saturate(100%);
+    }
 }
 
 .vintage-modal-panel {
@@ -657,50 +679,27 @@
     width: min(100%, 38rem);
     max-height: 88dvh;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
     padding: clamp(1.25rem, 4vw, 2.25rem);
     border: 3px double #9bf6bf;
     border-radius: 0.35rem;
     background: #0b1715;
     box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 40%), inset 0 0 0 1px rgb(155 246 191 / 20%);
     color: #c8ffd9;
-    transform: translateY(0.75rem) scale(0.98);
     opacity: 0;
-    transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out);
+    outline: none;
+    transition: opacity 160ms var(--ease-out);
 }
 
 .vintage-modal.is-open .vintage-modal-panel {
-    transform: translateY(0) scale(1);
     opacity: 1;
-    transition-duration: 200ms;
+    will-change: transform;
 }
 
-@media (width < 48rem) {
-    .vintage-modal.is-bottom-sheet .vintage-modal-panel {
-        transform: translateY(100%);
-        opacity: 1;
-        transition: transform 160ms var(--ease-drawer);
-    }
-
-    .vintage-modal.is-bottom-sheet.is-open .vintage-modal-panel {
-        transform: translateY(0);
-        transition-duration: 200ms;
-    }
-}
-
-@starting-style {
-    .vintage-modal.is-open .vintage-modal-panel {
-        transform: translateY(0.75rem) scale(0.98);
-        opacity: 0;
-    }
-}
-
-@media (width < 48rem) {
-    @starting-style {
-        .vintage-modal.is-bottom-sheet.is-open .vintage-modal-panel {
-            transform: translateY(100%);
-            opacity: 1;
-        }
-    }
+.vintage-modal-panel.is-dragging {
+    cursor: grabbing;
+    touch-action: none;
 }
 
 .vintage-modal-panel::before {
@@ -1727,7 +1726,23 @@
     }
 }
 
+@media (prefers-reduced-transparency: reduce) {
+    .vintage-modal-backdrop,
+    .vintage-modal.is-open .vintage-modal-backdrop {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .vintage-modal.is-open .vintage-modal-backdrop {
+        background: rgb(4 8 12 / 88%);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
+    .vintage-modal-panel {
+        transform: none !important;
+    }
+
     .about-expression,
     .about-expression-stage::before,
     .about-hello-copy h1,

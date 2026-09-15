@@ -15,18 +15,6 @@ function PhotographyGallery() {
         setViewerLoaded(false);
     }, [selected]);
 
-    useEffect(() => {
-        if (!selected) return undefined;
-        const close = (event) => event.key === 'Escape' && setSelected(null);
-        const previous = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        window.addEventListener('keydown', close);
-        return () => {
-            document.body.style.overflow = previous;
-            window.removeEventListener('keydown', close);
-        };
-    }, [selected]);
-
     return (
         <>
             <div className="photography-grid">
@@ -58,14 +46,18 @@ function PhotographyGallery() {
                 ))}
             </div>
 
-            {selected ? (
-                <VintageModal
-                    open
-                    onClose={() => setSelected(null)}
-                    eyebrow={`PHOTO LOG // ${String(selected.index + 1).padStart(2, '0')}`}
-                    title={selected.caption}
-                    bottomSheet
-                    className="vintage-modal-panel-wide">
+            <VintageModal
+                open={Boolean(selected)}
+                onClose={() => setSelected(null)}
+                eyebrow={
+                    selected
+                        ? `PHOTO LOG // ${String(selected.index + 1).padStart(2, '0')}`
+                        : 'PHOTO LOG'
+                }
+                title={selected?.caption}
+                bottomSheet
+                className="vintage-modal-panel-wide">
+                {selected ? (
                     <figure className="photography-viewer-figure">
                         <div
                             className={`photography-viewer-image-frame is-${selected.span} ${
@@ -92,8 +84,8 @@ function PhotographyGallery() {
                             </span>
                         </figcaption>
                     </figure>
-                </VintageModal>
-            ) : null}
+                ) : null}
+            </VintageModal>
         </>
     );
 }

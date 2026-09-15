@@ -12,26 +12,6 @@ function NavMobile({ links, pathname, onOpenChange }) {
         onOpenChange?.(openNav);
     }, [onOpenChange, openNav]);
 
-    useEffect(() => {
-        if (!openNav) return;
-
-        const previousBodyOverflow = document.body.style.overflowY;
-        const previousHtmlOverflow = document.documentElement.style.overflowY;
-        const closeOnEscape = (event) => {
-            if (event.key === 'Escape') setOpenNav(false);
-        };
-
-        document.body.style.overflowY = 'hidden';
-        document.documentElement.style.overflowY = 'hidden';
-        window.addEventListener('keydown', closeOnEscape);
-
-        return () => {
-            document.body.style.overflowY = previousBodyOverflow;
-            document.documentElement.style.overflowY = previousHtmlOverflow;
-            window.removeEventListener('keydown', closeOnEscape);
-        };
-    }, [openNav]);
-
     return (
         <>
             <button
