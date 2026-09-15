@@ -524,7 +524,8 @@ html.site-intro-done .about-location {
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
-    transition: border-color 160ms ease, background-color 160ms ease, transform 160ms var(--ease-out);
+    transition: border-color 160ms ease, background-color 160ms ease,
+        transform 160ms var(--ease-out);
 }
 
 .about-work.is-visible .about-work-card {
@@ -693,11 +694,8 @@ html.site-intro-done .about-location {
     opacity: 0;
     backdrop-filter: blur(0) saturate(100%);
     -webkit-backdrop-filter: blur(0) saturate(100%);
-    transition:
-        opacity 320ms var(--ease-out),
-        background-color 320ms var(--ease-out),
-        backdrop-filter 320ms var(--ease-out),
-        -webkit-backdrop-filter 320ms var(--ease-out);
+    transition: opacity 320ms var(--ease-out), background-color 320ms var(--ease-out),
+        backdrop-filter 320ms var(--ease-out), -webkit-backdrop-filter 320ms var(--ease-out);
 }
 
 .vintage-modal.is-open .vintage-modal-backdrop {

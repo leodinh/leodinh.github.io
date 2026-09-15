@@ -18,7 +18,9 @@ function HomeIntro() {
                     with a camera.
                 </p>
                 <div className="home-actions">
-                    <Link href="mailto:leo.atdinh@gmail.com" className="ui-button ui-button-primary">
+                    <Link
+                        href="mailto:leo.atdinh@gmail.com"
+                        className="ui-button ui-button-primary">
                         <EnvelopeIcon className="h-4 w-4" aria-hidden="true" />
                         Get in touch
                     </Link>

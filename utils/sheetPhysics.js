@@ -6,7 +6,7 @@ export function rubberband(overshoot, dimension, constant = 0.55) {
 }
 
 export function project(initialVelocity, decelerationRate = DECELERATION) {
-    return (initialVelocity / 1000) * decelerationRate / (1 - decelerationRate);
+    return ((initialVelocity / 1000) * decelerationRate) / (1 - decelerationRate);
 }
 
 export function sheetDragY({ deltaY, height }) {
