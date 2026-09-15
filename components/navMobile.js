@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import ToggleTheme from './toggleTheme';
 import VintageModal from './vintageModal';
@@ -61,7 +60,6 @@ function NavMobile({ links, pathname, onOpenChange }) {
                                     className={`nav-crt-link ${isActive ? 'is-active' : ''}`}
                                     onClick={() => setOpenNav(false)}>
                                     {label}
-                                    <ArrowUpRightIcon className="h-4 w-4" aria-hidden="true" />
                                 </Link>
                             </li>
                         );

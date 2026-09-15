@@ -642,7 +642,7 @@
     visibility: visible;
     pointer-events: auto;
     opacity: 1;
-    transition: opacity 220ms var(--ease-out), visibility 0s;
+    transition: opacity 200ms var(--ease-out), visibility 0s;
 }
 
 .vintage-modal-backdrop {
@@ -671,13 +671,35 @@
 .vintage-modal.is-open .vintage-modal-panel {
     transform: translateY(0) scale(1);
     opacity: 1;
-    transition-duration: 220ms;
+    transition-duration: 200ms;
+}
+
+@media (width < 48rem) {
+    .vintage-modal.is-bottom-sheet .vintage-modal-panel {
+        transform: translateY(100%);
+        opacity: 1;
+        transition: transform 160ms var(--ease-drawer);
+    }
+
+    .vintage-modal.is-bottom-sheet.is-open .vintage-modal-panel {
+        transform: translateY(0);
+        transition-duration: 200ms;
+    }
 }
 
 @starting-style {
     .vintage-modal.is-open .vintage-modal-panel {
         transform: translateY(0.75rem) scale(0.98);
         opacity: 0;
+    }
+}
+
+@media (width < 48rem) {
+    @starting-style {
+        .vintage-modal.is-bottom-sheet.is-open .vintage-modal-panel {
+            transform: translateY(100%);
+            opacity: 1;
+        }
     }
 }
 

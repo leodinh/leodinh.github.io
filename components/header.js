@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ToggleTheme from './toggleTheme';
-import HeaderBackground from './headerBackground';
 import NavMobile from './navMobile';
 import Logo from './logo';
+import SiteNav from './siteNav';
 import { lockupLabel } from '../constants/content';
 
 function Header() {
@@ -17,45 +17,15 @@ function Header() {
     ];
 
     return (
-        <header className="sticky inset-x-0 top-0 z-30 w-full max-w-[1296px]">
-            <div className="relative z-10 h-14 items-center justify-between">
-                <div className="flex h-14 items-center justify-between">
-                    <Link
-                        href="/"
-                        className="relative z-10 block w-fit lg:grow lg:basis-0"
-                        aria-label={`${lockupLabel()} — home`}>
-                        <Logo size="header" />
-                    </Link>
-                    <nav className="relative hidden lg:block" aria-label="Primary navigation">
-                        <div className="relative">
-                            <ul className="relative flex flex-row gap-2 px-2 py-0.5">
-                                <HeaderBackground />
-                                {links.map(({ href, label }) => {
-                                    const isActive = pathname === href;
-                                    return (
-                                        <li key={href}>
-                                            <Link
-                                                href={href}
-                                                aria-current={isActive ? 'page' : undefined}
-                                                className={`block rounded-sm px-3 py-1.5 text-sm transition-colors duration-150 ease-out ${
-                                                    isActive
-                                                        ? 'bg-ink text-white dark:bg-white dark:text-ink'
-                                                        : 'text-muted hover:text-ink dark:text-muted-dark dark:hover:text-white'
-                                                }`}>
-                                                {label}
-                                            </Link>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    </nav>
-                    <div className="hidden grow basis-0 justify-end lg:flex">
-                        <ToggleTheme />
-                    </div>
-                    <NavMobile links={links} pathname={pathname} />
-                </div>
+        <header className="site-header">
+            <Link href="/" className="site-header-logo" aria-label={`${lockupLabel()} — home`}>
+                <Logo size="header" />
+            </Link>
+            <SiteNav links={links} pathname={pathname} />
+            <div className="site-header-end">
+                <ToggleTheme />
             </div>
+            <NavMobile links={links} pathname={pathname} />
         </header>
     );
 }

@@ -3,6 +3,7 @@ import test from 'node:test';
 import { EXPERIENCE } from './experience.js';
 import { PHOTOGRAPHS } from './photography.js';
 import { INTRO_LOCKUP, lockupLabel } from './content.js';
+import { tabClipPath } from '../utils/tabClip.js';
 
 test('intro lockup is Leo and Dinh', () => {
     assert.equal(INTRO_LOCKUP.given, 'Leo');
@@ -11,6 +12,20 @@ test('intro lockup is Leo and Dinh', () => {
 
 test('lockup label is reusable as Leo Dinh', () => {
     assert.equal(lockupLabel(), 'Leo Dinh');
+});
+
+test('clips the active tab from both sides of the track', () => {
+    assert.equal(
+        tabClipPath({ trackWidth: 300, itemLeft: 80, itemWidth: 100 }),
+        'inset(0 120px 0 80px)'
+    );
+});
+
+test('rounds the clip so the active pill keeps its corners', () => {
+    assert.equal(
+        tabClipPath({ trackWidth: 300, itemLeft: 80, itemWidth: 100, radius: 999 }),
+        'inset(0 120px 0 80px round 999px)'
+    );
 });
 
 test('experience entries include the fields about work cards render', () => {
