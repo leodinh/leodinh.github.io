@@ -246,6 +246,30 @@ html:not(.site-intro-done) {
     }
 }
 
+@keyframes site-rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes site-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.site-chrome {
+    display: contents;
+}
+
 .site-header {
     position: sticky;
     z-index: 30;
@@ -255,6 +279,12 @@ html:not(.site-intro-done) {
     justify-content: space-between;
     width: 100%;
     height: 3.5rem;
+    opacity: 0;
+    transition: opacity 240ms var(--ease-out);
+}
+
+.site-chrome[data-ready='true'] .site-header {
+    opacity: 1;
 }
 
 .site-header-logo {
@@ -451,6 +481,16 @@ html:not(.site-intro-done) {
     opacity: 0;
 }
 
+.site-container > footer {
+    opacity: 0;
+    transition: opacity 240ms var(--ease-out);
+}
+
+.site-chrome[data-ready='true'] .site-container > footer {
+    opacity: 1;
+    transition-delay: 80ms;
+}
+
 .site-footer-link {
     transition: color 160ms ease, transform 160ms var(--ease-out);
 }
@@ -509,6 +549,18 @@ html:not(.site-intro-done) {
 
     .site-intro-curtain {
         animation: site-intro-curtain-fade 200ms ease forwards !important;
+    }
+
+    .site-header,
+    .site-container > footer {
+        transition-duration: 200ms !important;
+        transition-delay: 0ms !important;
+        transition-property: opacity !important;
+    }
+
+    .home-copy,
+    .home-portrait-card {
+        animation: site-fade 200ms ease both !important;
     }
 
     .site-intro-curtain .site-logo--hero,

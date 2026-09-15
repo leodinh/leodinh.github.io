@@ -15,6 +15,7 @@
     position: relative;
     z-index: 2;
     max-width: 42rem;
+    animation: site-rise 240ms 40ms var(--ease-out) both;
 }
 
 .home-kicker {
@@ -76,6 +77,7 @@
     border-radius: 7rem 7rem 2rem 2rem;
     background: var(--color-surface);
     box-shadow: 0 1.75rem 3.5rem rgb(23 23 23 / 16%);
+    animation: site-rise 240ms 80ms var(--ease-out) both;
 }
 
 .dark .home-portrait-card {

@@ -8,7 +8,7 @@ function Footer() {
     ];
 
     return (
-        <footer className="flex h-16 w-full shrink-0 items-center justify-between border-t border-line text-sm text-muted dark:border-line-dark dark:text-muted-dark">
+        <footer className="site-footer flex h-16 w-full shrink-0 items-center justify-between border-t border-line text-sm text-muted dark:border-line-dark dark:text-muted-dark">
             <span>Find me on</span>
             <ul className="flex items-center gap-5">
                 {links.map(({ href, label }) => (
