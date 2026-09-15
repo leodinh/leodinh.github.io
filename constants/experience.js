@@ -4,27 +4,29 @@ export const EXPERIENCE = [
         company: 'Fullstock Media',
         period: 'Mar 2026 - Present',
         summary:
-            'Develop and maintain a digital-content marketplace across a Next.js frontend, NestJS and GraphQL backend, and asynchronous media-processing services.',
+            'Worked on Wondermint, an AI creator marketplace: React-to-Next.js migration, Stripe and PayPal billing, HttpOnly session cookies, and marketplace reviews.',
         highlights: [
-            'Contribute to migrating a large-scale React frontend to Next.js, introducing server-side rendering and modernizing GraphQL data access with Apollo Client and state management with Zustand.',
-            'Build and improve purchasing, offers, subscriptions, real-time notifications, and digital-asset management workflows.',
-            'Improved Stripe subscription and PayPal payment flows, fixing upgrade, cancellation, and recovery issues.'
+            'Contributed to migrating a React application to Next.js, adding server-side rendering and improving the homepage’s Lighthouse performance score from 41 to 70.',
+            'Developed subscription and purchase flows with Stripe and PayPal across the frontend and NestJS APIs, including plan changes, failed-payment handling, and refunds.',
+            'Moved authentication to HttpOnly cookies, updated password reset to revoke other sessions, and kept account changes in sync across browser tabs.',
+            'Built marketplace reviews and ratings across the frontend and API, including seller replies and review eligibility rules.'
         ],
-        technologies: ['Next.js', 'NestJS', 'GraphQL', 'Stripe', 'PayPal']
+        technologies: ['Next.js', 'NestJS', 'Stripe', 'PayPal']
     },
     {
         role: 'Full-Stack Web3 Developer',
-        company: 'Macroscape',
+        company: 'Macroscope',
         period: 'Apr 2025 - Feb 2026',
         summary:
-            'Built a multi-chain Web3 platform spanning a Next.js application, NestJS backend, SvelteKit operations portal, and smart contracts.',
+            'Built the Next.js frontend for a Web3 game with claiming, trading, leaderboards, and profiles, plus NestJS claim/trade APIs, SvelteKit admin tools, and a Shopify storefront.',
         highlights: [
-            'Implemented upgradeable token contracts, automated tests, access controls, deployment tooling, and security-audit remediations.',
-            'Built a system to allowlist millions of token holders across 14 networks using cron jobs and Bloom filters.',
-            "Built and deployed a SvelteKit e-commerce storefront integrated with Shopify's Storefront API for product listings, cart management, and checkout.",
-            'Built wallet onboarding, digital-asset management, secure exchanges, referrals, rewards, analytics, and real-time notifications.'
+            'Built the Next.js frontend for a Web3 game with asset claiming, trading, leaderboards and user profiles.',
+            'Contributed to NestJS APIs for asset claims and trading, adding claim limits, ownership checks, and signed minting requests.',
+            'Implemented wallet authentication, Google and Discord sign-in, account linking, and email verification.',
+            'Built SvelteKit admin tools to view user activity, manage allowlists, and configure referral rewards.',
+            "Built and deployed a SvelteKit storefront using Shopify’s Storefront API for product browsing, cart management, and checkout."
         ],
-        technologies: ['Next.js', 'NestJS', 'SvelteKit', 'Solidity', 'Shopify']
+        technologies: ['Next.js', 'NestJS', 'SvelteKit', 'Shopify']
     },
     {
         role: 'Full-Stack Developer, Contract',
@@ -32,9 +34,9 @@ export const EXPERIENCE = [
         shortCompany: 'SIE',
         period: 'Jan 2024 - Mar 2025',
         summary:
-            'Built the React interface and administrative dashboard for an NFT marketplace and integrated wallet and smart-contract interactions.',
+            'Built the React frontend and dashboard for an NFT marketplace, including wallet and smart-contract integrations.',
         highlights: [
-            'Co-developed NestJS and GraphQL APIs for marketplace operations, notifications, and smart-contract event tracking.'
+            'Co-developed NestJS and GraphQL APIs to process smart-contract events, update marketplace records and send user notifications.'
         ],
         technologies: ['React', 'NestJS', 'GraphQL', 'Web3']
     },
@@ -46,9 +48,9 @@ export const EXPERIENCE = [
         isBranch: true,
         branchLabel: 'Contract branch through Capital Methods',
         summary:
-            'Built reusable Next.js components and REST APIs for NFT management and smart-contract event tracking.',
+            'Built Next.js features and REST APIs for NFT management and event tracking, then fixed security-audit and KYC issues and added lazy loading for heavier UI.',
         highlights: [
-            'Remediated audit findings, expanded unit tests, resolved KYC defects, and improved UI performance through lazy loading.'
+            'Fixed security-audit and KYC issues, expanded unit tests, and added lazy loading for heavier UI components.'
         ],
         technologies: ['Next.js', 'REST APIs', 'Smart contracts', 'Testing']
     },
@@ -57,7 +59,7 @@ export const EXPERIENCE = [
         company: 'Capital Methods',
         period: 'Feb 2021 - Sep 2023',
         summary:
-            'Built React and Next.js interfaces for a DeFi yield aggregator serving 500+ users and reaching $2M+ peak TVL.',
+            'Built OptyFi’s DeFi yield-optimization application and company website with Next.js and TypeScript; the protocol reached a $2M+ peak TVL.',
         highlights: [
             'Developed Node.js and PostgreSQL APIs, integrated smart contracts, deployed AWS services, and implemented on-chain data indexing.'
         ],
