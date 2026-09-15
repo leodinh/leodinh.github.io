@@ -171,6 +171,10 @@ body {
     height: 0.7rem;
 }
 
+html:not(.site-intro-done) {
+    overflow: hidden;
+}
+
 .site-intro-curtain {
     position: fixed;
     z-index: 110;
