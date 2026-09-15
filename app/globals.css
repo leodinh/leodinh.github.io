@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tailwindcss-animated';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -16,16 +15,6 @@
     --color-muted-dark: #a6a9af;
     --color-line: #deded9;
     --color-line-dark: #2b3038;
-    --animate-fadeIn: fadeIn 1s ease-in-out infinite;
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
 }
 
 :root {
@@ -74,9 +63,7 @@ body {
     color: var(--color-ink-dark);
 }
 
-.display-title,
 .home-title,
-.section-title,
 .about-hello-copy h1,
 .about-work-heading h2,
 .about-offline-layout h2,
@@ -90,8 +77,7 @@ body {
 }
 
 .vintage-modal-panel,
-.photography-viewer-figure,
-.about-work-modal-panel {
+.photography-viewer-figure {
     font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
@@ -146,34 +132,6 @@ body {
 
 .header-expression-avatar.is-menu-open {
     background-image: url('/images/head-surprised.png');
-}
-
-.section-shell {
-    margin-block: clamp(4rem, 9vw, 7rem);
-}
-
-.section-title {
-    color: var(--color-ink);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-}
-
-.dark .section-title {
-    color: var(--color-ink-dark);
-}
-
-.surface-card {
-    border: 1px solid var(--color-line);
-    border-radius: 0.5rem;
-    background: var(--color-surface);
-    box-shadow: 0 1px 2px rgb(23 23 23 / 4%);
-}
-
-.dark .surface-card {
-    border-color: var(--color-line-dark);
-    background: var(--color-surface-dark);
-    box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
 }
 
 .ui-button {
@@ -233,23 +191,6 @@ body {
     transform: scale(0.97);
 }
 
-.ui-badge {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid var(--color-line);
-    border-radius: 0.25rem;
-    padding: 0.25rem 0.5rem;
-    color: var(--color-muted);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-}
-
-.dark .ui-badge {
-    border-color: var(--color-line-dark);
-    color: var(--color-muted-dark);
-}
-
 .theme-toggle {
     transition: transform 160ms var(--ease-out), background-color 160ms ease, box-shadow 160ms ease;
 }
@@ -277,10 +218,6 @@ body {
         background: var(--color-accent-strong);
     }
 
-    .project-modal-control:hover {
-        border-color: var(--color-accent);
-    }
-
     .ui-text-link:hover {
         color: var(--color-accent);
     }
@@ -306,48 +243,5 @@ body {
         animation: none !important;
         transition-property: color, background-color, border-color, opacity, outline-color !important;
         transition-duration: 160ms !important;
-    }
-}
-
-@keyframes project-backdrop-in {
-    from {
-        opacity: 0;
-    }
-}
-
-@keyframes project-modal-in {
-    from {
-        opacity: 0;
-        transform: translateY(1.5rem) scale(0.97);
-    }
-}
-
-@keyframes project-sheet-in {
-    from {
-        transform: translateY(100%);
-    }
-}
-
-.project-modal-backdrop {
-    animation: project-backdrop-in 220ms var(--ease-out) both;
-}
-
-.project-modal-panel {
-    animation: project-sheet-in 280ms var(--ease-drawer) both;
-    transition: transform 160ms var(--ease-out);
-}
-
-.project-modal-control {
-    transition: transform 160ms var(--ease-out), opacity 160ms ease, border-color 160ms ease;
-}
-
-.project-modal-control:active {
-    transform: scale(0.97);
-}
-
-@media (width >= 40rem) {
-    .project-modal-panel {
-        animation-name: project-modal-in;
-        animation-duration: 240ms;
     }
 }
