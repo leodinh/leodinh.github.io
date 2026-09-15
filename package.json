@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "test": "node --test constants/*.test.js",
+    "test": "node --test constants/*.test.js utils/*.test.js",
     "lint": "eslint --fix . --ignore-path ./.gitignore",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
