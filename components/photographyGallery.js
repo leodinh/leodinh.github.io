@@ -36,6 +36,7 @@ function PhotographyGallery() {
                         className={`photography-tile photography-tile-${photo.span} ${
                             loadedImages.includes(photo.file) ? 'is-loaded' : ''
                         }`}
+                        style={{ '--tile-index': Math.min(index, 12) }}
                         key={photo.file}
                         onClick={() => setSelected({ ...photo, index })}>
                         <Image

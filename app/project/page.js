@@ -8,10 +8,8 @@ function page() {
     return (
         <div className="py-20 lg:py-28">
             <header className="max-w-3xl">
-                <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-accent uppercase">
-                    Selected work
-                </p>
-                <h1 className="text-[clamp(3rem,8vw,5.5rem)] leading-[0.98] font-semibold tracking-[-0.06em] text-ink dark:text-ink-dark">
+                <p className="mb-4 text-sm text-muted dark:text-muted-dark">Selected work</p>
+                <h1 className="display-title text-[clamp(2.4rem,6vw,4rem)] leading-[1.08] tracking-[-0.03em] text-ink dark:text-ink-dark">
                     Things I&apos;ve built and explored.
                 </h1>
                 <p className="mt-7 max-w-2xl text-lg leading-8 text-muted dark:text-muted-dark">

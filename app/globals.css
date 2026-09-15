@@ -4,8 +4,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-accent: #4f46e5;
-    --color-accent-strong: #3730a3;
+    --color-accent: #1e5c45;
+    --color-accent-strong: #164734;
     --color-page: #f7f7f5;
     --color-page-dark: #0d0f12;
     --color-surface: #ffffff;
@@ -37,11 +37,16 @@
     --background-light-secondary: var(--color-surface);
     --border-color: var(--color-line);
     --border-light-color: var(--color-line);
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .dark {
     color-scheme: dark;
     --border-color: var(--color-line-dark);
+    --color-accent: #9bf6bf;
+    --color-accent-strong: #c8ffd9;
 }
 
 html {
@@ -55,9 +60,9 @@ html.dark {
 
 body {
     overflow-x: clip;
-    background: radial-gradient(circle at 50% -20%, rgb(79 70 229 / 9%), transparent 32rem),
-        var(--color-page);
+    background: var(--color-page);
     color: var(--color-ink);
+    font-family: var(--font-body), 'IBM Plex Sans', system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
@@ -65,9 +70,29 @@ body {
 }
 
 .dark body {
-    background: radial-gradient(circle at 50% -20%, rgb(99 102 241 / 14%), transparent 34rem),
-        var(--color-page-dark);
+    background: var(--color-page-dark);
     color: var(--color-ink-dark);
+}
+
+.display-title,
+.home-title,
+.section-title,
+.about-hello-copy h1,
+.about-work-heading h2,
+.about-offline-layout h2,
+.about-people blockquote,
+.about-route-stop strong,
+.photography-page-heading h1,
+.vintage-modal-panel h2,
+.about-work-card-company {
+    font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+}
+
+.vintage-modal-panel,
+.photography-viewer-figure,
+.about-work-modal-panel {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .site-backdrop {
@@ -92,12 +117,12 @@ body {
 }
 
 ::selection {
-    background: rgb(79 70 229 / 20%);
+    background: color-mix(in srgb, var(--color-accent) 22%, transparent);
     color: var(--color-ink);
 }
 
 :where(a, button, [tabindex]):focus-visible {
-    outline: 3px solid rgb(79 70 229 / 45%);
+    outline: 3px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
     outline-offset: 4px;
 }
 
@@ -116,13 +141,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    transition: transform 160ms ease;
-}
-
-a:hover > .header-expression-avatar,
-a:focus-visible > .header-expression-avatar {
-    background-image: url('/images/head-wink.png');
-    transform: scale(1.06);
+    transition: transform 160ms var(--ease-out);
 }
 
 .header-expression-avatar.is-menu-open {
@@ -136,8 +155,7 @@ a:focus-visible > .header-expression-avatar {
 .section-title {
     color: var(--color-ink);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 650;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.03em;
     line-height: 1.15;
 }
 
@@ -147,15 +165,14 @@ a:focus-visible > .header-expression-avatar {
 
 .surface-card {
     border: 1px solid var(--color-line);
-    border-radius: 1.25rem;
-    background: rgb(255 255 255 / 72%);
+    border-radius: 0.5rem;
+    background: var(--color-surface);
     box-shadow: 0 1px 2px rgb(23 23 23 / 4%);
-    backdrop-filter: blur(16px);
 }
 
 .dark .surface-card {
     border-color: var(--color-line-dark);
-    background: rgb(21 24 29 / 78%);
+    background: var(--color-surface-dark);
     box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
 }
 
@@ -165,15 +182,15 @@ a:focus-visible > .header-expression-avatar {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border-radius: 999px;
+    border-radius: 0.4rem;
     padding-inline: 1.125rem;
     font-size: 0.875rem;
-    font-weight: 650;
-    transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+    font-weight: 600;
+    transition: transform 160ms var(--ease-out), background-color 160ms ease, border-color 160ms ease;
 }
 
-.ui-button:hover {
-    transform: translateY(-1px);
+.ui-button:active {
+    transform: scale(0.97);
 }
 
 .ui-button-primary {
@@ -181,28 +198,47 @@ a:focus-visible > .header-expression-avatar {
     color: white;
 }
 
-.ui-button-primary:hover {
-    background: var(--color-accent-strong);
+.dark .ui-button-primary {
+    color: #0b1715;
 }
 
 .ui-button-secondary {
     border: 1px solid var(--color-line);
-    background: rgb(255 255 255 / 70%);
+    background: var(--color-surface);
     color: var(--color-ink);
 }
 
 .dark .ui-button-secondary {
     border-color: var(--color-line-dark);
-    background: rgb(21 24 29 / 70%);
+    background: var(--color-surface-dark);
     color: var(--color-ink-dark);
+}
+
+.ui-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.75rem;
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: transform 160ms var(--ease-out), color 160ms ease;
+}
+
+.dark .ui-text-link {
+    color: var(--color-ink-dark);
+}
+
+.ui-text-link:active {
+    transform: scale(0.97);
 }
 
 .ui-badge {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--color-line);
-    border-radius: 999px;
-    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
     color: var(--color-muted);
     font-size: 0.75rem;
     font-weight: 600;
@@ -214,6 +250,50 @@ a:focus-visible > .header-expression-avatar {
     color: var(--color-muted-dark);
 }
 
+.theme-toggle {
+    transition: transform 160ms var(--ease-out), background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.theme-toggle:active {
+    transform: scale(0.97);
+}
+
+.site-footer-link {
+    transition: color 160ms ease, transform 160ms var(--ease-out);
+}
+
+.site-footer-link:active {
+    transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a:hover > .header-expression-avatar,
+    a:focus-visible > .header-expression-avatar {
+        background-image: url('/images/head-wink.png');
+        transform: scale(1.06);
+    }
+
+    .ui-button-primary:hover {
+        background: var(--color-accent-strong);
+    }
+
+    .project-modal-control:hover {
+        border-color: var(--color-accent);
+    }
+
+    .ui-text-link:hover {
+        color: var(--color-accent);
+    }
+
+    .site-footer-link:hover {
+        color: var(--color-ink);
+    }
+
+    .dark .site-footer-link:hover {
+        color: white;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -223,16 +303,15 @@ a:focus-visible > .header-expression-avatar {
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition-property: color, background-color, border-color, opacity, outline-color !important;
+        transition-duration: 160ms !important;
     }
 }
 
 @keyframes project-backdrop-in {
     from {
         opacity: 0;
-        backdrop-filter: blur(0);
     }
 }
 
@@ -249,29 +328,26 @@ a:focus-visible > .header-expression-avatar {
     }
 }
 
-@keyframes project-slide-in {
-    from {
-        opacity: 0;
-        transform: translateX(1rem) scale(0.99);
-    }
-}
-
 .project-modal-backdrop {
-    animation: project-backdrop-in 280ms ease-out both;
+    animation: project-backdrop-in 220ms var(--ease-out) both;
 }
 
 .project-modal-panel {
-    transform: translateY(var(--drag-y));
-    animation: project-sheet-in 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    animation: project-sheet-in 280ms var(--ease-drawer) both;
+    transition: transform 160ms var(--ease-out);
 }
 
-.project-slide {
-    animation: project-slide-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.project-modal-control {
+    transition: transform 160ms var(--ease-out), opacity 160ms ease, border-color 160ms ease;
+}
+
+.project-modal-control:active {
+    transform: scale(0.97);
 }
 
 @media (width >= 40rem) {
     .project-modal-panel {
         animation-name: project-modal-in;
+        animation-duration: 240ms;
     }
 }

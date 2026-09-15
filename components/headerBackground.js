@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+
 function headerBackground() {
     const [header, setHeader] = useState(false);
 
@@ -20,7 +21,7 @@ function headerBackground() {
     return (
         <div className="absolute inset-0 -z-[1]">
             <div
-                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white backdrop-blur-lg transition-all ${
+                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white backdrop-blur-lg transition-[border-radius,background-color] duration-200 ${
                     header
                         ? 'w-screen rounded-none h-14 drop-shadow-none border-b dark:bg-[#1212125c]'
                         : 'border border-(--border-color) rounded-full h-full w-full dark:bg-gray-950'

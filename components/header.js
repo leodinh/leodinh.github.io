@@ -6,16 +6,18 @@ import { usePathname } from 'next/navigation';
 import ToggleTheme from './toggleTheme';
 import HeaderBackground from './headerBackground';
 import NavMobile from './navMobile';
+
 function Header() {
     const pathname = usePathname();
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const links = [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About me' }
+        { href: '/about', label: 'About' },
+        { href: '/photography', label: 'Photography' }
     ];
 
     return (
-        <header className="sticky inset-x-0 top-0 z-30 w-full max-w-[1296px] transition-all">
+        <header className="sticky inset-x-0 top-0 z-30 w-full max-w-[1296px]">
             <div className="relative z-10 h-14 items-center justify-between">
                 <div className="flex h-14 items-center justify-between">
                     <Link
@@ -40,7 +42,7 @@ function Header() {
                                             <Link
                                                 href={href}
                                                 aria-current={isActive ? 'page' : undefined}
-                                                className={`block rounded-full px-3 py-1.5 text-sm transition-colors ease-out ${
+                                                className={`block rounded-sm px-3 py-1.5 text-sm transition-colors duration-150 ease-out ${
                                                     isActive
                                                         ? 'bg-ink text-white dark:bg-white dark:text-ink'
                                                         : 'text-muted hover:text-ink dark:text-muted-dark dark:hover:text-white'

@@ -10,8 +10,8 @@ function Photography() {
     return (
         <div className="photography-page">
             <div className="photography-page-heading">
-                <span>Photography</span>
-                <span>Frames from the way around.</span>
+                <h1>Photography</h1>
+                <p>Frames from the way around.</p>
             </div>
             <PhotographyGallery />
         </div>

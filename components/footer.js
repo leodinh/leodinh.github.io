@@ -17,7 +17,7 @@ function Footer() {
                             href={href}
                             target="_blank"
                             rel="noreferrer"
-                            className="transition-colors hover:text-ink dark:hover:text-white">
+                            className="site-footer-link">
                             {label}
                         </Link>
                     </li>

@@ -1,9 +1,9 @@
 function ProjectCard({ project, priority = false, onOpen }) {
     return (
-        <article className="surface-card group overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-950/5">
+        <article className="surface-card group overflow-hidden transition-[box-shadow] duration-200">
             <button
                 type="button"
-                className="block w-full cursor-pointer text-left"
+                className="project-card-button block w-full cursor-pointer text-left"
                 onClick={onOpen}
                 aria-label={`Open ${project.title} gallery`}>
                 <div
@@ -12,7 +12,6 @@ function ProjectCard({ project, priority = false, onOpen }) {
                     <div className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/20 blur-sm" />
                     <div className="absolute -bottom-24 left-10 h-56 w-80 rotate-[-12deg] rounded-[50%] bg-indigo-950/20" />
                     <div className="absolute top-8 right-8 h-24 w-24 rounded-full border border-white/25 bg-white/10" />
-                    <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_25%,rgb(255_255_255/0.18)_50%,transparent_75%)] opacity-0 transition duration-500 group-hover:translate-x-8 group-hover:opacity-100" />
                     <span className="relative text-5xl font-semibold tracking-[-0.06em] text-white drop-shadow-sm">
                         {project.mark}
                     </span>
@@ -31,7 +30,7 @@ function ProjectCard({ project, priority = false, onOpen }) {
                         {project.summary}
                     </p>
                     <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-ink dark:text-ink-dark">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/10 text-xs text-accent">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-accent/10 text-xs text-accent">
                             {project.mark}
                         </span>
                         {project.category}

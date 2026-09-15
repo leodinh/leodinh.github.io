@@ -9,6 +9,7 @@ import {
     CodeBracketIcon
 } from '@heroicons/react/24/outline';
 import ProjectCard from './projectCard';
+import { dampedDragOffset, shouldDismissDrawer } from '../utils/drawerDismiss.js';
 
 function GalleryArtwork({ project, slide }) {
     const layouts = [
@@ -71,9 +72,11 @@ function GalleryArtwork({ project, slide }) {
 
 function ProjectModal({ project, onClose, openerRef }) {
     const [slide, setSlide] = useState(0);
-    const [dragY, setDragY] = useState(0);
     const dialogRef = useRef(null);
     const startPoint = useRef(null);
+    const dragStartTime = useRef(null);
+    const currentY = useRef(0);
+    const isDragging = useRef(false);
     const slideStart = useRef(null);
     const slideCount = 4;
 
@@ -101,19 +104,34 @@ function ProjectModal({ project, onClose, openerRef }) {
     }, [onClose, openerRef]);
 
     const beginDrag = (event) => {
+        if (isDragging.current) return;
+        isDragging.current = true;
         startPoint.current = event.clientY;
+        dragStartTime.current = Date.now();
+        currentY.current = 0;
         event.currentTarget.setPointerCapture(event.pointerId);
+        if (dialogRef.current) dialogRef.current.style.transition = 'none';
     };
 
     const moveDrag = (event) => {
-        if (startPoint.current === null) return;
-        setDragY(Math.max(0, event.clientY - startPoint.current));
+        if (startPoint.current === null || !dialogRef.current) return;
+        currentY.current = dampedDragOffset(event.clientY - startPoint.current);
+        dialogRef.current.style.transform = `translateY(${currentY.current}px)`;
     };
 
     const endDrag = () => {
-        if (dragY > 110) onClose();
-        else setDragY(0);
+        if (startPoint.current === null) return;
+        const elapsedMs = Date.now() - (dragStartTime.current || Date.now());
+        if (dialogRef.current) {
+            dialogRef.current.style.transition = 'transform 160ms var(--ease-out)';
+        }
+        if (shouldDismissDrawer({ distance: currentY.current, elapsedMs })) {
+            onClose();
+        } else if (dialogRef.current) {
+            dialogRef.current.style.transform = 'translateY(0px)';
+        }
         startPoint.current = null;
+        isDragging.current = false;
     };
 
     const beginSlide = (event) => {
@@ -141,8 +159,7 @@ function ProjectModal({ project, onClose, openerRef }) {
                 aria-modal="true"
                 aria-labelledby="project-modal-title"
                 tabIndex={-1}
-                className="project-modal-panel relative max-h-[92dvh] w-full overflow-y-auto rounded-t-[2rem] bg-white shadow-2xl sm:max-w-5xl sm:rounded-[2rem] dark:bg-surface-dark"
-                style={{ '--drag-y': `${dragY}px` }}>
+                className="project-modal-panel relative max-h-[92dvh] w-full overflow-y-auto rounded-t-[2rem] bg-white shadow-2xl sm:max-w-5xl sm:rounded-[2rem] dark:bg-surface-dark">
                 <div
                     className="flex touch-none justify-center py-3 sm:hidden"
                     onPointerDown={beginDrag}
@@ -167,20 +184,20 @@ function ProjectModal({ project, onClose, openerRef }) {
                         className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-video"
                         onPointerDown={beginSlide}
                         onPointerUp={endSlide}>
-                        <div key={slide} className="project-slide h-full">
+                        <div className="h-full">
                             <GalleryArtwork project={project} slide={slide} />
                         </div>
                         <button
                             type="button"
                             onClick={() => changeSlide(-1)}
-                            className="absolute top-1/2 left-4 hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 text-ink shadow-lg transition hover:scale-105 sm:flex"
+                            className="project-modal-control absolute top-1/2 left-4 hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-sm bg-white/90 text-ink shadow-lg sm:flex"
                             aria-label="Previous slide">
                             <ArrowLeftIcon className="h-5 w-5" />
                         </button>
                         <button
                             type="button"
                             onClick={() => changeSlide(1)}
-                            className="absolute top-1/2 right-4 hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 text-ink shadow-lg transition hover:scale-105 sm:flex"
+                            className="project-modal-control absolute top-1/2 right-4 hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-sm bg-white/90 text-ink shadow-lg sm:flex"
                             aria-label="Next slide">
                             <ArrowRightIcon className="h-5 w-5" />
                         </button>
@@ -191,10 +208,10 @@ function ProjectModal({ project, onClose, openerRef }) {
                                 type="button"
                                 key={index}
                                 onClick={() => setSlide(index)}
-                                className={`aspect-video cursor-pointer overflow-hidden rounded-xl border-2 transition ${
+                                className={`project-modal-control aspect-video cursor-pointer overflow-hidden rounded-sm border-2 ${
                                     slide === index
                                         ? 'border-accent opacity-100'
-                                        : 'border-transparent opacity-55 hover:opacity-85'
+                                        : 'border-transparent opacity-55'
                                 }`}
                                 aria-label={`Show slide ${index + 1}`}
                                 aria-current={slide === index}>
