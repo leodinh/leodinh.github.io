@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { EXPERIENCE } from '../constants/experience';
+import { ABOUT_PORTRAITS } from '../constants/aboutPortraits';
 import VintageModal from './vintageModal';
 
 const CHAPTERS = [
@@ -176,20 +177,6 @@ function AboutStory() {
         };
     }, []);
 
-    useEffect(() => {
-        if (!selectedWork) return undefined;
-        const closeOnEscape = (event) => {
-            if (event.key === 'Escape') setSelectedWork(null);
-        };
-        const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        window.addEventListener('keydown', closeOnEscape);
-        return () => {
-            document.body.style.overflow = previousOverflow;
-            window.removeEventListener('keydown', closeOnEscape);
-        };
-    }, [selectedWork]);
-
     return (
         <div ref={pageRef} className="about-editorial-page">
             <ChapterNavigator containerRef={pageRef} />
@@ -209,17 +196,25 @@ function AboutStory() {
                     </div>
 
                     <div>
-                        <figure
-                            className="about-expression-stage"
-                            aria-label="Illustrated expressions of Leo">
-                            <span className="about-expression about-expression-smile" />
-                            <span className="about-expression about-expression-camera" />
-                            <span className="about-expression about-expression-thinking" />
-                            <figcaption>Code, cameras, questions—and usually coffee.</figcaption>
+                        <figure className="about-expression-stage" aria-label="Photographs of Leo">
+                            {ABOUT_PORTRAITS.map((portrait) => (
+                                <span
+                                    className={`about-expression ${portrait.className}`}
+                                    key={portrait.file}>
+                                    <Image
+                                        src={`/images/about/${portrait.file}`}
+                                        alt={portrait.alt}
+                                        fill
+                                        sizes="(min-width: 768px) 248px, 160px"
+                                        className="about-expression-image"
+                                        style={{ objectPosition: portrait.objectPosition }}
+                                    />
+                                </span>
+                            ))}
                         </figure>
                         <p className="about-location">
                             <span>Probably somewhere in</span>
-                            <span>Toronto</span>
+                            <span>Canada</span>
                         </p>
                     </div>
                 </div>
@@ -358,27 +353,29 @@ function AboutStory() {
                 </div>
             </section>
 
-            {selectedWork ? (
-                <VintageModal
-                    open
-                    onClose={() => setSelectedWork(null)}
-                    eyebrow={`WORK LOG // ${selectedWork.period}`}
-                    title={selectedWork.company}
-                    bottomSheet>
-                    <p className="about-work-modal-role">{selectedWork.role}</p>
-                    <p className="about-work-modal-summary">{selectedWork.summary}</p>
-                    <div className="about-work-modal-details">
-                        <div>
-                            <span>STATUS</span>
-                            <strong>ARCHIVED / LOGGED</strong>
+            <VintageModal
+                open={Boolean(selectedWork)}
+                onClose={() => setSelectedWork(null)}
+                eyebrow={selectedWork ? `WORK LOG // ${selectedWork.period}` : 'WORK LOG'}
+                title={selectedWork?.company}
+                bottomSheet>
+                {selectedWork ? (
+                    <>
+                        <p className="about-work-modal-role">{selectedWork.role}</p>
+                        <p className="about-work-modal-summary">{selectedWork.summary}</p>
+                        <div className="about-work-modal-details">
+                            <div>
+                                <span>STATUS</span>
+                                <strong>ARCHIVED / LOGGED</strong>
+                            </div>
+                            <div>
+                                <span>STACK</span>
+                                <strong>{selectedWork.technologies.join(' · ')}</strong>
+                            </div>
                         </div>
-                        <div>
-                            <span>STACK</span>
-                            <strong>{selectedWork.technologies.join(' · ')}</strong>
-                        </div>
-                    </div>
-                </VintageModal>
-            ) : null}
+                    </>
+                ) : null}
+            </VintageModal>
         </div>
     );
 }
