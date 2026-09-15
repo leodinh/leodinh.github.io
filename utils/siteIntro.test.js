@@ -9,14 +9,14 @@ import {
 } from './siteIntro.js';
 
 function fakeRoot() {
-    const classes = new Set();
+    const classes = {};
     return {
         classList: {
             add(name) {
-                classes.add(name);
+                classes[name] = true;
             },
             contains(name) {
-                return classes.has(name);
+                return Boolean(classes[name]);
             }
         }
     };

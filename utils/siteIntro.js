@@ -2,8 +2,7 @@ export const SITE_INTRO_DONE_CLASS = 'site-intro-done';
 
 export function isIntroCurtainFinished(animationName) {
     return (
-        animationName === 'site-intro-curtain-out' ||
-        animationName === 'site-intro-curtain-fade'
+        animationName === 'site-intro-curtain-out' || animationName === 'site-intro-curtain-fade'
     );
 }
 
