@@ -13,6 +13,42 @@
     --color-muted-dark: #a6a9af;
     --color-line: #deded9;
     --color-line-dark: #2b3038;
+    --text-meta: 0.75rem;
+    --text-meta--line-height: 1.4;
+    --text-ui: 0.875rem;
+    --text-ui--line-height: 1.35;
+    --text-body: 1rem;
+    --text-body--line-height: 1.65;
+    --text-mark: 1.125rem;
+    --text-mark--line-height: 1.5;
+    --text-title: clamp(1.5rem, 3.5vw, 2rem);
+    --text-title--line-height: 1.15;
+    --text-display: clamp(2.25rem, 6vw, 3.5rem);
+    --text-display--line-height: 1.08;
+    --text-lockup: clamp(2.75rem, 8vw, 4.5rem);
+    --text-lockup--line-height: 1;
+}
+
+@keyframes home-short-slide {
+    from {
+        transform: translate3d(var(--slide-x), 0, 0);
+        filter: blur(var(--slide-blur));
+    }
+
+    to {
+        transform: none;
+        filter: none;
+    }
+}
+
+@keyframes home-word-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 :root {
@@ -27,6 +63,12 @@
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --text-meta: 0.75rem;
+    --text-meta--line-height: 1.4;
+    --text-title: clamp(1.5rem, 3.5vw, 2rem);
+    --text-title--line-height: 1.15;
+    --text-display: clamp(2.25rem, 6vw, 3.5rem);
+    --text-display--line-height: 1.08;
 }
 
 .dark {

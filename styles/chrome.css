@@ -61,7 +61,8 @@
 .site-logo--header {
     gap: 0.35rem;
     color: var(--color-ink);
-    font-size: 1.15rem;
+    font-size: var(--text-mark);
+    line-height: 1;
 }
 
 .dark .site-logo--header {
@@ -71,7 +72,7 @@
 .site-logo--hero {
     gap: 0.7rem;
     color: var(--color-ink);
-    font-size: clamp(2.75rem, 8vw, 4.5rem);
+    font-size: var(--text-lockup);
 }
 
 .dark .site-logo--hero {
@@ -162,7 +163,8 @@
     border-radius: 999px;
     padding: 0.4rem 0.85rem;
     color: var(--color-muted);
-    font-size: 0.875rem;
+    font-size: var(--text-ui);
+    line-height: var(--text-ui--line-height);
     transition: transform 160ms var(--ease-out), color 160ms ease;
 }
 
@@ -202,7 +204,8 @@
     gap: 0.5rem;
     border-radius: 0.4rem;
     padding-inline: 1.125rem;
-    font-size: 0.875rem;
+    font-size: var(--text-ui);
+    line-height: var(--text-ui--line-height);
     font-weight: 600;
     transition: transform 160ms var(--ease-out), background-color 160ms ease,
         border-color 160ms ease;
@@ -239,7 +242,8 @@
     gap: 0.4rem;
     min-height: 2.75rem;
     color: var(--color-ink);
-    font-size: 0.875rem;
+    font-size: var(--text-ui);
+    line-height: var(--text-ui--line-height);
     font-weight: 600;
     transition: transform 160ms var(--ease-out), color 160ms ease;
 }
