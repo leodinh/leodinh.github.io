@@ -16,7 +16,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
         <>
             <button
                 type="button"
-                className="nav-mobile-toggle fixed top-2 right-4 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm border border-line bg-page/90 text-ink shadow-lg shadow-zinc-950/5 backdrop-blur-xl lg:hidden dark:border-line-dark dark:bg-page-dark/90 dark:text-ink-dark"
+                className="nav-mobile-toggle fixed top-2 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm border border-line bg-page/90 text-ink shadow-lg shadow-zinc-950/5 backdrop-blur-xl lg:hidden dark:border-line-dark dark:bg-page-dark/90 dark:text-ink-dark"
                 onClick={() => setOpenNav((prev) => !prev)}
                 aria-label={openNav ? 'Close navigation' : 'Open navigation'}
                 aria-expanded={openNav}
