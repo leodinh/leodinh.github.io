@@ -1,5 +1,5 @@
 .vintage-modal-panel {
-    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: var(--font-body), 'IBM Plex Sans', system-ui, sans-serif;
 }
 
 .vintage-modal-panel h2 {
@@ -7,7 +7,6 @@
     font-weight: 400;
 }
 
-/* Shared CRT modal shell for work logs, navigation, and future panels. */
 .vintage-modal {
     position: fixed;
     z-index: 100;
@@ -30,7 +29,7 @@
 .vintage-modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgb(4 8 12 / 0%);
+    background: rgb(23 23 23 / 0%);
     opacity: 0;
     backdrop-filter: blur(0) saturate(100%);
     -webkit-backdrop-filter: blur(0) saturate(100%);
@@ -39,15 +38,15 @@
 }
 
 .vintage-modal.is-open .vintage-modal-backdrop {
-    background: rgb(4 8 12 / 72%);
+    background: rgb(23 23 23 / 42%);
     opacity: 1;
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
 }
 
 @starting-style {
     .vintage-modal.is-open .vintage-modal-backdrop {
-        background: rgb(4 8 12 / 0%);
+        background: rgb(23 23 23 / 0%);
         opacity: 0;
         backdrop-filter: blur(0) saturate(100%);
         -webkit-backdrop-filter: blur(0) saturate(100%);
@@ -62,14 +61,20 @@
     overscroll-behavior: contain;
     touch-action: pan-y;
     padding: clamp(1.25rem, 4vw, 2.25rem);
-    border: 3px double #9bf6bf;
-    border-radius: 0.35rem;
-    background: #0b1715;
-    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 40%), inset 0 0 0 1px rgb(155 246 191 / 20%);
-    color: #c8ffd9;
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+    background: var(--color-page);
+    box-shadow: 0 1.5rem 4rem rgb(23 23 23 / 16%);
+    color: var(--color-ink);
     opacity: 0;
     outline: none;
     transition: opacity 160ms var(--ease-out);
+}
+
+.dark .vintage-modal-panel {
+    border-color: var(--color-line-dark);
+    background: var(--color-page-dark);
+    color: var(--color-ink-dark);
 }
 
 .vintage-modal.is-open .vintage-modal-panel {
@@ -82,51 +87,17 @@
     touch-action: none;
 }
 
-.vintage-modal-panel::before {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgb(155 246 191 / 6%) 0,
-        rgb(155 246 191 / 6%) 1px,
-        transparent 1px,
-        transparent 4px
-    );
-    content: '';
-    pointer-events: none;
-}
-
-.vintage-modal-panel::after,
-.photography-viewer-figure::after {
-    position: absolute;
-    z-index: 2;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-        115deg,
-        transparent 25%,
-        rgb(155 246 191 / 11%) 45%,
-        transparent 65%
-    );
-    background-size: 220% 100%;
-    background-position: 40% 0;
-    content: '';
-    pointer-events: none;
-}
-
-.vintage-modal-topline,
-.vintage-modal-panel h2,
-.vintage-modal-panel > *:not(.vintage-modal-topline) {
-    position: relative;
-}
-
 .vintage-modal-topline {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    color: #79dba2;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+.dark .vintage-modal-topline {
+    color: var(--color-muted-dark);
 }
 
 .vintage-modal-topline button {
@@ -139,37 +110,54 @@
     transform: scale(0.97);
 }
 
-.nav-crt-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 0.35rem;
-    padding: 0.9rem 1rem;
-    color: #c8ffd9;
-    font-size: 1.1rem;
-    font-weight: 500;
+.nav-sheet-list {
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 1.5rem;
+}
+
+.nav-sheet-link {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 0.85rem 1rem;
+    color: var(--color-ink);
+    font-size: 1.15rem;
     letter-spacing: -0.02em;
     transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease;
 }
 
-.nav-crt-link.is-active {
-    background: rgb(155 246 191 / 14%);
-    color: #9bf6bf;
+.dark .nav-sheet-link {
+    color: var(--color-ink-dark);
 }
 
-.nav-crt-link:active {
+.nav-sheet-link.is-active {
+    background: var(--color-ink);
+    color: white;
+}
+
+.dark .nav-sheet-link.is-active {
+    background: white;
+    color: var(--color-ink);
+}
+
+.nav-sheet-link:active {
     transform: scale(0.97);
 }
 
-.nav-crt-appearance {
+.nav-sheet-appearance {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 0.75rem;
-    padding: 1rem 0.75rem 0.5rem;
-    border-top: 1px solid rgb(155 246 191 / 25%);
-    color: #79dba2;
+    padding: 1rem 0.25rem 0.25rem;
+    border-top: 1px solid var(--color-line);
+    color: var(--color-muted);
     font-size: 0.85rem;
+}
+
+.dark .nav-sheet-appearance {
+    border-color: var(--color-line-dark);
+    color: var(--color-muted-dark);
 }
 
 .nav-mobile-toggle {
@@ -181,8 +169,12 @@
 }
 
 .vintage-modal-panel a {
-    color: #c8ffd9;
+    color: var(--color-ink);
     transition: color 160ms ease, transform 160ms var(--ease-out);
+}
+
+.dark .vintage-modal-panel a {
+    color: var(--color-ink-dark);
 }
 
 .vintage-modal-panel a:active {
@@ -190,7 +182,7 @@
 }
 
 .vintage-modal-panel h2 {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     font-size: clamp(1.8rem, 5vw, 3rem);
     letter-spacing: -0.06em;
 }
@@ -216,18 +208,26 @@
 
     .vintage-modal.is-bottom-sheet .vintage-modal-panel {
         width: min(100%, 38rem);
-        border: 3px double #9bf6bf;
-        border-radius: 0.35rem;
+        border: 1px solid var(--color-line);
+        border-radius: 1rem;
+    }
+
+    .dark .vintage-modal.is-bottom-sheet .vintage-modal-panel {
+        border-color: var(--color-line-dark);
     }
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .nav-crt-link:hover:not(.is-active) {
-        background: rgb(155 246 191 / 8%);
+    .nav-sheet-link:hover:not(.is-active) {
+        background: rgb(23 23 23 / 6%);
+    }
+
+    .dark .nav-sheet-link:hover:not(.is-active) {
+        background: rgb(255 255 255 / 8%);
     }
 
     .vintage-modal-panel a:hover {
-        color: #9bf6bf;
+        color: var(--color-accent);
     }
 }
 
@@ -239,16 +239,12 @@
     }
 
     .vintage-modal.is-open .vintage-modal-backdrop {
-        background: rgb(4 8 12 / 88%);
+        background: rgb(23 23 23 / 72%);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .vintage-modal-panel {
         transform: none !important;
-    }
-
-    .vintage-modal-panel::after {
-        animation: none;
     }
 }

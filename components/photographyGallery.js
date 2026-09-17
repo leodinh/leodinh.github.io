@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { PHOTOGRAPHS } from '@/constants/photography';
+import { photoViewerTitle } from '@/utils/photoViewer';
 import VintageModal from './vintageModal';
 
 function PhotographyGallery() {
@@ -49,12 +50,7 @@ function PhotographyGallery() {
             <VintageModal
                 open={Boolean(selected)}
                 onClose={() => setSelected(null)}
-                eyebrow={
-                    selected
-                        ? `PHOTO LOG // ${String(selected.index + 1).padStart(2, '0')}`
-                        : 'PHOTO LOG'
-                }
-                title={selected?.caption}
+                title={photoViewerTitle(selected)}
                 bottomSheet
                 className="vintage-modal-panel-wide">
                 {selected ? (

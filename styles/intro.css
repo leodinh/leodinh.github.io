@@ -10,7 +10,7 @@ html:not(.site-intro-done) {
     place-items: center;
     overflow: hidden;
     background: var(--color-page);
-    animation: site-intro-curtain-out 400ms 1.8s var(--ease-out) forwards;
+    animation: site-intro-curtain-fade 200ms 1.8s var(--ease-out) forwards;
 }
 
 .dark .site-intro-curtain {
@@ -30,15 +30,17 @@ html:not(.site-intro-done) {
 }
 
 .site-intro-curtain .site-logo--hero > span {
-    animation: site-intro-lockup-in 200ms var(--ease-out) both;
+    animation:
+        site-intro-lockup-in 200ms var(--ease-out) both,
+        site-intro-lockup-out 200ms 1.8s var(--ease-out) forwards;
 }
 
 .site-intro-curtain .site-logo--hero > span:nth-child(2) {
-    animation-delay: 40ms;
+    animation-delay: 40ms, 1.84s;
 }
 
 .site-intro-curtain .site-logo--hero > span:nth-child(3) {
-    animation-delay: 80ms;
+    animation-delay: 80ms, 1.88s;
 }
 
 @keyframes site-intro-lockup-in {
@@ -52,16 +54,20 @@ html:not(.site-intro-done) {
     }
 }
 
-@keyframes site-intro-line {
+@keyframes site-intro-lockup-out {
+    from {
+        opacity: 1;
+        transform: none;
+    }
     to {
-        transform: scaleX(1);
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
     }
 }
 
-@keyframes site-intro-curtain-out {
+@keyframes site-intro-line {
     to {
-        transform: translateY(-100%);
-        pointer-events: none;
+        transform: scaleX(1);
     }
 }
 

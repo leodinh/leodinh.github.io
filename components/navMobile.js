@@ -27,9 +27,9 @@ function NavMobile({ links, pathname, onOpenChange }) {
                 id="mobile-navigation"
                 open={openNav}
                 onClose={() => setOpenNav(false)}
-                eyebrow="NAV // MENU"
+                eyebrow="Menu"
                 bottomSheet>
-                <ul className="space-y-1">
+                <ul className="nav-sheet-list">
                     {links.map(({ href, label }) => {
                         const isActive = pathname === href;
                         return (
@@ -37,7 +37,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
                                 <Link
                                     href={href}
                                     aria-current={isActive ? 'page' : undefined}
-                                    className={`nav-crt-link ${isActive ? 'is-active' : ''}`}
+                                    className={`nav-sheet-link ${isActive ? 'is-active' : ''}`}
                                     onClick={() => setOpenNav(false)}>
                                     {label}
                                 </Link>
@@ -45,7 +45,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
                         );
                     })}
                 </ul>
-                <div className="nav-crt-appearance">
+                <div className="nav-sheet-appearance">
                     <span>Appearance</span>
                     <ToggleTheme />
                 </div>

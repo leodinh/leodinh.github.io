@@ -145,29 +145,13 @@
 .photography-viewer-figure {
     position: relative;
     width: min(100%, 74rem);
-    padding: 0.65rem;
-    border: 3px double #9bf6bf;
-    border-radius: 0.35rem;
-    background: #0b1715;
-    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 45%), inset 0 0 0 1px rgb(155 246 191 / 20%);
-    color: #c8ffd9;
-    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    padding: 0;
+    color: var(--color-ink);
+    font-family: var(--font-body), 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-.photography-viewer-figure::before {
-    position: absolute;
-    z-index: 2;
-    inset: 0;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgb(155 246 191 / 6%) 0,
-        rgb(155 246 191 / 6%) 1px,
-        transparent 1px,
-        transparent 4px
-    );
-    border-radius: inherit;
-    content: '';
-    pointer-events: none;
+.dark .photography-viewer-figure {
+    color: var(--color-ink-dark);
 }
 
 .photography-viewer-image {
@@ -186,11 +170,13 @@
     position: absolute;
     z-index: 2;
     inset: 0;
-    background: linear-gradient(105deg, #0b1715 10%, #1b4a35 28%, #0b1715 46%);
-    background-size: 220% 100%;
+    background: var(--color-line);
     content: '';
-    animation: photography-modal-skeleton 1.15s linear infinite;
     transition: opacity 280ms ease;
+}
+
+.dark .photography-viewer-image-frame::before {
+    background: var(--color-line-dark);
 }
 
 .photography-viewer-image-frame.is-loaded::before {
@@ -231,8 +217,12 @@
     justify-content: space-between;
     gap: 1rem;
     margin-top: 0.75rem;
-    color: #c8ffd9;
+    color: var(--color-muted);
     font-size: 0.8rem;
+}
+
+.dark .photography-viewer-figure figcaption {
+    color: var(--color-muted-dark);
 }
 
 .photography-viewer-actions {
@@ -246,8 +236,13 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    color: #9bf6bf;
+    color: var(--color-ink);
     cursor: pointer;
+}
+
+.dark .photography-viewer-actions a,
+.dark .photography-viewer-actions button {
+    color: var(--color-ink-dark);
 }
 
 .photography-viewer-actions svg {
@@ -264,15 +259,6 @@
 .vintage-modal-panel-wide .photography-viewer-figure {
     width: 100%;
     padding: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-    animation: none;
-}
-
-.vintage-modal-panel-wide .photography-viewer-figure::before,
-.vintage-modal-panel-wide .photography-viewer-figure::after {
-    display: none;
 }
 
 @media (width < 48rem) {
@@ -348,12 +334,9 @@
     }
 }
 
-@keyframes photography-modal-skeleton {
-    from {
-        background-position: 200% 0;
-    }
-    to {
-        background-position: -200% 0;
+@media (width >= 48rem) {
+    .vintage-modal.is-bottom-sheet .vintage-modal-panel-wide {
+        width: min(100%, 74rem);
     }
 }
 
@@ -372,10 +355,6 @@
     }
 
     .photography-viewer-image-frame::before {
-        animation: none;
-    }
-
-    .photography-viewer-figure::after {
         animation: none;
     }
 }

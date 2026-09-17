@@ -23,13 +23,10 @@ const recommendation = {
         'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
 };
 
-function SectionHeading({ chapter, title }) {
+function SectionHeading({ title }) {
     return (
         <div className="about-editorial-heading">
             <span>{title}</span>
-            <span className="about-editorial-index">
-                {chapter.number} / {chapter.label}
-            </span>
         </div>
     );
 }
@@ -185,7 +182,7 @@ function AboutStory() {
                 id="hello"
                 className="about-editorial-section about-hello"
                 aria-labelledby="hello-title">
-                <SectionHeading chapter={CHAPTERS[0]} title="About" />
+                <SectionHeading title="About" />
                 <div className="about-hello-layout">
                     <div className="about-hello-copy">
                         <h1 id="hello-title">I like figuring things out.</h1>
@@ -224,7 +221,7 @@ function AboutStory() {
                 id="story"
                 className="about-editorial-section about-story"
                 aria-labelledby="story-title">
-                <SectionHeading chapter={CHAPTERS[1]} title="A bit of a journey" />
+                <SectionHeading title="A bit of a journey" />
                 <h2 id="story-title" className="sr-only">
                     From Vietnam to Canada
                 </h2>
@@ -249,7 +246,7 @@ function AboutStory() {
                 id="work"
                 className="about-editorial-section about-work"
                 aria-labelledby="work-title">
-                <SectionHeading chapter={CHAPTERS[2]} title="Things I’ve worked on" />
+                <SectionHeading title="Things I’ve worked on" />
                 <div className="about-work-heading">
                     <h2 id="work-title">The path so far.</h2>
                     <Link
@@ -289,7 +286,7 @@ function AboutStory() {
                 id="offline"
                 className="about-editorial-section about-offline"
                 aria-labelledby="offline-title">
-                <SectionHeading chapter={CHAPTERS[3]} title="When I’m not here" />
+                <SectionHeading title="When I’m not here" />
                 <div className="about-offline-layout">
                     <div>
                         <h2 id="offline-title">
@@ -329,7 +326,7 @@ function AboutStory() {
                 id="people"
                 className="about-editorial-section about-people"
                 aria-labelledby="people-title">
-                <SectionHeading chapter={CHAPTERS[4]} title="Kind words" />
+                <SectionHeading title="Kind words" />
                 <h2 id="people-title" className="sr-only">
                     A recommendation from {recommendation.name}
                 </h2>
