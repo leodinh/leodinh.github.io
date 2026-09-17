@@ -11,6 +11,7 @@ import {
     springSettled,
     stepSpring
 } from '@/utils/sheetPhysics';
+import { lockPageScroll, scrollbarGap, unlockPageScroll } from '@/utils/lockPageScroll';
 
 function reducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -177,19 +178,20 @@ function VintageModal({
         return undefined;
     }, [open, shown]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!shown) return undefined;
-        const previousBody = document.body.style.overflow;
-        const previousHtml = document.documentElement.style.overflow;
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
+        const html = document.documentElement;
+        const previous = lockPageScroll(
+            document.body,
+            html,
+            scrollbarGap(window.innerWidth, html.clientWidth)
+        );
         const onKey = (event) => {
             if (event.key === 'Escape') dismiss();
         };
         window.addEventListener('keydown', onKey);
         return () => {
-            document.body.style.overflow = previousBody;
-            document.documentElement.style.overflow = previousHtml;
+            unlockPageScroll(document.body, html, previous);
             window.removeEventListener('keydown', onKey);
         };
     }, [shown]);
