@@ -110,7 +110,10 @@ function AboutStory() {
         <div className="about-editorial-page">
             <ChapterIndex />
 
-            <section id={me.id} className="about-editorial-section about-me" aria-labelledby="me-title">
+            <section
+                id={me.id}
+                className="about-editorial-section about-me"
+                aria-labelledby="me-title">
                 <SectionMark chapter={me} />
                 <div className="about-me-layout">
                     <div className="about-me-copy">
@@ -192,7 +195,9 @@ function AboutStory() {
                             Photography slows me down. It makes me notice the overlooked corners,
                             strange shadows, and small details that give a place its character.
                         </p>
-                        <Link href="/photography" className="about-inline-link about-photography-link">
+                        <Link
+                            href="/photography"
+                            className="about-inline-link about-photography-link">
                             See my photography
                             <ArrowUpRightIcon aria-hidden="true" />
                         </Link>
@@ -251,13 +256,6 @@ function AboutStory() {
                     <>
                         <p className="about-work-modal-role">{selectedWork.role}</p>
                         <p className="about-work-modal-summary">{selectedWork.summary}</p>
-                        {selectedWork.highlights.length > 0 ? (
-                            <ul className="about-work-modal-highlights">
-                                {selectedWork.highlights.map((highlight) => (
-                                    <li key={highlight}>{highlight}</li>
-                                ))}
-                            </ul>
-                        ) : null}
                         <div className="about-work-modal-details">
                             <div>
                                 <span>STATUS</span>
