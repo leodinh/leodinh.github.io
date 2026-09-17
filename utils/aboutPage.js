@@ -8,7 +8,8 @@ export const ABOUT_CHAPTERS = [
 
 export const HOW_I_WORK = {
     stack: 'Full-stack · React · Next.js · Node.js',
-    body: 'I like figuring things out. I stay curious about systems, comfortable with complexity, and always looking for a clearer way forward.'
+    body:
+        'I like figuring things out. I stay curious about systems, comfortable with complexity, and always looking for a clearer way forward.'
 };
 
 export const ABOUT_CONTACT = [
@@ -21,7 +22,8 @@ export const ABOUT_CONTACT = [
 export const ABOUT_RECOMMENDATION = {
     name: 'Dhruvin Parikh',
     role: 'CTO at OptyFi',
-    quote: 'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
+    quote:
+        'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
 };
 
 export function mePortraits(portraits) {

@@ -24,7 +24,7 @@ export const EXPERIENCE = [
             'Contributed to NestJS APIs for asset claims and trading, adding claim limits, ownership checks, and signed minting requests.',
             'Implemented wallet authentication, Google and Discord sign-in, account linking, and email verification.',
             'Built SvelteKit admin tools to view user activity, manage allowlists, and configure referral rewards.',
-            "Built and deployed a SvelteKit storefront using Shopify’s Storefront API for product browsing, cart management, and checkout."
+            'Built and deployed a SvelteKit storefront using Shopify’s Storefront API for product browsing, cart management, and checkout.'
         ],
         technologies: ['Next.js', 'NestJS', 'SvelteKit', 'Shopify']
     },

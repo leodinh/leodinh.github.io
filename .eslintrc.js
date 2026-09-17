@@ -14,6 +14,7 @@ module.exports = {
     },
     env: {
         browser: true, // Enables browser globals like window and document
+        es6: true, // Enables ES2015 globals like Promise
         amd: true, // Enables require() and define() as global variables as per the amd spec.
         node: true // Enables Node.js global variables and Node.js scoping.
     },
