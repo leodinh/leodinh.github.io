@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Logo from './logo';
 import Mascot from './mascot';
 import { HOME_MASCOT } from '@/constants/content';
-import { introCurtainFadeDelayMs } from '@/utils/mascotLoad';
+import { introCurtainFadeDelayMs, introLogoExitDelayMs } from '@/utils/mascotLoad';
 import { isIntroCurtainFinished, markSiteIntroDone } from '@/utils/siteIntro';
 
 function SiteIntro({ onFinished }) {
@@ -33,7 +33,10 @@ function SiteIntro({ onFinished }) {
             ref={curtainRef}
             className="site-intro-curtain"
             aria-hidden="true"
-            style={{ '--intro-fade-delay': `${introCurtainFadeDelayMs()}ms` }}>
+            style={{
+                '--intro-fade-delay': `${introCurtainFadeDelayMs()}ms`,
+                '--intro-logo-exit-delay': `${introLogoExitDelayMs()}ms`
+            }}>
             <div className="site-intro-stage">
                 <Mascot
                     className="site-intro-mascot"

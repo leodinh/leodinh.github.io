@@ -6,9 +6,15 @@ export const MASCOT_LOAD_BEATS = [
 ];
 
 const SMILE_HOLD_MS = 800;
+const WORD_EXIT_MS = 500;
+const WORD_EXIT_STAGGER_MS = 40;
+
+export function introLogoExitDelayMs() {
+    return MASCOT_LOAD_BEATS[MASCOT_LOAD_BEATS.length - 1].at + SMILE_HOLD_MS;
+}
 
 export function introCurtainFadeDelayMs() {
-    return MASCOT_LOAD_BEATS[MASCOT_LOAD_BEATS.length - 1].at + SMILE_HOLD_MS;
+    return introLogoExitDelayMs() + WORD_EXIT_MS + WORD_EXIT_STAGGER_MS;
 }
 
 export function mascotLoadFrameAt(ms, { reduceMotion = false } = {}) {

@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { introCurtainFadeDelayMs, MASCOT_LOAD_BEATS, mascotLoadFrameAt } from './mascotLoad.js';
+import {
+    introCurtainFadeDelayMs,
+    introLogoExitDelayMs,
+    MASCOT_LOAD_BEATS,
+    mascotLoadFrameAt
+} from './mascotLoad.js';
 
 test('load sequence looks left, then right, then forward, then smiles', () => {
     const poses = MASCOT_LOAD_BEATS.map((beat) => [beat.direction, beat.reaction]);
@@ -27,8 +32,12 @@ test('load sequence holds each look as a discrete beat', () => {
 test('intro curtain waits until the smile has had a beat to land', () => {
     const smileAt = MASCOT_LOAD_BEATS[MASCOT_LOAD_BEATS.length - 1].at;
 
-    assert.equal(introCurtainFadeDelayMs() > smileAt, true);
-    assert.equal(introCurtainFadeDelayMs(), smileAt + 800);
+    assert.equal(introLogoExitDelayMs() > smileAt, true);
+    assert.equal(introLogoExitDelayMs(), smileAt + 800);
+});
+
+test('curtain fade waits for the lockup word exit', () => {
+    assert.equal(introCurtainFadeDelayMs(), introLogoExitDelayMs() + 500 + 40);
 });
 
 test('reduced motion skips the load greeting', () => {
