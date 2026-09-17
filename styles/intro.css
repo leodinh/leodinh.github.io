@@ -10,11 +10,23 @@ html:not(.site-intro-done) {
     place-items: center;
     overflow: hidden;
     background: var(--color-page);
-    animation: site-intro-curtain-fade 200ms 1.8s var(--ease-out) forwards;
+    animation: site-intro-curtain-fade 200ms var(--intro-fade-delay, 1.36s) var(--ease-out) forwards;
 }
 
 .dark .site-intro-curtain {
     background: var(--color-page-dark);
+}
+
+.site-intro-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.site-intro-mascot {
+    pointer-events: none;
+    animation: site-intro-lockup-in 200ms var(--ease-out) both;
 }
 
 .site-intro-line {
@@ -26,21 +38,21 @@ html:not(.site-intro-done) {
     background: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left center;
-    animation: site-intro-line 1.5s linear both;
+    animation: site-intro-line var(--intro-fade-delay, 1.36s) linear both;
 }
 
 .site-intro-curtain .site-logo--hero > span {
     animation:
         site-intro-lockup-in 200ms var(--ease-out) both,
-        site-intro-lockup-out 200ms 1.8s var(--ease-out) forwards;
+        site-intro-lockup-out 200ms var(--intro-fade-delay, 1.36s) var(--ease-out) forwards;
 }
 
 .site-intro-curtain .site-logo--hero > span:nth-child(2) {
-    animation-delay: 40ms, 1.84s;
+    animation-delay: 40ms, calc(var(--intro-fade-delay, 1.36s) + 40ms);
 }
 
 .site-intro-curtain .site-logo--hero > span:nth-child(3) {
-    animation-delay: 80ms, 1.88s;
+    animation-delay: 80ms, calc(var(--intro-fade-delay, 1.36s) + 80ms);
 }
 
 @keyframes site-intro-lockup-in {
@@ -106,6 +118,7 @@ html:not(.site-intro-done) {
 
     .site-intro-curtain .site-logo--hero,
     .site-intro-curtain .site-logo--hero > span,
+    .site-intro-curtain .site-intro-mascot,
     .site-intro-line {
         animation: none !important;
         opacity: 1;

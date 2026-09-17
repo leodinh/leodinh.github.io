@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { MASCOT_LOAD_BEATS } from '@/utils/mascotLoad';
 
 const DIRECTIONS = [
     'up-left',
@@ -55,6 +56,18 @@ function wrap(angle) {
     return Math.atan2(Math.sin(angle), Math.cos(angle));
 }
 
+function waitForSheet(src) {
+    return new Promise((resolve) => {
+        const image = new Image();
+        image.onload = resolve;
+        image.onerror = resolve;
+        image.src = src;
+        if (image.complete) {
+            resolve();
+        }
+    });
+}
+
 const layer = {
     position: 'absolute',
     inset: 0,
@@ -62,16 +75,70 @@ const layer = {
     backgroundRepeat: 'no-repeat'
 };
 
-function Mascot({ directions, reactions, size = 140, className, label = 'mascot' }) {
+function Mascot({
+    directions,
+    reactions,
+    size = 140,
+    className,
+    label = 'mascot',
+    greet = false,
+    interactive = true
+}) {
     const buttonRef = useRef(null);
     const squashRef = useRef(null);
     const timersRef = useRef([]);
     const boopsRef = useRef({ count: 0, at: 0 });
+    const greetingRef = useRef(greet);
     const [direction, setDirection] = useState('center');
     const [reaction, setReaction] = useState(null);
 
     useEffect(() => {
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        if (!greet) {
+            greetingRef.current = false;
+            return undefined;
+        }
+
+        let cancelled = false;
+        greetingRef.current = true;
+
+        const later = (ms, next) => {
+            timersRef.current.push(window.setTimeout(next, ms));
+        };
+
+        (async () => {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            await Promise.all([waitForSheet(directions), waitForSheet(reactions)]);
+
+            if (cancelled || reduceMotion || !greetingRef.current) {
+                greetingRef.current = false;
+                return;
+            }
+
+            MASCOT_LOAD_BEATS.forEach((beat) => {
+                later(beat.at, () => {
+                    if (cancelled || !greetingRef.current) {
+                        return;
+                    }
+
+                    setDirection(beat.direction);
+                    setReaction(beat.reaction);
+
+                    if (beat.at === MASCOT_LOAD_BEATS[MASCOT_LOAD_BEATS.length - 1].at) {
+                        greetingRef.current = false;
+                    }
+                });
+            });
+        })();
+
+        return () => {
+            cancelled = true;
+            greetingRef.current = false;
+        };
+    }, [directions, greet, reactions]);
+
+    useEffect(() => {
+        if (!interactive || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             return undefined;
         }
 
@@ -80,7 +147,7 @@ function Mascot({ directions, reactions, size = 140, className, label = 'mascot'
 
         const aim = () => {
             const button = buttonRef.current;
-            if (!button || !pointer) {
+            if (!button || !pointer || greetingRef.current) {
                 return;
             }
 
@@ -118,7 +185,7 @@ function Mascot({ directions, reactions, size = 140, className, label = 'mascot'
             window.removeEventListener('pointermove', onPointerMove);
             window.removeEventListener('scroll', aim);
         };
-    }, []);
+    }, [interactive]);
 
     useEffect(() => {
         return () => {
@@ -127,6 +194,7 @@ function Mascot({ directions, reactions, size = 140, className, label = 'mascot'
     }, []);
 
     const boop = () => {
+        greetingRef.current = false;
         timersRef.current.forEach(window.clearTimeout);
         timersRef.current = [];
 
@@ -156,6 +224,56 @@ function Mascot({ directions, reactions, size = 140, className, label = 'mascot'
         squashRef.current?.animate(SQUASH, { duration: SQUASH_MS, easing: 'linear' });
     };
 
+    const frame = (
+        <span
+            ref={squashRef}
+            style={{
+                position: 'relative',
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                transformOrigin: '50% 78%'
+            }}>
+            <span
+                style={{
+                    ...layer,
+                    backgroundImage: `url(${directions})`,
+                    ...cell(DIRECTIONS.indexOf(direction)),
+                    opacity: reaction ? 0 : 1
+                }}
+            />
+            <span
+                style={{
+                    ...layer,
+                    backgroundImage: `url(${reactions})`,
+                    ...cell(REACTIONS.indexOf(reaction ?? 'blink')),
+                    opacity: reaction ? 1 : 0
+                }}
+            />
+        </span>
+    );
+
+    const box = {
+        position: 'relative',
+        display: 'block',
+        flexShrink: 0,
+        width: size,
+        height: size,
+        padding: 0,
+        border: 0,
+        background: 'transparent',
+        appearance: 'none',
+        userSelect: 'none'
+    };
+
+    if (!interactive) {
+        return (
+            <span ref={buttonRef} className={className} style={box} aria-hidden="true">
+                {frame}
+            </span>
+        );
+    }
+
     return (
         <button
             ref={buttonRef}
@@ -163,45 +281,8 @@ function Mascot({ directions, reactions, size = 140, className, label = 'mascot'
             onClick={boop}
             aria-label={`Boop the ${label}`}
             className={className}
-            style={{
-                position: 'relative',
-                display: 'block',
-                flexShrink: 0,
-                width: size,
-                height: size,
-                padding: 0,
-                border: 0,
-                background: 'transparent',
-                appearance: 'none',
-                cursor: 'pointer',
-                userSelect: 'none'
-            }}>
-            <span
-                ref={squashRef}
-                style={{
-                    position: 'relative',
-                    display: 'block',
-                    width: '100%',
-                    height: '100%',
-                    transformOrigin: '50% 78%'
-                }}>
-                <span
-                    style={{
-                        ...layer,
-                        backgroundImage: `url(${directions})`,
-                        ...cell(DIRECTIONS.indexOf(direction)),
-                        opacity: reaction ? 0 : 1
-                    }}
-                />
-                <span
-                    style={{
-                        ...layer,
-                        backgroundImage: `url(${reactions})`,
-                        ...cell(REACTIONS.indexOf(reaction ?? 'blink')),
-                        opacity: reaction ? 1 : 0
-                    }}
-                />
-            </span>
+            style={{ ...box, cursor: 'pointer' }}>
+            {frame}
         </button>
     );
 }
