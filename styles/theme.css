@@ -36,6 +36,31 @@
     --text-display--line-height: 1.08;
     --text-lockup: clamp(2.75rem, 8vw, 4.5rem);
     --text-lockup--line-height: 1;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --duration-160: 160ms;
+    --duration-180: 180ms;
+    --duration-240: 240ms;
+    --delay-80: 80ms;
+    --scale-press: 0.97;
+    --scale-logo: 1.03;
+    --scale-logo-dot: 1.2;
+    --spacing-logo-dot: 0.28rem;
+    --spacing-logo-dot-hero: 0.7rem;
+    --spacing-button-x: 1.125rem;
+    --spacing-photo-y: clamp(2rem, 5vw, 5rem);
+    --spacing-nav-mobile: calc(1rem + var(--page-scroll-bar-gap, 0px));
+    --radius-control: 0.4rem;
+    --z-index-intro: 110;
+    --z-index-modal: 100;
+    --max-width-photo: 74rem;
+    --max-width-modal: 38rem;
+    --max-height-photo-panel: calc(100svh - 2rem);
+    --max-height-photo-panel-sm: calc(100svh - 1.5rem);
+    --max-height-photo-frame: calc(100svh - 10rem);
+    --max-height-photo-frame-sm: calc(100svh - 11rem);
+    --height-photo-tall: min(calc(100svh - 10rem), 70vh);
+    --height-photo-tall-sm: min(calc(100svh - 11rem), 70vh);
+    --breakpoint-photo: 72rem;
 }
 
 @keyframes home-short-slide {

@@ -35,7 +35,7 @@ function layout({ children }) {
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <SiteShell>
                         <div className="site-backdrop" aria-hidden="true" />
-                        <div className="site-container flex min-h-screen flex-col items-center">
+                        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-4">
                             <Header />
                             <main className="w-full flex-1">{children}</main>
                             <Footer />

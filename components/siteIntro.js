@@ -53,7 +53,7 @@ function SiteIntro() {
 
     return (
         <div
-            className="site-intro-curtain"
+            className="site-intro-curtain fixed inset-0 z-intro grid place-items-center overflow-hidden bg-page opacity-100 dark:bg-page-dark"
             data-phase={state.phase}
             aria-hidden="true"
             style={{
@@ -61,7 +61,7 @@ function SiteIntro() {
                 '--intro-progress-duration': `${INTRO_PROGRESS_MS}ms`,
                 '--intro-fade-duration': `${INTRO_FADE_MS}ms`
             }}>
-            <div className="site-intro-stage">
+            <div className="flex flex-col items-center gap-5">
                 <Mascot
                     className="site-intro-mascot"
                     directions={HOME_MASCOT.directions}

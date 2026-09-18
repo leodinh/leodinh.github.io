@@ -8,7 +8,7 @@ function Footer() {
     ];
 
     return (
-        <footer className="site-footer flex h-16 w-full shrink-0 items-center justify-between border-t border-line text-sm text-muted dark:border-line-dark dark:text-muted-dark">
+        <footer className="flex h-16 w-full shrink-0 items-center justify-between border-t border-line text-sm text-muted opacity-0 transition-opacity delay-80 duration-240 ease-out [html.site-intro-done_&]:opacity-100 motion-reduce:delay-0 motion-reduce:duration-200 dark:border-line-dark dark:text-muted-dark">
             <span>© 2026 Leo Dinh </span>
             <ul className="flex items-center gap-5">
                 {links.map(({ href, label }) => (
@@ -17,7 +17,7 @@ function Footer() {
                             href={href}
                             target="_blank"
                             rel="noreferrer"
-                            className="site-footer-link">
+                            className="transition-[color,transform] duration-160 ease-out hover:text-ink active:scale-press dark:hover:text-white">
                             {label}
                         </Link>
                     </li>

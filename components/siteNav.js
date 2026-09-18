@@ -37,28 +37,32 @@ function SiteNav({ links, pathname }) {
     }, [pathname]);
 
     return (
-        <nav className="site-nav" aria-label="Primary navigation">
-            <div className="site-nav-track" ref={trackRef}>
-                <ul className="site-nav-list">
+        <nav className="hidden lg:block" aria-label="Primary navigation">
+            <div
+                className="relative grid rounded-full border border-line bg-surface p-0.5 dark:border-line-dark dark:bg-surface-dark"
+                ref={trackRef}>
+                <ul className="col-start-1 row-start-1 m-0 flex list-none gap-0.5 p-0">
                     {links.map(({ href, label }) => (
                         <li key={href} data-nav-tab={href}>
                             <Link
                                 href={href}
                                 aria-current={pathname === href ? 'page' : undefined}
-                                className="site-nav-link">
+                                className="site-nav-link block rounded-full px-3.5 py-1.5 text-ui text-muted transition-[transform,color] duration-160 ease-out hover:text-ink active:scale-press dark:text-muted-dark dark:hover:text-ink-dark">
                                 {label}
                             </Link>
                         </li>
                     ))}
                 </ul>
                 <ul
-                    className="site-nav-list site-nav-list-active"
+                    className="pointer-events-none col-start-1 row-start-1 m-0 flex list-none gap-0.5 p-0 transition-[clip-path] duration-180 ease-out motion-reduce:transition-none"
                     aria-hidden="true"
                     ref={clipRef}
                     style={{ clipPath }}>
                     {links.map(({ href, label }) => (
                         <li key={href}>
-                            <span className="site-nav-link">{label}</span>
+                            <span className="site-nav-link block rounded-full bg-ink px-3.5 py-1.5 text-ui text-white dark:bg-white dark:text-ink">
+                                {label}
+                            </span>
                         </li>
                     ))}
                 </ul>

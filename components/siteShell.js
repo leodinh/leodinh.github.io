@@ -4,7 +4,7 @@ function SiteShell({ children }) {
     return (
         <>
             <SiteIntro />
-            <div id="site-content" className="site-chrome" inert>
+            <div id="site-content" className="contents" inert>
                 {children}
             </div>
         </>

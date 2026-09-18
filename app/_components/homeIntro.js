@@ -6,7 +6,12 @@ import { shortSlideLineDelayMs, shortSlideWordDelayMs, SHORT_SLIDE } from '@/uti
 
 const DISPLAY =
     'font-[family-name:var(--font-display),Georgia,serif] font-normal tracking-[-0.03em] text-ink dark:text-ink-dark';
-const ACTION_CLASS = ['ui-button ui-button-primary', 'ui-button ui-button-secondary'];
+const UI_BUTTON =
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-button-x text-ui font-semibold transition-[transform,background-color,border-color] duration-160 ease-out active:scale-press';
+const ACTION_CLASS = [
+    `${UI_BUTTON} bg-accent text-white hover:bg-accent-strong dark:text-page-dark`,
+    `${UI_BUTTON} border border-line bg-surface text-ink dark:border-line-dark dark:bg-surface-dark dark:text-ink-dark`
+];
 
 function HomeIntro() {
     return (

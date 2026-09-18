@@ -257,9 +257,11 @@ function VintageModal({
 
     return (
         <div
-            className={`vintage-modal ${shown ? 'is-visible' : ''} ${
-                shown && !exiting ? 'is-open' : ''
-            } ${bottomSheet ? 'is-bottom-sheet' : ''}`}
+            className={`vintage-modal fixed inset-0 z-modal grid place-items-center p-5 ${
+                shown ? 'is-visible' : ''
+            } ${shown && !exiting ? 'is-open' : ''} ${
+                bottomSheet ? 'is-bottom-sheet items-end p-0 md:items-center md:p-5' : ''
+            }`}
             id={id}
             hidden={!shown}
             aria-hidden={!shown || exiting}
@@ -281,7 +283,7 @@ function VintageModal({
             />
             <section
                 ref={panelRef}
-                className={`vintage-modal-panel ${className}`}
+                className={`vintage-modal-panel relative overflow-y-auto overscroll-contain rounded-2xl border border-line bg-page p-5 font-[family-name:var(--font-body),system-ui,sans-serif] text-ink outline-none md:p-9 dark:border-line-dark dark:bg-page-dark dark:text-ink-dark ${className}`}
                 role="dialog"
                 aria-modal="true"
                 tabIndex={-1}
@@ -291,13 +293,23 @@ function VintageModal({
                 onPointerMove={onPointerMove}
                 onPointerUp={onPointerUp}
                 onPointerCancel={onPointerUp}>
-                <div className="vintage-modal-topline">
+                <div className="flex justify-between gap-4 text-meta tracking-wide text-muted dark:text-muted-dark">
                     <span>{eyebrow}</span>
-                    <button type="button" onClick={dismiss} tabIndex={shown ? 0 : -1}>
+                    <button
+                        type="button"
+                        className="cursor-pointer text-inherit transition-transform duration-160 ease-out active:scale-press"
+                        onClick={dismiss}
+                        tabIndex={shown ? 0 : -1}>
                         Close ×
                     </button>
                 </div>
-                {title ? <h2 id={titleId}>{title}</h2> : null}
+                {title ? (
+                    <h2
+                        id={titleId}
+                        className="mt-6 font-[family-name:var(--font-display),Georgia,serif] text-display font-normal tracking-[-0.06em]">
+                        {title}
+                    </h2>
+                ) : null}
                 {children}
             </section>
         </div>
