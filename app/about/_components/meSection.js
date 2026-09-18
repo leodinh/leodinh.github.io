@@ -1,7 +1,15 @@
 import Image from 'next/image';
 import Phrase from '@/components/phrase';
 import { ABOUT_CHAPTERS, ABOUT_ME } from '@/utils/aboutPage';
-import { DISPLAY, HEADING, INTRO, MUTED, PORTRAIT_SCALE, PORTRAIT_STAGE, SECTION } from './aboutUi';
+import {
+    DISPLAY,
+    HEADING,
+    INTRO,
+    MUTED,
+    PORTRAIT_SCALE,
+    PORTRAIT_STAGE,
+    SECTION_FRAME
+} from './aboutUi';
 
 const CHAPTER = ABOUT_CHAPTERS[0];
 
@@ -9,7 +17,7 @@ function MeSection() {
     return (
         <section
             id={CHAPTER.id}
-            className={`${SECTION} relative flex ${PORTRAIT_STAGE} flex-col justify-end overflow-hidden pb-0 max-md:h-auto max-md:overflow-visible max-md:pt-5 max-md:pb-0`}
+            className={`${SECTION_FRAME} relative flex ${PORTRAIT_STAGE} flex-col justify-end overflow-hidden pb-0 max-md:h-auto max-md:overflow-visible max-md:pt-5 max-md:pb-0`}
             aria-labelledby="me-title">
             <div className="grid min-h-0 flex-1 grid-cols-[minmax(8rem,18rem)_auto_minmax(8rem,20rem)] items-end justify-center gap-x-4 gap-y-3.5 [grid-template-areas:'copy-left_portrait_copy-right'] max-[90rem]:grid-cols-[minmax(7rem,15rem)_auto_minmax(7rem,16rem)] max-md:h-auto max-md:w-full max-md:flex-none max-md:grid-cols-1 max-md:items-start max-md:gap-2.5 max-md:[grid-template-areas:'copy-left'_'copy-right'_'portrait'] [@media(height<52rem)_and_(width>=48rem)]:grid-cols-[minmax(7rem,14rem)_auto_minmax(7rem,15rem)]">
                 <div className="relative z-10 mb-[22%] max-w-[22rem] [grid-area:copy-left] justify-self-end max-md:mb-0 max-md:max-w-none max-md:justify-self-start">

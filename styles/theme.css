@@ -1,6 +1,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    --stack-aura-edge: 0 0 1px currentColor;
+    --stack-aura-soft: 0 0 3px color-mix(in srgb, currentColor 55%, transparent);
     --color-accent: #1e5c45;
     --color-accent-strong: #164734;
     --color-page: #f7f7f5;
@@ -51,6 +53,18 @@
     }
 }
 
+@keyframes about-hello-rise {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 :root {
     color-scheme: light;
     --text-color: var(--color-muted-dark);
@@ -76,4 +90,8 @@
     --border-color: var(--color-line-dark);
     --color-accent: #9bf6bf;
     --color-accent-strong: #c8ffd9;
+}
+
+@utility stack-aura {
+    filter: drop-shadow(var(--stack-aura-edge)) drop-shadow(var(--stack-aura-soft));
 }
