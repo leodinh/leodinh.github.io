@@ -45,10 +45,6 @@ export function contactLinkAttrs(href) {
     return /^https?:\/\//i.test(href) ? { target: '_blank', rel: 'noreferrer' } : {};
 }
 
-export function shouldFadeChapterIndex(contactBottom, viewportHeight) {
-    return contactBottom < viewportHeight * 0.92;
-}
-
 export const STACK = [
     ['nodedotjs', 'Node.js'],
     ['typescript', 'TypeScript'],

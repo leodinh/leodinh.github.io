@@ -43,7 +43,7 @@ Next.js App Router site (GitHub Pages). Shared shell: header (Home, About only),
 -   Résumé: `public/resume.pdf`
 -   Contact: `leo.atdinh@gmail.com`
 -   Experience entries in `constants/experience.js`
--   Photographs on `/photography`; About portraits in `constants/aboutPortraits.js`
+-   Photographs on `/photography`; About hello portrait is `public/images/about/my-photo.png`
 -   Mascot sheets: `public/mascots/tu-an-glasses-directions.webp`, `tu-an-glasses-reactions.webp`
 -   Do not fabricate product UI stills, testimonials, or metrics.
 

@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { ABOUT_PORTRAITS } from './aboutPortraits.js';
 import { EXPERIENCE } from './experience.js';
 import { PHOTOGRAPHS } from './photography.js';
 import { HOME_INTRO, INTRO_LOCKUP, lockupLabel } from './content.js';
@@ -61,16 +60,5 @@ test('photographs include the fields the gallery renders', () => {
         assert.equal(typeof item.file, 'string');
         assert.equal(typeof item.alt, 'string');
         assert.equal(typeof item.caption, 'string');
-    }
-});
-
-test('about hello portraits replace the cartoon sprites', () => {
-    assert.equal(ABOUT_PORTRAITS.length, 4);
-    for (const item of ABOUT_PORTRAITS) {
-        assert.equal(typeof item.file, 'string');
-        assert.match(item.file, /^about-.+\.jpg$/);
-        assert.ok(item.alt.length > 0);
-        assert.equal(typeof item.className, 'string');
-        assert.equal(typeof item.objectPosition, 'string');
     }
 });

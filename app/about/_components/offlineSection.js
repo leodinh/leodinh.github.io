@@ -27,7 +27,7 @@ function OfflineSection() {
                 <figure
                     className={`relative aspect-[4/5] max-h-[28rem] rotate-[1.5deg] overflow-hidden rounded-[1.75rem] border ${RULE} bg-surface dark:bg-surface-dark max-md:aspect-[16/10] max-md:max-h-none max-md:w-full max-md:rotate-0 max-md:rounded-2xl`}>
                     <Image
-                        src="/images/port-hope-flower.jpg"
+                        src="/images/optimized/port-hope-flower.webp"
                         fill
                         sizes="(min-width: 768px) 52vw, 100vw"
                         className="object-cover"

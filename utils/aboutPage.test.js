@@ -8,7 +8,6 @@ import {
     ABOUT_RECOMMENDATION,
     HOW_I_WORK,
     contactLinkAttrs,
-    shouldFadeChapterIndex,
     workLogStatus
 } from './aboutPage.js';
 
@@ -58,9 +57,4 @@ test('only http(s) contact links open in a new tab', () => {
     });
     assert.deepEqual(contactLinkAttrs('mailto:leo.atdinh@gmail.com'), {});
     assert.deepEqual(contactLinkAttrs('/resume.pdf'), {});
-});
-
-test('chapter index fades when contact is nearly finished', () => {
-    assert.equal(shouldFadeChapterIndex(800, 900), true);
-    assert.equal(shouldFadeChapterIndex(900, 900), false);
 });
