@@ -1,6 +1,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    --intro-word-enter-duration: 700ms;
+    --intro-word-enter-stagger: 70ms;
+    --intro-word-enter-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --intro-word-exit-duration: 500ms;
+    --intro-word-exit-stagger: 40ms;
+    --intro-word-exit-ease: cubic-bezier(0.7, 0, 0.84, 0);
+    --stack-aura-edge: 0 0 1px currentColor;
+    --stack-aura-soft: 0 0 3px color-mix(in srgb, currentColor 55%, transparent);
     --color-accent: #1e5c45;
     --color-accent-strong: #164734;
     --color-page: #f7f7f5;
@@ -13,6 +21,100 @@
     --color-muted-dark: #a6a9af;
     --color-line: #deded9;
     --color-line-dark: #2b3038;
+    --color-accent-wash: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
+    --text-meta: 0.75rem;
+    --text-meta--line-height: 1.4;
+    --text-ui: 0.875rem;
+    --text-ui--line-height: 1.35;
+    --text-body: 1rem;
+    --text-body--line-height: 1.65;
+    --text-mark: 1.125rem;
+    --text-mark--line-height: 1.5;
+    --text-title: clamp(1.5rem, 3.5vw, 2rem);
+    --text-title--line-height: 1.15;
+    --text-display: clamp(2.25rem, 6vw, 3.5rem);
+    --text-display--line-height: 1.08;
+    --text-lockup: clamp(2.75rem, 8vw, 4.5rem);
+    --text-lockup--line-height: 1;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --duration-160: 160ms;
+    --duration-180: 180ms;
+    --duration-240: 240ms;
+    --delay-80: 80ms;
+    --scale-press: 0.97;
+    --scale-logo: 1.03;
+    --scale-logo-dot: 1.2;
+    --spacing-logo-dot: 0.28rem;
+    --spacing-logo-dot-hero: 0.7rem;
+    --spacing-button-x: 1.125rem;
+    --spacing-photo-y: clamp(2rem, 5vw, 5rem);
+    --spacing-nav-mobile: calc(1rem + var(--page-scroll-bar-gap, 0px));
+    --radius-control: 0.4rem;
+    --z-index-intro: 110;
+    --z-index-modal: 100;
+    --max-width-photo: 74rem;
+    --max-width-modal: 38rem;
+    --max-height-photo-panel: calc(100svh - 2rem);
+    --max-height-photo-panel-sm: calc(100svh - 1.5rem);
+    --max-height-photo-frame: calc(100svh - 10rem);
+    --max-height-photo-frame-sm: calc(100svh - 11rem);
+    --height-photo-tall: min(calc(100svh - 10rem), 70vh);
+    --height-photo-tall-sm: min(calc(100svh - 11rem), 70vh);
+    --breakpoint-photo: 72rem;
+}
+
+@keyframes home-short-slide {
+    from {
+        transform: translate3d(var(--slide-x), 0, 0);
+        filter: blur(var(--slide-blur));
+    }
+
+    to {
+        transform: none;
+        filter: none;
+    }
+}
+
+@keyframes home-word-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes about-hello-rise {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-print[data-about-reveal='pending'][data-about-print='top'] {
+    clip-path: inset(0 0 100% 0);
+}
+
+.about-print[data-about-reveal='pending'][data-about-print='left'] {
+    clip-path: inset(0 100% 0 0);
+}
+
+.about-print[data-about-reveal='opening'] {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path var(--duration-print) var(--ease-in-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-print[data-about-reveal] {
+        clip-path: none;
+        transition: none;
+    }
 }
 
 :root {
@@ -27,6 +129,13 @@
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --duration-print: 600ms;
+    --text-meta: 0.75rem;
+    --text-meta--line-height: 1.4;
+    --text-title: clamp(1.5rem, 3.5vw, 2rem);
+    --text-title--line-height: 1.15;
+    --text-display: clamp(2.25rem, 6vw, 3.5rem);
+    --text-display--line-height: 1.08;
 }
 
 .dark {
@@ -34,4 +143,9 @@
     --border-color: var(--color-line-dark);
     --color-accent: #9bf6bf;
     --color-accent-strong: #c8ffd9;
+    --color-accent-wash: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface-dark));
+}
+
+@utility stack-aura {
+    filter: drop-shadow(var(--stack-aura-edge)) drop-shadow(var(--stack-aura-soft));
 }

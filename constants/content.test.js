@@ -1,9 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { ABOUT_PORTRAITS } from './aboutPortraits.js';
 import { EXPERIENCE } from './experience.js';
 import { PHOTOGRAPHS } from './photography.js';
-import { INTRO_LOCKUP, lockupLabel } from './content.js';
+import { HOME_INTRO, INTRO_LOCKUP, lockupLabel } from './content.js';
 import { tabClipPath } from '../utils/tabClip.js';
 
 test('intro lockup is Leo and Dinh', () => {
@@ -13,6 +12,19 @@ test('intro lockup is Leo and Dinh', () => {
 
 test('lockup label is reusable as Leo Dinh', () => {
     assert.equal(lockupLabel(), 'Leo Dinh');
+});
+
+test('home intro copy is the hiring greeting', () => {
+    assert.equal(HOME_INTRO.greeting, "Hey, I'm Leo.");
+    assert.equal(HOME_INTRO.display, 'Full-stack developer');
+    assert.equal(HOME_INTRO.craft, 'I build things for the web');
+});
+
+test('home actions send a hiring reader to About and the résumé', () => {
+    assert.deepEqual(HOME_INTRO.actions, [
+        { href: '/about', label: 'Get to know me' },
+        { href: '/resume.pdf', label: 'Résumé' }
+    ]);
 });
 
 test('clips the active tab from both sides of the track', () => {
@@ -48,16 +60,5 @@ test('photographs include the fields the gallery renders', () => {
         assert.equal(typeof item.file, 'string');
         assert.equal(typeof item.alt, 'string');
         assert.equal(typeof item.caption, 'string');
-    }
-});
-
-test('about hello portraits replace the cartoon sprites', () => {
-    assert.equal(ABOUT_PORTRAITS.length, 4);
-    for (const item of ABOUT_PORTRAITS) {
-        assert.equal(typeof item.file, 'string');
-        assert.match(item.file, /^about-.+\.jpg$/);
-        assert.ok(item.alt.length > 0);
-        assert.equal(typeof item.className, 'string');
-        assert.equal(typeof item.objectPosition, 'string');
     }
 });

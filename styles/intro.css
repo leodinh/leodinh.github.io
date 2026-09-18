@@ -2,19 +2,9 @@ html:not(.site-intro-done) {
     overflow: hidden;
 }
 
-.site-intro-curtain {
-    position: fixed;
-    z-index: 110;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    background: var(--color-page);
-    animation: site-intro-curtain-fade 200ms 1.8s var(--ease-out) forwards;
-}
-
-.dark .site-intro-curtain {
-    background: var(--color-page-dark);
+.site-intro-mascot {
+    pointer-events: none;
+    animation: site-intro-lockup-in 200ms var(--ease-out) both;
 }
 
 .site-intro-line {
@@ -26,21 +16,74 @@ html:not(.site-intro-done) {
     background: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left center;
-    animation: site-intro-line 1.5s linear both;
+    animation: none;
 }
 
 .site-intro-curtain .site-logo--hero > span {
-    animation:
-        site-intro-lockup-in 200ms var(--ease-out) both,
-        site-intro-lockup-out 200ms 1.8s var(--ease-out) forwards;
+    animation: intro-word-enter var(--intro-word-enter-duration) var(--intro-word-enter-ease) both;
 }
 
-.site-intro-curtain .site-logo--hero > span:nth-child(2) {
-    animation-delay: 40ms, 1.84s;
-}
-
+.site-intro-curtain .site-logo--hero > span:nth-child(2),
 .site-intro-curtain .site-logo--hero > span:nth-child(3) {
-    animation-delay: 80ms, 1.88s;
+    animation-delay: var(--intro-word-enter-stagger);
+}
+
+.site-intro-curtain[data-phase='showcase'] .site-intro-line,
+.site-intro-curtain[data-phase='waiting'] .site-intro-line {
+    animation: site-intro-line var(--intro-showcase-duration) linear forwards;
+}
+
+.site-intro-curtain[data-phase='completing'] .site-intro-line,
+.site-intro-curtain[data-phase='words-out'] .site-intro-line,
+.site-intro-curtain[data-phase='fading'] .site-intro-line {
+    animation: site-intro-line-complete var(--intro-progress-duration) var(--ease-out) forwards;
+}
+
+.site-intro-curtain[data-phase='words-out'] .site-logo--hero > span,
+.site-intro-curtain[data-phase='fading'] .site-logo--hero > span {
+    animation: intro-word-exit var(--intro-word-exit-duration) var(--intro-word-exit-ease) forwards;
+}
+
+.site-intro-curtain[data-phase='words-out'] .site-logo--hero > span:nth-child(2),
+.site-intro-curtain[data-phase='words-out'] .site-logo--hero > span:nth-child(3),
+.site-intro-curtain[data-phase='fading'] .site-logo--hero > span:nth-child(2),
+.site-intro-curtain[data-phase='fading'] .site-logo--hero > span:nth-child(3) {
+    animation-delay: var(--intro-word-exit-stagger);
+}
+
+.site-intro-curtain[data-phase='fading'] {
+    animation: site-intro-curtain-fade var(--intro-fade-duration) var(--ease-out) forwards;
+}
+
+html:not(.site-intro-done) #site-content {
+    visibility: hidden;
+}
+
+/* Mount and load the page now; preserve its entrance animations for the reveal. */
+html:not(.site-intro-done) #site-content * {
+    animation-play-state: paused !important;
+}
+
+@keyframes intro-word-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes intro-word-exit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
 }
 
 @keyframes site-intro-lockup-in {
@@ -66,6 +109,18 @@ html:not(.site-intro-done) {
 }
 
 @keyframes site-intro-line {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(0.9);
+    }
+}
+
+@keyframes site-intro-line-complete {
+    from {
+        transform: scaleX(0.9);
+    }
     to {
         transform: scaleX(1);
     }
@@ -101,11 +156,16 @@ html:not(.site-intro-done) {
 
 @media (prefers-reduced-motion: reduce) {
     .site-intro-curtain {
-        animation: site-intro-curtain-fade 200ms ease forwards !important;
+        animation: none !important;
+    }
+
+    .site-intro-line {
+        display: none;
     }
 
     .site-intro-curtain .site-logo--hero,
     .site-intro-curtain .site-logo--hero > span,
+    .site-intro-curtain .site-intro-mascot,
     .site-intro-line {
         animation: none !important;
         opacity: 1;

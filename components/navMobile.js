@@ -16,7 +16,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
         <>
             <button
                 type="button"
-                className="nav-mobile-toggle fixed top-2 right-4 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm border border-line bg-page/90 text-ink shadow-lg shadow-zinc-950/5 backdrop-blur-xl lg:hidden dark:border-line-dark dark:bg-page-dark/90 dark:text-ink-dark"
+                className="nav-mobile-toggle fixed top-2 z-50 flex size-10 cursor-pointer items-center justify-center rounded-control border border-line bg-page/90 text-ink shadow-lg shadow-zinc-950/5 backdrop-blur-xl transition-[transform,border-color] duration-160 ease-out active:scale-press lg:hidden dark:border-line-dark dark:bg-page-dark/90 dark:text-ink-dark"
                 onClick={() => setOpenNav((prev) => !prev)}
                 aria-label={openNav ? 'Close navigation' : 'Open navigation'}
                 aria-expanded={openNav}
@@ -29,7 +29,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
                 onClose={() => setOpenNav(false)}
                 eyebrow="Menu"
                 bottomSheet>
-                <ul className="nav-sheet-list">
+                <ul className="mt-6 grid gap-1">
                     {links.map(({ href, label }) => {
                         const isActive = pathname === href;
                         return (
@@ -37,7 +37,11 @@ function NavMobile({ links, pathname, onOpenChange }) {
                                 <Link
                                     href={href}
                                     aria-current={isActive ? 'page' : undefined}
-                                    className={`nav-sheet-link ${isActive ? 'is-active' : ''}`}
+                                    className={`block rounded-lg px-4 py-3.5 text-mark tracking-[-0.02em] transition-[transform,background-color,color] duration-160 ease-out active:scale-press ${
+                                        isActive
+                                            ? 'bg-ink text-white dark:bg-white dark:text-ink'
+                                            : 'text-ink hover:bg-ink/6 dark:text-ink-dark dark:hover:bg-white/8'
+                                    }`}
                                     onClick={() => setOpenNav(false)}>
                                     {label}
                                 </Link>
@@ -45,7 +49,7 @@ function NavMobile({ links, pathname, onOpenChange }) {
                         );
                     })}
                 </ul>
-                <div className="nav-sheet-appearance">
+                <div className="mt-3 flex items-center justify-between border-t border-line px-1 pt-4 pb-1 text-ui text-muted dark:border-line-dark dark:text-muted-dark">
                     <span>Appearance</span>
                     <ToggleTheme />
                 </div>
