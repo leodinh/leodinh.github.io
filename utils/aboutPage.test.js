@@ -1,13 +1,12 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { ABOUT_PORTRAITS } from '../constants/aboutPortraits.js';
 import { EXPERIENCE } from '../constants/experience.js';
 import {
     ABOUT_CHAPTERS,
     ABOUT_CONTACT,
+    ABOUT_ME,
     HOW_I_WORK,
     contactLinkAttrs,
-    mePortraits,
     shouldFadeChapterIndex,
     workLogStatus
 } from './aboutPage.js';
@@ -19,12 +18,11 @@ test('about chapters are Me, How I work, Experience, Outside work, Contact', () 
     );
 });
 
-test('me stills are three existing portraits, not the four-circle set', () => {
-    const stills = mePortraits(ABOUT_PORTRAITS);
-    assert.equal(stills.length, 3);
-    assert.equal(stills[0].file, 'about-snow.jpg');
-    assert.equal(stills[1].file, 'about-camera.jpg');
-    assert.equal(stills[2].file, 'about-lunar.jpg');
+test('about me leads with Leo and facts on the left, longer note on the right', () => {
+    assert.equal(ABOUT_ME.title, "I'm Leo.");
+    assert.match(ABOUT_ME.left, /full-stack developer/);
+    assert.match(ABOUT_ME.right, /across the stack/);
+    assert.equal(ABOUT_ME.photo, '/images/about/my-photo.png');
 });
 
 test('how I work names the stack without new job claims', () => {

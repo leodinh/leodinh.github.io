@@ -27,10 +27,12 @@
 }
 
 .about-me {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(100svh - 3.5rem);
+    min-height: calc(100dvh - 3.5rem);
+    overflow: hidden;
 }
 
 .about-section-mark {
@@ -45,89 +47,82 @@
 
 .about-me-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
-    align-items: center;
-    gap: clamp(2.5rem, 6vw, 5rem);
+    grid-template-columns: minmax(10rem, 1fr) minmax(16rem, 28rem) minmax(10rem, 1fr);
+    grid-template-areas: 'copy-left portrait copy-right';
+    align-items: stretch;
+    gap: clamp(1rem, 3vw, 2.5rem);
 }
 
-.about-me-copy h1 {
-    max-width: 44rem;
-    font-size: clamp(2.6rem, 6vw, 4.15rem);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    opacity: 0;
-}
-
-.about-me-copy p {
-    max-width: 38rem;
-    margin-top: clamp(1.25rem, 3vw, 2rem);
+.about-me-copy {
+    max-width: 22rem;
     color: var(--color-muted);
-    font-size: clamp(1.05rem, 2vw, 1.45rem);
-    letter-spacing: -0.03em;
-    line-height: 1.4;
+    font-size: clamp(1.02rem, 1.6vw, 1.28rem);
+    letter-spacing: -0.02em;
+    line-height: 1.45;
     text-wrap: balance;
     opacity: 0;
 }
 
-html.site-intro-done .about-me-copy h1 {
-    animation: about-hello-rise 280ms var(--ease-out) both;
+.about-me-copy h1 {
+    margin: 0 0 0.65rem;
+    color: var(--color-ink);
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+    letter-spacing: -0.03em;
+    line-height: 1.08;
 }
 
-html.site-intro-done .about-me-copy p {
-    animation: about-hello-rise 280ms 40ms var(--ease-out) both;
+.dark .about-me-copy h1 {
+    color: var(--color-ink-dark);
 }
 
-.dark .about-me-copy p {
+.about-me-copy p {
+    margin: 0;
+}
+
+.about-me-copy--left {
+    grid-area: copy-left;
+    justify-self: end;
+    align-self: start;
+    text-align: right;
+    padding-top: 10%;
+}
+
+.about-me-copy--right {
+    grid-area: copy-right;
+    justify-self: start;
+    align-self: end;
+    padding-bottom: 12%;
+}
+
+.dark .about-me-copy {
     color: var(--color-muted-dark);
 }
 
-.about-me-stills {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    grid-template-rows: 11rem 8rem;
-    gap: 0.7rem;
-    min-height: 20rem;
-}
-
-.about-me-still {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
-    border: 1px solid var(--about-rule);
-    background-color: var(--color-surface);
-    box-shadow: 0 1.25rem 3rem rgb(23 23 23 / 10%);
+.about-me-portrait {
+    grid-area: portrait;
+    margin: 0;
+    min-width: 0;
     opacity: 0;
 }
 
-.about-me-still:first-child {
-    grid-row: 1 / span 2;
+.about-me-portrait-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
-html.site-intro-done .about-me-still {
-    animation: about-hello-rise 240ms var(--ease-out) both;
+html.site-intro-done .about-me-copy,
+html.site-intro-done .about-me-portrait {
+    animation: about-hello-rise 280ms var(--ease-out) both;
 }
 
-html.site-intro-done .about-me-still:nth-child(1) {
-    animation-delay: 0ms;
-}
-
-html.site-intro-done .about-me-still:nth-child(2) {
+html.site-intro-done .about-me-copy--left {
     animation-delay: 40ms;
 }
 
-html.site-intro-done .about-me-still:nth-child(3) {
+html.site-intro-done .about-me-copy--right {
     animation-delay: 80ms;
-}
-
-.about-me-still-image {
-    object-fit: cover;
-}
-
-.dark .about-me-still {
-    box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 28%);
 }
 
 .about-location {
@@ -569,8 +564,8 @@ html.site-intro-done .about-me-still:nth-child(3) {
     }
 
     .about-me-layout {
-        grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
-        gap: 2rem;
+        grid-template-columns: minmax(8rem, 1fr) minmax(14rem, 24rem) minmax(8rem, 1fr);
+        gap: 1rem;
     }
 }
 
@@ -580,23 +575,62 @@ html.site-intro-done .about-me-still:nth-child(3) {
     }
 
     .about-me {
-        min-height: calc(100svh - 3.5rem);
-    }
-
-    .about-me-layout,
-    .about-offline-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .about-me-stills {
-        grid-template-rows: 8.5rem 6.5rem;
-        min-height: 0;
-        max-width: 28rem;
+        justify-content: center;
+        min-height: calc(100dvh - 3.5rem);
+        padding-block: 1.25rem;
     }
 
     .about-me-copy h1 {
-        font-size: clamp(2.4rem, 12vw, 3.4rem);
+        font-size: 1.45rem;
+    }
+
+    .about-me-layout {
+        flex: none;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'portrait';
+    }
+
+    .about-me-portrait {
+        align-self: center;
+    }
+
+    .about-me-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 13.5rem;
+        padding: 0.55rem 0.7rem;
+        border-radius: 0.2rem;
+        background: color-mix(in srgb, var(--color-page) 82%, transparent);
+        font-size: 0.95rem;
+    }
+
+    .dark .about-me-copy {
+        background: color-mix(in srgb, var(--color-page-dark) 82%, transparent);
+    }
+
+    .about-me-copy--left {
+        grid-area: portrait;
+        justify-self: end;
+        align-self: start;
+        text-align: right;
+        max-width: 10.5rem;
+        margin: 6% 2% 0 0;
+        padding-top: 0;
+    }
+
+    .about-me-copy--right {
+        grid-area: portrait;
+        justify-self: start;
+        align-self: end;
+        text-align: left;
+        max-width: 13rem;
+        margin: 0 0 6% 2%;
+        padding-bottom: 0;
+    }
+
+    .about-offline-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .about-work-heading {
@@ -661,10 +695,13 @@ html.site-intro-done .about-me-still:nth-child(3) {
     }
 }
 
-@media (height < 52rem) {
+@media (height < 52rem) and (width >= 48rem) {
+    .about-me-copy h1 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
     .about-me-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: minmax(8rem, 1fr) minmax(12rem, 22rem) minmax(8rem, 1fr);
     }
 }
 
@@ -681,9 +718,8 @@ html.site-intro-done .about-me-still:nth-child(3) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .about-me-still,
-    .about-me-copy h1,
-    .about-me-copy p,
+    .about-me-portrait,
+    .about-me-copy,
     .about-photography-frame {
         animation: none;
         opacity: 1;

@@ -5,28 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import { EXPERIENCE } from '@/constants/experience';
-import { ABOUT_PORTRAITS } from '@/constants/aboutPortraits';
 import {
     ABOUT_CHAPTERS,
     ABOUT_CONTACT,
+    ABOUT_ME,
     ABOUT_RECOMMENDATION,
     HOW_I_WORK,
     contactLinkAttrs,
-    mePortraits,
     shouldFadeChapterIndex,
     workLogStatus
 } from '@/utils/aboutPage';
 import VintageModal from './vintageModal';
-
-const ME_STILLS = mePortraits(ABOUT_PORTRAITS);
-
-function SectionMark({ chapter }) {
-    return (
-        <p className="about-section-mark">
-            {chapter.number} / {chapter.label.toUpperCase()}
-        </p>
-    );
-}
 
 function ChapterIndex() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -114,31 +103,25 @@ function AboutStory() {
                 id={me.id}
                 className="about-editorial-section about-me"
                 aria-labelledby="me-title">
-                <SectionMark chapter={me} />
                 <div className="about-me-layout">
-                    <div className="about-me-copy">
-                        <h1 id="me-title">I like figuring things out.</h1>
-                        <p>
-                            Sometimes that means building a product. Sometimes it means following a
-                            new idea—or wandering somewhere with a camera.
-                        </p>
-                        <p className="about-location">Probably somewhere in Canada</p>
+                    <div className="about-me-copy about-me-copy--left">
+                        <h1 id="me-title">{ABOUT_ME.title}</h1>
+                        <p>{ABOUT_ME.left}</p>
                     </div>
-                    <figure className="about-me-stills" aria-label="Photographs of Leo">
-                        {ME_STILLS.map((portrait) => (
-                            <span className="about-me-still" key={portrait.file}>
-                                <Image
-                                    src={`/images/about/${portrait.file}`}
-                                    alt={portrait.alt}
-                                    fill
-                                    priority={portrait.file === ME_STILLS[0].file}
-                                    sizes="(min-width: 768px) 220px, 40vw"
-                                    className="about-me-still-image"
-                                    style={{ objectPosition: portrait.objectPosition }}
-                                />
-                            </span>
-                        ))}
+                    <figure className="about-me-portrait">
+                        {/* ponytail: next optimizer palettized this cutout and dropped the figure */}
+                        <Image
+                            src={ABOUT_ME.photo}
+                            alt={ABOUT_ME.photoAlt}
+                            width={1254}
+                            height={1254}
+                            priority
+                            unoptimized
+                            sizes="(min-width: 768px) 42vw, 92vw"
+                            className="about-me-portrait-image"
+                        />
                     </figure>
+                    <p className="about-me-copy about-me-copy--right">{ABOUT_ME.right}</p>
                 </div>
             </section>
 
@@ -146,7 +129,6 @@ function AboutStory() {
                 id={howIWork.id}
                 className="about-editorial-section about-how"
                 aria-labelledby="how-title">
-                <SectionMark chapter={howIWork} />
                 <h2 id="how-title">{howIWork.label}</h2>
                 <p className="about-how-stack">{HOW_I_WORK.stack}</p>
                 <p className="about-how-body">{HOW_I_WORK.body}</p>
@@ -156,7 +138,6 @@ function AboutStory() {
                 id={experience.id}
                 className="about-editorial-section about-work"
                 aria-labelledby="work-title">
-                <SectionMark chapter={experience} />
                 <div className="about-work-heading">
                     <h2 id="work-title">{experience.label}</h2>
                     <Link href="/cv.pdf" className="about-inline-link">
@@ -187,7 +168,6 @@ function AboutStory() {
                 id={outside.id}
                 className="about-editorial-section about-offline"
                 aria-labelledby="offline-title">
-                <SectionMark chapter={outside} />
                 <div className="about-offline-layout">
                     <div>
                         <h2 id="offline-title">{outside.label}</h2>
@@ -222,7 +202,6 @@ function AboutStory() {
                 id={contact.id}
                 className="about-editorial-section about-contact"
                 aria-labelledby="contact-title">
-                <SectionMark chapter={contact} />
                 <h2 id="contact-title">{contact.label}</h2>
                 <blockquote>
                     {ABOUT_RECOMMENDATION.quote}

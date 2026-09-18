@@ -6,6 +6,15 @@ export const ABOUT_CHAPTERS = [
     { id: 'contact', number: '05', label: 'Contact' }
 ];
 
+export const ABOUT_ME = {
+    title: 'I enjoying building things end to end',
+    left: '',
+    right:
+        'from figuring out the problem to shaping the experience and making sure everything works properly behind the scenes.',
+    photo: '/images/about/my-photo.png',
+    photoAlt: 'Black and white portrait of Leo looking to the side'
+};
+
 export const HOW_I_WORK = {
     stack: 'Full-stack · React · Next.js · Node.js',
     body:
@@ -25,10 +34,6 @@ export const ABOUT_RECOMMENDATION = {
     quote:
         'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
 };
-
-export function mePortraits(portraits) {
-    return portraits.slice(0, 3);
-}
 
 export function workLogStatus(period) {
     return /\bPresent\b/i.test(period) ? 'CURRENT / LOGGED' : 'LOGGED';
