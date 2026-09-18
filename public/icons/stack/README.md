@@ -1,0 +1,1 @@
+Stack logos are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under CC0-1.0. SvelteKit is represented by the Svelte logo. Brand trademarks belong to their respective owners.
