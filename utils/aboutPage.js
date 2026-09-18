@@ -46,3 +46,37 @@ export function contactLinkAttrs(href) {
 export function shouldFadeChapterIndex(contactBottom, viewportHeight) {
     return contactBottom < viewportHeight * 0.92;
 }
+
+export const STACK = [
+    ['nodedotjs', 'Node.js'],
+    ['typescript', 'TypeScript'],
+    ['nextdotjs', 'Next.js'],
+    ['nestjs', 'NestJS'],
+    ['react', 'React'],
+    ['solidity', 'Solidity'],
+    ['postgresql', 'PostgreSQL'],
+    ['mongodb', 'MongoDB'],
+    ['svelte', 'SvelteKit']
+];
+export const STACK_WORK = [
+    {
+        id: 'marketplace',
+        label: 'digital marketplaces',
+        skills: ['nodedotjs', 'typescript', 'nextdotjs', 'react', 'postgresql', 'mongodb']
+    },
+    {
+        id: 'dashboard',
+        label: 'admin dashboards',
+        skills: ['typescript', 'react', 'nestjs', 'postgresql']
+    },
+    {
+        id: 'web3',
+        label: 'Web3 applications',
+        skills: ['typescript', 'nextdotjs', 'react', 'solidity', 'svelte', 'mongodb']
+    }
+];
+
+export const STACK_COPY = {
+    intro: 'My current work includes',
+    ending: 'Each project has added something new to my stack.'
+};

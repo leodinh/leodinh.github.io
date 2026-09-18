@@ -9,6 +9,19 @@ export const SHORT_SLIDE = {
     easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
 };
 
+export function shortSlideFromXPx(from = 'left') {
+    const travel = Math.abs(SHORT_SLIDE.fromXPx);
+    return from === 'right' ? travel : -travel;
+}
+
+export function isPhraseWordEmphasized(index, wordCount, italicLast = 0) {
+    if (!italicLast) {
+        return false;
+    }
+
+    return index >= wordCount - italicLast;
+}
+
 export function splitPhraseUnits(text) {
     return [...text.matchAll(/(\S+|\s+)/g)].map(([part]) => ({
         type: /^\s+$/.test(part) ? 'space' : 'word',
