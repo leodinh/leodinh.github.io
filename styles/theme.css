@@ -15,6 +15,7 @@
     --color-muted-dark: #a6a9af;
     --color-line: #deded9;
     --color-line-dark: #2b3038;
+    --color-accent-wash: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
     --text-meta: 0.75rem;
     --text-meta--line-height: 1.4;
     --text-ui: 0.875rem;
@@ -111,6 +112,7 @@
     --border-color: var(--color-line-dark);
     --color-accent: #9bf6bf;
     --color-accent-strong: #c8ffd9;
+    --color-accent-wash: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface-dark));
 }
 
 @utility stack-aura {

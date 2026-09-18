@@ -6,7 +6,17 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import { EXPERIENCE } from '@/constants/experience';
 import { ABOUT_CHAPTERS, workLogStatus } from '@/utils/aboutPage';
 import VintageModal from '@/components/vintageModal';
-import { DISPLAY, HEADING, INK, INLINE_LINK, META, MUTED, RULE, SECTION } from './aboutUi';
+import {
+    ACCENT_WASH,
+    DISPLAY,
+    HEADING,
+    INK,
+    INLINE_LINK,
+    META,
+    MUTED,
+    RULE,
+    SECTION
+} from './aboutUi';
 
 const CHAPTER = ABOUT_CHAPTERS[2];
 
@@ -28,12 +38,12 @@ function WorkSection() {
                 {EXPERIENCE.map((item, index) => (
                     <button
                         type="button"
-                        className={`relative grid min-h-36 cursor-pointer rounded border ${RULE} bg-surface px-4 pt-4 pb-8 text-left transition-[border-color,background-color,transform] duration-[160ms] ease-[var(--ease-out)] [-webkit-tap-highlight-color:transparent] hover:border-accent hover:bg-[color-mix(in_srgb,var(--color-accent)_7%,var(--color-surface))] focus-visible:border-accent focus-visible:outline-none active:scale-[0.97] dark:bg-surface-dark max-md:min-h-28 max-md:p-3.5`}
+                        className={`group relative grid min-h-36 cursor-pointer rounded border ${RULE} bg-surface px-4 pt-4 pb-8 text-left transition-[border-color,background-color,transform] duration-[160ms] ease-[var(--ease-out)] [-webkit-tap-highlight-color:transparent] hover:border-accent ${ACCENT_WASH} focus-visible:border-accent focus-visible:outline-none active:scale-[0.97] dark:bg-surface-dark max-md:min-h-28 max-md:p-3.5`}
                         onClick={() => setSelectedWork(item)}
                         key={`${item.company}-${item.role}`}>
                         <span className={META}>{String(index + 1).padStart(2, '0')}</span>
                         <span
-                            className={`${DISPLAY} self-center pr-[5.5rem] text-mark ${INK} max-md:max-w-none max-md:text-title`}>
+                            className={`${DISPLAY} self-center pr-[5.5rem] text-mark ${INK} transition-colors duration-[160ms] ease-[var(--ease-out)]  max-md:max-w-none max-md:text-title`}>
                             {item.company}
                         </span>
                         <span className={`self-end pr-20 text-meta leading-snug ${MUTED}`}>
