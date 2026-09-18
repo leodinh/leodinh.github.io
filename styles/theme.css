@@ -65,6 +65,26 @@
     }
 }
 
+.about-print[data-about-reveal='pending'][data-about-print='top'] {
+    clip-path: inset(0 0 100% 0);
+}
+
+.about-print[data-about-reveal='pending'][data-about-print='left'] {
+    clip-path: inset(0 100% 0 0);
+}
+
+.about-print[data-about-reveal='opening'] {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path var(--duration-print) var(--ease-in-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-print[data-about-reveal] {
+        clip-path: none;
+        transition: none;
+    }
+}
+
 :root {
     color-scheme: light;
     --text-color: var(--color-muted-dark);
@@ -77,6 +97,7 @@
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --duration-print: 600ms;
     --text-meta: 0.75rem;
     --text-meta--line-height: 1.4;
     --text-title: clamp(1.5rem, 3.5vw, 2rem);

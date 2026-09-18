@@ -1,4 +1,5 @@
 import ChapterIndex from './_components/chapterIndex';
+import AboutChapterReveal from './_components/aboutChapterReveal';
 import MeSection from './_components/meSection';
 import HowSection from './_components/howSection';
 import WorkSection from './_components/workSection';
@@ -16,10 +17,18 @@ function About() {
         <div className="relative">
             <ChapterIndex />
             <MeSection />
-            <HowSection />
-            <WorkSection />
-            <OfflineSection />
-            <ContactSection />
+            <AboutChapterReveal>
+                <HowSection />
+            </AboutChapterReveal>
+            <AboutChapterReveal>
+                <WorkSection />
+            </AboutChapterReveal>
+            <AboutChapterReveal from="left">
+                <OfflineSection />
+            </AboutChapterReveal>
+            <AboutChapterReveal>
+                <ContactSection />
+            </AboutChapterReveal>
         </div>
     );
 }
