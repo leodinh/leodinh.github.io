@@ -15,7 +15,6 @@ export const metadata = {
 function About() {
     return (
         <div className="relative">
-            <ChapterIndex />
             <MeSection />
             <AboutChapterReveal>
                 <HowSection />

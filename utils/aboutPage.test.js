@@ -5,6 +5,7 @@ import {
     ABOUT_CHAPTERS,
     ABOUT_CONTACT,
     ABOUT_ME,
+    ABOUT_RECOMMENDATION,
     HOW_I_WORK,
     contactLinkAttrs,
     shouldFadeChapterIndex,
@@ -30,6 +31,11 @@ test('how I work names the stack without new job claims', () => {
     assert.match(HOW_I_WORK.stack, /Next\.js/);
     assert.match(HOW_I_WORK.stack, /Node\.js/);
     assert.match(HOW_I_WORK.body, /figuring things out/);
+});
+
+test('kind words recommendation points at Leo LinkedIn', () => {
+    assert.equal(ABOUT_RECOMMENDATION.href, 'https://www.linkedin.com/in/leotuandinh/');
+    assert.equal(ABOUT_RECOMMENDATION.moreLabel, 'Read more on LinkedIn');
 });
 
 test('contact beat lists GitHub, LinkedIn, Email, and Résumé', () => {

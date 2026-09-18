@@ -3,7 +3,7 @@ export const ABOUT_CHAPTERS = [
     { id: 'how-i-work', number: '02', label: 'How I work' },
     { id: 'experience', number: '03', label: 'Experience' },
     { id: 'outside', number: '04', label: 'Outside work' },
-    { id: 'contact', number: '05', label: 'Contact' }
+    { id: 'kind-words', number: '05', label: 'Kind words' }
 ];
 
 export const ABOUT_ME = {
@@ -31,6 +31,8 @@ export const ABOUT_CONTACT = [
 export const ABOUT_RECOMMENDATION = {
     name: 'Dhruvin Parikh',
     role: 'CTO at OptyFi',
+    href: 'https://www.linkedin.com/in/leotuandinh/',
+    moreLabel: 'Read more on LinkedIn',
     quote:
         'Leo is a highly skilled full-stack blockchain developer who consistently delivers excellent results. He is a valuable asset to any team seeking expertise across front-end, back-end, and on-chain business logic.'
 };
@@ -62,17 +64,17 @@ export const STACK_WORK = [
     {
         id: 'marketplace',
         label: 'digital marketplaces',
-        skills: ['nodedotjs', 'typescript', 'nextdotjs', 'react', 'postgresql', 'mongodb']
+        skills: ['nodedotjs', 'typescript', 'nextdotjs', 'react', 'nestjs', 'postgresql', 'mongodb']
     },
     {
         id: 'dashboard',
         label: 'admin dashboards',
-        skills: ['typescript', 'react', 'nestjs', 'postgresql']
+        skills: ['nodedotjs', 'typescript', 'react', 'nestjs', 'postgresql']
     },
     {
         id: 'web3',
         label: 'Web3 applications',
-        skills: ['typescript', 'nextdotjs', 'react', 'solidity', 'svelte', 'mongodb']
+        skills: ['nodedotjs', 'typescript', 'nextdotjs', 'react', 'solidity', 'svelte', 'mongodb']
     }
 ];
 
