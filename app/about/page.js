@@ -1,5 +1,9 @@
-import AboutStory from '@/components/aboutStory';
-import '@/styles/about.css';
+import ChapterIndex from './_components/chapterIndex';
+import MeSection from './_components/meSection';
+import HowSection from './_components/howSection';
+import WorkSection from './_components/workSection';
+import OfflineSection from './_components/offlineSection';
+import ContactSection from './_components/contactSection';
 
 export const metadata = {
     title: 'About Leo Tuan Dinh',
@@ -8,7 +12,16 @@ export const metadata = {
 };
 
 function About() {
-    return <AboutStory />;
+    return (
+        <div className="relative">
+            <ChapterIndex />
+            <MeSection />
+            <HowSection />
+            <WorkSection />
+            <OfflineSection />
+            <ContactSection />
+        </div>
+    );
 }
 
 export default About;
