@@ -1,4 +1,3 @@
-import ChapterIndex from './_components/chapterIndex';
 import AboutChapterReveal from './_components/aboutChapterReveal';
 import MeSection from './_components/meSection';
 import HowSection from './_components/howSection';
