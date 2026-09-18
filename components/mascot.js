@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { MASCOT_LOAD_BEATS } from '@/utils/mascotLoad';
+import { waitForImageSource } from '@/utils/imageReadiness';
 
 const DIRECTIONS = [
     'up-left',
@@ -56,18 +57,6 @@ function wrap(angle) {
     return Math.atan2(Math.sin(angle), Math.cos(angle));
 }
 
-function waitForSheet(src) {
-    return new Promise((resolve) => {
-        const image = new Image();
-        image.onload = resolve;
-        image.onerror = resolve;
-        image.src = src;
-        if (image.complete) {
-            resolve();
-        }
-    });
-}
-
 const layer = {
     position: 'absolute',
     inset: 0,
@@ -82,13 +71,16 @@ function Mascot({
     className,
     label = 'mascot',
     greet = false,
-    interactive = true
+    interactive = true,
+    onGreetingStart
 }) {
     const buttonRef = useRef(null);
     const squashRef = useRef(null);
     const timersRef = useRef([]);
     const boopsRef = useRef({ count: 0, at: 0 });
     const greetingRef = useRef(greet);
+    const onGreetingStartRef = useRef(onGreetingStart);
+    onGreetingStartRef.current = onGreetingStart;
     const [direction, setDirection] = useState('center');
     const [reaction, setReaction] = useState(null);
 
@@ -108,9 +100,12 @@ function Mascot({
         (async () => {
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            await Promise.all([waitForSheet(directions), waitForSheet(reactions)]);
+            await Promise.all([waitForImageSource(directions), waitForImageSource(reactions)]);
 
-            if (cancelled || reduceMotion || !greetingRef.current) {
+            if (cancelled) return;
+            onGreetingStartRef.current?.(reduceMotion);
+
+            if (reduceMotion || !greetingRef.current) {
                 greetingRef.current = false;
                 return;
             }

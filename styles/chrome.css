@@ -106,7 +106,7 @@
     transition: opacity 240ms var(--ease-out);
 }
 
-.site-chrome[data-ready='true'] .site-header {
+html.site-intro-done .site-chrome .site-header {
     opacity: 1;
 }
 
@@ -311,7 +311,7 @@
     transition: opacity 240ms var(--ease-out);
 }
 
-.site-chrome[data-ready='true'] .site-container > footer {
+html.site-intro-done .site-chrome .site-container > footer {
     opacity: 1;
     transition-delay: 80ms;
 }

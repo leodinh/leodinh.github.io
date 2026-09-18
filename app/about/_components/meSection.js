@@ -43,6 +43,7 @@ function MeSection() {
                         width={1254}
                         height={1254}
                         priority
+                        data-intro-critical
                         unoptimized
                         sizes="(min-width: 768px) 42vw, 92vw"
                         className={`${PORTRAIT_SCALE} block object-contain object-bottom`}

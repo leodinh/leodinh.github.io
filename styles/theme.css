@@ -1,6 +1,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    --intro-word-enter-duration: 700ms;
+    --intro-word-enter-stagger: 70ms;
+    --intro-word-enter-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --intro-word-exit-duration: 500ms;
+    --intro-word-exit-stagger: 40ms;
+    --intro-word-exit-ease: cubic-bezier(0.7, 0, 0.84, 0);
     --stack-aura-edge: 0 0 1px currentColor;
     --stack-aura-soft: 0 0 3px color-mix(in srgb, currentColor 55%, transparent);
     --color-accent: #1e5c45;

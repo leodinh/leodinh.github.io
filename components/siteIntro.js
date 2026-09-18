@@ -1,41 +1,65 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useReducer } from 'react';
 import Logo from './logo';
 import Mascot from './mascot';
 import { HOME_MASCOT } from '@/constants/content';
-import { introCurtainFadeDelayMs, introLogoExitDelayMs } from '@/utils/mascotLoad';
-import { isIntroCurtainFinished, markSiteIntroDone } from '@/utils/siteIntro';
+import { introLogoExitDelayMs } from '@/utils/mascotLoad';
+import { waitForImages } from '@/utils/imageReadiness';
+import {
+    initialIntroState,
+    introReducer,
+    introPhaseDuration,
+    INTRO_IMAGE_TIMEOUT_MS,
+    INTRO_PROGRESS_MS,
+    INTRO_FADE_MS,
+    markSiteIntroDone
+} from '@/utils/siteIntro';
 
-function SiteIntro({ onFinished }) {
-    const curtainRef = useRef(null);
-    const onFinishedRef = useRef(onFinished);
-    onFinishedRef.current = onFinished;
+function SiteIntro() {
+    const [state, dispatch] = useReducer(introReducer, initialIntroState);
 
     useEffect(() => {
-        const curtain = curtainRef.current;
-        const root = document.documentElement;
-        if (!curtain) return undefined;
-
-        const onEnd = (event) => {
-            if (event.target === curtain && isIntroCurtainFinished(event.animationName)) {
-                markSiteIntroDone(root);
-                onFinishedRef.current?.();
-            }
+        let cancelled = false;
+        const images = document.querySelectorAll('#site-content img[data-intro-critical]');
+        waitForImages(images).then(() => {
+            if (!cancelled) dispatch({ type: 'images-ready' });
+        });
+        const timeout = setTimeout(() => {
+            dispatch({
+                type: 'timeout',
+                reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            });
+        }, INTRO_IMAGE_TIMEOUT_MS);
+        return () => {
+            cancelled = true;
+            clearTimeout(timeout);
         };
-
-        curtain.addEventListener('animationend', onEnd);
-        return () => curtain.removeEventListener('animationend', onEnd);
     }, []);
+
+    useEffect(() => {
+        if (state.phase === 'done') {
+            markSiteIntroDone(document.documentElement);
+            document.getElementById('site-content')?.removeAttribute('inert');
+            return undefined;
+        }
+        const duration = introPhaseDuration({ phase: state.phase });
+        if (duration === null) return undefined;
+        const timer = setTimeout(() => dispatch({ type: 'elapsed' }), duration);
+        return () => clearTimeout(timer);
+    }, [state.phase]);
+
+    if (state.phase === 'done') return null;
 
     return (
         <div
-            ref={curtainRef}
             className="site-intro-curtain"
+            data-phase={state.phase}
             aria-hidden="true"
             style={{
-                '--intro-fade-delay': `${introCurtainFadeDelayMs()}ms`,
-                '--intro-logo-exit-delay': `${introLogoExitDelayMs()}ms`
+                '--intro-showcase-duration': `${introLogoExitDelayMs()}ms`,
+                '--intro-progress-duration': `${INTRO_PROGRESS_MS}ms`,
+                '--intro-fade-duration': `${INTRO_FADE_MS}ms`
             }}>
             <div className="site-intro-stage">
                 <Mascot
@@ -46,6 +70,9 @@ function SiteIntro({ onFinished }) {
                     label={HOME_MASCOT.label}
                     greet
                     interactive={false}
+                    onGreetingStart={(reducedMotion) =>
+                        dispatch({ type: 'greeting-ready', reducedMotion })
+                    }
                 />
                 <Logo size="hero" />
             </div>

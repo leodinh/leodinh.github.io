@@ -32,6 +32,7 @@ function PhotographyGallery() {
                             src={`/images/optimized/${photo.file}`}
                             alt={photo.alt}
                             fill
+                            priority={index < 3}
                             sizes="(min-width: 768px) 33vw, 50vw"
                             className="object-cover"
                             onLoad={() =>

@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
-    isIntroCurtainFinished,
     isSiteContentRevealed,
     markSiteIntroDone,
-    siteShellPhase,
-    SITE_INTRO_DONE_CLASS
+    introReducer,
+    initialIntroState,
+    introPhaseDuration
 } from './siteIntro.js';
 
 function fakeRoot() {
@@ -22,13 +22,6 @@ function fakeRoot() {
     };
 }
 
-test('hello motion starts only after the intro curtain has left', () => {
-    assert.equal(isIntroCurtainFinished('site-intro-lockup-in'), false);
-    assert.equal(isIntroCurtainFinished('site-intro-curtain-out'), true);
-    assert.equal(isIntroCurtainFinished('site-intro-curtain-fade'), true);
-    assert.equal(SITE_INTRO_DONE_CLASS, 'site-intro-done');
-});
-
 test('site content stays hidden until the intro curtain is marked done', () => {
     const root = fakeRoot();
 
@@ -37,7 +30,62 @@ test('site content stays hidden until the intro curtain is marked done', () => {
     assert.equal(isSiteContentRevealed(root), true);
 });
 
-test('shell shows either the intro curtain or the main content', () => {
-    assert.equal(siteShellPhase(false), 'intro');
-    assert.equal(siteShellPhase(true), 'content');
+test('cached images never shorten the mascot showcase', () => {
+    let state = introReducer(initialIntroState, { type: 'images-ready' });
+    assert.equal(state.phase, 'preparing');
+    state = introReducer(state, { type: 'greeting-ready', reducedMotion: false });
+    assert.equal(state.phase, 'showcase');
+    state = introReducer(state, { type: 'elapsed' });
+    assert.equal(state.phase, 'completing');
+});
+
+test('slow images hold the final pose before progress and exits', () => {
+    let state = introReducer(initialIntroState, { type: 'greeting-ready' });
+    state = introReducer(state, { type: 'elapsed' });
+    assert.equal(state.phase, 'waiting');
+    assert.equal(introPhaseDuration(state), null);
+    state = introReducer(state, { type: 'images-ready' });
+    assert.equal(state.phase, 'completing');
+    for (const expected of ['words-out', 'fading', 'done']) {
+        state = introReducer(state, { type: 'elapsed' });
+        assert.equal(state.phase, expected);
+    }
+});
+
+test('deadline releases stalled assets without skipping the showcase', () => {
+    let state = introReducer(initialIntroState, { type: 'timeout' });
+    assert.equal(state.phase, 'showcase');
+    state = introReducer(state, { type: 'elapsed' });
+    assert.equal(state.phase, 'completing');
+    assert.equal(introReducer(state, { type: 'greeting-ready' }).phase, 'completing');
+});
+
+test('deadline ends an image wait and late readiness cannot restart the intro', () => {
+    let state = introReducer(initialIntroState, { type: 'greeting-ready' });
+    state = introReducer(state, { type: 'elapsed' });
+    state = introReducer(state, { type: 'timeout' });
+    assert.equal(state.phase, 'completing');
+    for (let step = 0; step < 3; step += 1) state = introReducer(state, { type: 'elapsed' });
+    assert.equal(state.phase, 'done');
+    assert.equal(introReducer(state, { type: 'images-ready' }), state);
+    assert.equal(introReducer(state, { type: 'greeting-ready' }), state);
+});
+
+test('reduced motion still escapes when sprite loading stalls', () => {
+    const state = introReducer(initialIntroState, { type: 'timeout', reducedMotion: true });
+    assert.equal(state.phase, 'done');
+});
+
+test('reduced motion skips showcase and progress motion but waits for assets', () => {
+    let state = introReducer(initialIntroState, { type: 'greeting-ready', reducedMotion: true });
+    assert.equal(state.phase, 'waiting');
+    state = introReducer(state, { type: 'images-ready' });
+    assert.equal(state.phase, 'done');
+});
+
+test('existing showcase and word exit durations are preserved', () => {
+    assert.equal(introPhaseDuration({ phase: 'showcase' }), 1360);
+    assert.equal(introPhaseDuration({ phase: 'words-out' }), 540);
+    assert.equal(introPhaseDuration({ phase: 'fading' }), 200);
+    assert.equal(introPhaseDuration({ phase: 'done' }), null);
 });

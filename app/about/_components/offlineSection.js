@@ -31,6 +31,8 @@ function OfflineSection() {
                         fill
                         sizes="(min-width: 768px) 52vw, 100vw"
                         className="object-cover"
+                        priority
+                        data-intro-critical
                         alt="A pink flower installation catching afternoon light on a brick wall in Port Hope, Ontario"
                     />
                     <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 to-transparent to-[32%]" />

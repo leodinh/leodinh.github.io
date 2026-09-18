@@ -10,7 +10,7 @@ html:not(.site-intro-done) {
     place-items: center;
     overflow: hidden;
     background: var(--color-page);
-    animation: site-intro-curtain-fade 200ms var(--intro-fade-delay, 1.36s) var(--ease-out) forwards;
+    opacity: 1;
 }
 
 .dark .site-intro-curtain {
@@ -38,18 +38,52 @@ html:not(.site-intro-done) {
     background: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left center;
-    animation: site-intro-line var(--intro-fade-delay, 1.36s) linear both;
+    animation: none;
 }
 
 .site-intro-curtain .site-logo--hero > span {
-    animation:
-        intro-word-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) both,
-        intro-word-exit 500ms cubic-bezier(0.7, 0, 0.84, 0) var(--intro-logo-exit-delay, 1.36s) forwards;
+    animation: intro-word-enter var(--intro-word-enter-duration) var(--intro-word-enter-ease) both;
 }
 
 .site-intro-curtain .site-logo--hero > span:nth-child(2),
 .site-intro-curtain .site-logo--hero > span:nth-child(3) {
-    animation-delay: 70ms, calc(var(--intro-logo-exit-delay, 1.36s) + 40ms);
+    animation-delay: var(--intro-word-enter-stagger);
+}
+
+.site-intro-curtain[data-phase='showcase'] .site-intro-line,
+.site-intro-curtain[data-phase='waiting'] .site-intro-line {
+    animation: site-intro-line var(--intro-showcase-duration) linear forwards;
+}
+
+.site-intro-curtain[data-phase='completing'] .site-intro-line,
+.site-intro-curtain[data-phase='words-out'] .site-intro-line,
+.site-intro-curtain[data-phase='fading'] .site-intro-line {
+    animation: site-intro-line-complete var(--intro-progress-duration) var(--ease-out) forwards;
+}
+
+.site-intro-curtain[data-phase='words-out'] .site-logo--hero > span,
+.site-intro-curtain[data-phase='fading'] .site-logo--hero > span {
+    animation: intro-word-exit var(--intro-word-exit-duration) var(--intro-word-exit-ease) forwards;
+}
+
+.site-intro-curtain[data-phase='words-out'] .site-logo--hero > span:nth-child(2),
+.site-intro-curtain[data-phase='words-out'] .site-logo--hero > span:nth-child(3),
+.site-intro-curtain[data-phase='fading'] .site-logo--hero > span:nth-child(2),
+.site-intro-curtain[data-phase='fading'] .site-logo--hero > span:nth-child(3) {
+    animation-delay: var(--intro-word-exit-stagger);
+}
+
+.site-intro-curtain[data-phase='fading'] {
+    animation: site-intro-curtain-fade var(--intro-fade-duration) var(--ease-out) forwards;
+}
+
+html:not(.site-intro-done) #site-content {
+    visibility: hidden;
+}
+
+/* Mount and load the page now; preserve its entrance animations for the reveal. */
+html:not(.site-intro-done) #site-content * {
+    animation-play-state: paused !important;
 }
 
 @keyframes intro-word-enter {
@@ -97,6 +131,18 @@ html:not(.site-intro-done) {
 }
 
 @keyframes site-intro-line {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(0.9);
+    }
+}
+
+@keyframes site-intro-line-complete {
+    from {
+        transform: scaleX(0.9);
+    }
     to {
         transform: scaleX(1);
     }
@@ -132,7 +178,11 @@ html:not(.site-intro-done) {
 
 @media (prefers-reduced-motion: reduce) {
     .site-intro-curtain {
-        animation: site-intro-curtain-fade 200ms ease forwards !important;
+        animation: none !important;
+    }
+
+    .site-intro-line {
+        display: none;
     }
 
     .site-intro-curtain .site-logo--hero,
