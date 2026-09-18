@@ -1,4 +1,4 @@
-import HomeIntro from '@/components/homeIntro';
+import HomeIntro from './_components/homeIntro';
 
 export const metadata = {
     title: 'Leo',

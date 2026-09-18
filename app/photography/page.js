@@ -1,4 +1,4 @@
-import PhotographyGallery from '@/components/photographyGallery';
+import PhotographyGallery from './_components/photographyGallery';
 import '@/styles/photography.css';
 
 export const metadata = {
