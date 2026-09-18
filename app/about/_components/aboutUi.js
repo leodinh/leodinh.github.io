@@ -13,4 +13,5 @@ export const META = `text-meta uppercase tabular-nums tracking-[0.08em] ${MUTED}
 export const CHAPTER_BTN = `grid w-full cursor-pointer grid-cols-[1.6rem_1fr] gap-1.5 rounded-xl px-2.5 py-2 text-left text-meta ${MUTED} hover:bg-accent/12 hover:text-ink dark:hover:text-ink-dark`;
 export const CHAPTER_ACTIVE = 'bg-accent/12 text-ink dark:text-ink-dark';
 export const PORTRAIT_STAGE = 'h-[calc(100dvh-3.5rem)]';
-export const PORTRAIT_SCALE = 'h-[min(60dvh,100%)] max-md:h-[60dvh]';
+export const PORTRAIT_SCALE =
+    'h-[min(60dvh,100%)] w-auto max-w-none max-md:h-[60dvh] max-md:w-full max-md:max-w-full';

@@ -45,7 +45,7 @@ function MeSection() {
                         priority
                         unoptimized
                         sizes="(min-width: 768px) 42vw, 92vw"
-                        className={`${PORTRAIT_SCALE} block w-auto max-w-none object-contain object-bottom`}
+                        className={`${PORTRAIT_SCALE} block object-contain object-bottom`}
                     />
                 </figure>
                 <Phrase
