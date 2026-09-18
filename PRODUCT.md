@@ -24,32 +24,32 @@ Next.js App Router site (GitHub Pages). Shared shell: header (Home, About only),
 
 ## Capabilities and Constraints
 
-- Routes: `/`, `/about`, `/photography`. Do not add Photography to primary nav.
-- Do not invent employers, metrics, or product claims. Work copy comes from existing experience data.
-- Do not replace factual copy without asking.
-- Home primary next step: About / work proof. Email and résumé may remain present but are not the job of the first viewport.
-- Mascot (tu-an) is the Home icon / greeting face.
-- Paper editorial identity is already shipped; preserve it (no new CRT/phosphor language).
-- Accessibility: respect `prefers-reduced-motion` for intro and Home motion.
+-   Routes: `/`, `/about`, `/photography`. Do not add Photography to primary nav.
+-   Do not invent employers, metrics, or product claims. Work copy comes from existing experience data.
+-   Do not replace factual copy without asking.
+-   Home primary next step: About / work proof. Email and résumé may remain present but are not the job of the first viewport.
+-   Mascot (tu-an) is the Home icon / greeting face.
+-   Paper editorial identity is already shipped; preserve it (no new CRT/phosphor language).
+-   Accessibility: respect `prefers-reduced-motion` for intro and Home motion.
 
 ## Brand Commitments
 
-- Name: Leo (Leo Tuan Dinh / Leo Dinh). Voice: plain, first person, no CRT jargon.
-- Binding Home copy to honor: “Hey, I’m Leo.” / “I like figuring things out.” / “Full-stack developer building thoughtful web products.” / “Sometimes I wander around with a camera, too.”
-- Mascot is the `[Icon]` in that lockup.
+-   Name: Leo (Leo Tuan Dinh / Leo Dinh). Voice: plain, first person, no CRT jargon.
+-   Binding Home copy to honor: “Hey, I’m Leo.” / “I like figuring things out.” / “Full-stack developer building thoughtful web products.” / “Sometimes I wander around with a camera, too.”
+-   Mascot is the `[Icon]` in that lockup.
 
 ## Evidence on Hand
 
-- Résumé: `public/cv.pdf`
-- Contact: `leo.atdinh@gmail.com`
-- Experience entries in `constants/experience.js`
-- Photographs on `/photography`; About portraits in `constants/aboutPortraits.js`
-- Mascot sheets: `public/mascots/tu-an-glasses-directions.webp`, `tu-an-glasses-reactions.webp`
-- Do not fabricate product UI stills, testimonials, or metrics.
+-   Résumé: `public/resume.pdf`
+-   Contact: `leo.atdinh@gmail.com`
+-   Experience entries in `constants/experience.js`
+-   Photographs on `/photography`; About portraits in `constants/aboutPortraits.js`
+-   Mascot sheets: `public/mascots/tu-an-glasses-directions.webp`, `tu-an-glasses-reactions.webp`
+-   Do not fabricate product UI stills, testimonials, or metrics.
 
 ## Product Principles
 
-- Hiring-readable in one viewport; proof lives on About.
-- Photography is a hobby: reachable, never a header peer of Home/About.
-- Only real claims and real assets.
-- Greeting personality (mascot + first-person copy) without costume chrome.
+-   Hiring-readable in one viewport; proof lives on About.
+-   Photography is a hobby: reachable, never a header peer of Home/About.
+-   Only real claims and real assets.
+-   Greeting personality (mascot + first-person copy) without costume chrome.

@@ -24,7 +24,7 @@ test('home intro copy is the hiring greeting', () => {
 test('home actions send a hiring reader to About and the résumé', () => {
     assert.deepEqual(HOME_INTRO.actions, [
         { href: '/about', label: 'Get to know me' },
-        { href: '/cv.pdf', label: 'Résumé' }
+        { href: '/resume.pdf', label: 'Résumé' }
     ]);
 });
 

@@ -9,7 +9,7 @@ export const HOME_INTRO = {
     craft: 'I build things for the web',
     actions: [
         { href: '/about', label: 'Get to know me' },
-        { href: '/cv.pdf', label: 'Résumé' }
+        { href: '/resume.pdf', label: 'Résumé' }
     ]
 };
 

@@ -25,7 +25,7 @@ export const ABOUT_CONTACT = [
     { href: 'https://github.com/leodinh', label: 'GitHub' },
     { href: 'https://www.linkedin.com/in/leotuandinh/', label: 'LinkedIn' },
     { href: 'mailto:leo.atdinh@gmail.com', label: 'Email' },
-    { href: '/cv.pdf', label: 'Résumé' }
+    { href: '/resume.pdf', label: 'Résumé' }
 ];
 
 export const ABOUT_RECOMMENDATION = {

@@ -57,7 +57,7 @@ test('only http(s) contact links open in a new tab', () => {
         rel: 'noreferrer'
     });
     assert.deepEqual(contactLinkAttrs('mailto:leo.atdinh@gmail.com'), {});
-    assert.deepEqual(contactLinkAttrs('/cv.pdf'), {});
+    assert.deepEqual(contactLinkAttrs('/resume.pdf'), {});
 });
 
 test('chapter index fades when contact is nearly finished', () => {

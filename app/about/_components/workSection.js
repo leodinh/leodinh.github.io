@@ -29,7 +29,7 @@ function WorkSection() {
                 <h2 id="work-title" className={HEADING}>
                     {CHAPTER.label}
                 </h2>
-                <Link href="/cv.pdf" className={INLINE_LINK}>
+                <Link href="/resume.pdf" className={INLINE_LINK}>
                     Full résumé
                     <ArrowUpRightIcon aria-hidden="true" />
                 </Link>

@@ -22,7 +22,8 @@ Personal Next.js App Router site for Leo Dinh, shipped to GitHub Pages. Product 
 
 ## UI
 
-- Style with Tailwind utilities and existing theme tokens (`styles/theme.css`, `--font-display` / `--font-body` / `--font-mono`). Do not add a CSS module for what a utility already covers.
+- Use Tailwind for ordinary component styling (layout, type, color, spacing, simple hover/focus/active). Use CSS for custom animation, keyframes, phase choreography, and complex selectors. Keep shared tokens in `styles/theme.css` (`--font-display` / `--font-body` / `--font-mono`). Do not add a stylesheet for what a utility already covers.
+- `styles/base.css` stays global defaults. Backdrop, intro reveal, photography tile effects, and modal drag/transition rules stay in CSS (`styles/chrome.css`, `styles/intro.css`, `styles/photography.css`, `styles/vintage-modal.css`).
 - Reuse the scale for type, color, size, spacing, radius, duration, and font. No arbitrary `[…]` values, hex, rem, px, or new font families. Missing token → add it in the theme once.
 - Verify user-visible UI in the browser, not from a single screenshot. Check the other routes that share the changed state.
 - Accessibility basics stay: keyboard, reduced motion, real labels.
